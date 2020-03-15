@@ -1,0 +1,275 @@
+\documentclass{beamer}
+\usepackage{amsmath}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+\usefonttheme[onlymath]{serif}
+\setCJKmainfont[BoldFont={STZhongsong},ItalicFont={FangSong}]{SimSun}
+\setCJKsansfont[BoldFont={DengXian Bold},ItalicFont={KaiTi}]{DengXian}
+\newcommand{\pdfpage}[1]{{\usebackgroundtemplate{\includegraphics[width=\paperwidth]{W1/W1_页面_#1.jpg}}\begin{frame}[plain]\label{OrigPdf#1}\end{frame}}}%将原课件的某一页作为一个全页图片插入，参数为原课件页数（图片用pdf的导出图像功能得到），注意个位数需要前面加一个零
+\newcommand{\refpage}[1]{注第\ref{OrigPdf#1}页}%将原页码转化为新页码
+\newcommand{\refpageN}[1]{\ref{OrigPdf#1}}%将原页码转化为新页码，只给出数字
+\newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ppat}[3]{\left.\left(\pp{#1}{#2}\right)\right|_{#3}}
+\newcommand{\di}{\mathrm d}
+\title{《李群和李代数》第一周课件勘误与注解}
+\author{原课件：刘玉鑫老师}
+\begin{document}
+\maketitle
+\begin{frame}{说明}
+本文档基于原课件，修改了一些其中的错误并对一些不太明晰的地方进行了注解。\\
+主要参考书：
+\begin{itemize}
+\item P. M. Cohn, \textit{Lie Groups}
+\item Brain Hall, \textit{Lie Groups, Lie Algebras and Representations}
+\item A. O. Barut, \textit{Theory of Group Representations and Applications}
+\item 梁灿彬，《微分几何与广义相对论》
+\item V. S. Varadarajan, \textit{Lie Groups, Lie Algebras and Their Representations}
+\item 韩其智、孙洪洲，《群论》
+\end{itemize}
+
+本文档的页面由三种页面组成：（1）直接引用课件；（2）引用原课件，但改写了其中的错误，表现为白底黑字蓝色标题的页面；（3）对于原课件的注解，同样是白底黑字蓝色标题的页面，但标题以“注第XX页”开头。
+
+本文中提到的页码均指本pdf页码，不是原课件页码。
+
+部分结果来自群内讨论，主要为陆仲豪和唐子骞同学。如有问题，欢迎讨论。
+\end{frame}
+\begin{frame}{引言部分}
+	引言部分讲的粒子物理相关内容我也不太懂orz欢迎有大佬前来注解……
+\end{frame}
+\pdfpage{02}
+\pdfpage{03}
+\pdfpage{04}
+\pdfpage{05}
+\pdfpage{06}
+\pdfpage{07}
+\pdfpage{08}
+\pdfpage{09}
+\pdfpage{10}
+\begin{frame}{\refpage{10}：关于条件（3）（4)可换的证明}
+	参考：Joseph J. Rotman, \textit{An Introduction to the Theory of Groups}, Theorem 1.12
+	
+	\textbf{欲证明}：如果一个带乘法的集合$G$满足乘法结合律、存在左单位元和存在左逆元，则这个左单位元同时也是右单位元、左逆元同时也是右逆元，且唯一。\\
+	\textbf{严格表述}：如果有一个集合$G$和其上的二元运算（称之为乘法）$\cdot:G\times G\to G$，满足$(ab)c=a(bc),\forall a,b,c\in G$，并且存在$e\in G$，使得：$ea=a,\forall a\in G$，且$\forall a\in G, \exists b\in G, \text{s.t.} ba=e$，则，$ae=ea=a,\forall a\in G$，且对每一个$a\in G$，存在唯一的$a^{-1}\in G$，使得$aa^{-1}=a^{-1}a=e$。
+	
+	\textbf{证明：}
+	
+	引理：如果$x\in G$满足$xx=x$，则$x=e$。\\
+	证明：取一个$y$（这里不假设唯一）使得$yx=e$，则$x=ex=(yx)x=y(xx)=yx=e$，引理证毕。
+	
+\end{frame}
+	
+\begin{frame}{\refpage{10}：关于条件（3）（4)可换的证明（续）}
+	
+	若$ba=e$，则$ab=a(eb)=a(ba)b=(ab)(ab)$，由引理知$ab=e$，从而左逆元同时也是右逆元。
+	
+	对于$a\in G$，取$b$为$a$的一个逆元，则$ae=a(ba)=(ab)a=a$，从而$e$同时也是右单位元。
+	
+	如果存在$b,b'$满足$ab=ab'=e$，则$b=be=b(ab')=(ba)b'=eb'=b'$，于是逆元唯一。\qedsymbol
+	
+\end{frame}
+
+\begin{frame}{群的概念（续）}
+上述条件（3）（4）还可以改写为：$\forall a,b\in G$，方程$ax=b$和方程$ya=b$分别在$G$中有且只有一个解。
+
+\textbf{证明：}由原（3）（4）推出这一条件显然（乘逆元过去即可）；如果这一条件成立，任取$a\in G$，由条件知有且只有一个$e_a\in G$使得$e_aa=a$。再任取一个$b\in G$，取$y$为$ay=b$的解，则$e_ab=e_a(ay)=(e_aa)y=ay=b$，于是$e_a$是整个集合上的左单位元。又由条件知每个元素都有左逆元，于是推得（3）（4）。\qedsymbol
+
+用上述条件来判断是否成群的例子：设
+\begin{equation*}
+a=\begin{pmatrix}1 & 1 \\ 0 & 0\end{pmatrix}, b=\begin{pmatrix}0 & 0 \\ 1 & 1\end{pmatrix}
+\end{equation*}
+则有$aa=a,ab=a,bb=b,ba=b$，满足乘法的封闭性。但是，方程$ax=a$和$bx=b$有两个解、方程$ax=b$和$bx=a$无解，从而不满足成群条件，$\{a,b\}$不成群。
+
+又如：有二维平面中的转动矩阵$R_z(\theta)=\begin{pmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{pmatrix}$，则所有这样的转动$\{R_z(\theta)|\theta\in\mathbb{R}\}$成群（$SO(2)$群）。
+\end{frame}
+
+\begin{frame}{群的概念（续）}
+观察：不成群的$a,b$，有$\det a=\det b=0$；成群的$R_z(\theta)$，有$\det R_z(\theta)=1\neq 0$。事实上，有一般的结论：所有$n$阶的非奇异矩阵的集合构成一个群（$GL(n)$群）；但并不是所有的矩阵群都一定由非奇异矩阵构成。反例：$\left\{\begin{pmatrix}1 & 0 \\ 0 & 0\end{pmatrix}\right\}$。
+
+一般讨论：\textit{猜测，总可以取到某个子空间使得在这个子空间上$G$中每个元素都是可逆的？待验证。}
+\end{frame}
+
+\pdfpage{12}
+
+\begin{frame}{\refpage{12}}
+	表述“$GL(n,\mathbb C)$有$2n^2$个\textbf{群元}”有些引起混淆，“群元”应该指群的元素，这里应该指“矩阵元”，下同。
+\end{frame}
+
+\pdfpage{13}
+\pdfpage{14}
+
+\begin{frame}{\refpage{14}}
+	我们有$(UU^\dagger)_{ij}=U^*_{ik}U_{jk}=\delta_{ij}$，共$n^2$个方程；其中$i,j$互换给出$0=U^*_{jk}U_{ik}=(U^*_{ik}U_{jk})^*$，故和互换前的方程不独立，从而非对角元共$\frac{n^2-n}{2}$个方程，每个方程均有实部和虚部；对角元方程$U^*_{ik}U_{ik}=1$（不对$i$求和），左边必定为实，从而只给出实部的贡献。
+	
+	事实上，这里也只验证了“有这么多方程是等价的”，还没有验证剩下的这些都是相互独立的，验证起来可能比较困难（我没有试），更简便的做法应该是计算这个矩阵群的李代数的维度，然后利用李代数维度等于李群维度。下同。
+\end{frame}
+
+\pdfpage{15}
+\pdfpage{16}
+
+\begin{frame}{注第\refpageN{15}-\refpageN{16}页}
+	$U(p,q)$不是“特殊地”，是在另一种内积定义下的保内积线性变换群。
+	
+	第\refpageN{16}页第一行应该为$(X,Y)=g^{ij}x_i^*y_j=X^\dagger GY$，这里$X$、$Y$都表示列矢量。
+\end{frame}
+
+\pdfpage{17}
+
+\begin{frame}{\refpage{17}}
+	这里讨论独立变元数量与酉群情况类似，注意此时对角元不再有为实部的保证。
+	
+	记号有一点混淆，一般来说$SO(n)$和$O(n)$指实数的，这里定义的$O(n)$记作$O(n,\mathbb C)$。
+\end{frame}
+
+\pdfpage{18}
+\pdfpage{19}
+
+\begin{frame}{\refpage{19}}
+	
+	这里写的是$SP(2n,\mathbb C)$（有的文献记为$SP(n,\mathbb C)$），注意在这个情况下内积定义仍然是直接相乘，不取复共轭！（这里没有写错）
+	
+	倒数第四行应该没有那个转置，已经写成指标求和形式就没有$x$和$M$谁先谁后的问题，乘法顺序由$x$和$M$的哪个指标缩并来体现。
+	
+	写到倒数第三行时，等号左边的求和还是对$j,k=1\sim 2n$的，所以说直接得到的等式应该是
+	\begin{equation*}
+	\sum_{i=1}^{n} M_{ij}M_{(n+i)k}-M_{ik}M_{(n+i)j}=\delta_{(n+j)k}-\delta_{(n+k)j}
+	\end{equation*}
+	（事实上就是$M^TG_{SP}M=G_{SP}$）
+	
+	这些方程中，$j=k$的情况两边都恒等于零，$j,k$互换两边都反号，所以总共$\frac{2n(2n-1)}{2}$个独立的式子，每个均有实部和虚部。
+	
+	这些线性变换又称哈密顿变换（对应哈密顿力学中的正则变换），带这样内积的空间称为辛空间。可参考高代教材和Goldstein经典力学。
+	
+\end{frame}
+
+\pdfpage{20}
+\pdfpage{21}
+
+\begin{frame}{\refpage{21}}
+	紧致性的数学定义：一个拓扑空间称为紧致的，若其任意的开覆盖有有限子覆盖。（关于拓扑学的基本知识快速入门可以参考Nakahara, \textit{Geometry, Topology and Physics}，如果需要进一步的知识可以参看尤承业《基础拓扑学讲义》、Munkres, \textit{Topology}）
+	
+	特别地，\textbf{一个$\mathbb R^{n}$的子集是紧致的，当且仅当它是有界闭集}。
+	
+	其中，$A\subset \mathbb R^n$为闭集，若对于任意的$x\notin A$，存在$\epsilon>0$，使得以$A$中任意点和$x$的距离不小于$\epsilon$。（如，$r<1$的球，球面上的点就不满足这个条件，所以它不是闭集；$r\leq 1$的球则满足这个条件，是闭集。）
+	
+	集合$A\subset \mathbb R^n$有界指，存在$M$，使得
+	\begin{equation*}
+	\forall x=(x_1,x_2,\dots,x_n)\in A, \sqrt{x_1^2+x_2^2+\dots+x_n^2}<M
+	\end{equation*}
+	
+	把矩阵的各个矩阵元排起来成为数组，则可以视为$\mathbb R^{n}$的子空间（如果有虚数实部虚部拆开），而有界等价于各个矩阵元分别有界。行列式条件和度规条件限制给出的集合一般都是闭集，可以理解为，对矩阵元的若干方程约束相当于给出“超曲面”，而诸如三维空间中的曲面、曲线都是闭集。
+\end{frame}
+
+\pdfpage{22}
+\pdfpage{23}
+\pdfpage{24}
+\pdfpage{25}
+
+\begin{frame}{\refpage{25}：前两行结论的推导}
+	前两行，首先由于，假设$\varphi(\alpha,\beta)$是光滑的（这个应该是假设而非推论），则在$\alpha,\beta=0$附近有：
+	\begin{equation*}
+	\varphi(\alpha,\beta)=\ppat{\varphi(x,y)}{x}{(x,y)=(0,0)}\alpha+\ppat{\varphi(x,y)}{y}{(x,y)=(0,0)}\beta
+	\end{equation*}
+	又由于
+	\begin{equation*}
+	\varphi(\alpha,0)=\varphi(0,\alpha)=\alpha
+	\end{equation*}
+	两边在零处求导得
+	\begin{equation*}
+	\ppat{\varphi(x,y)}{x}{(x,y)=(0,0)}=\ppat{\varphi(x,y)}{y}{(x,y)=(0,0)}=1
+	\end{equation*}
+	从而在原点附近有$\varphi(\alpha,\beta)=\alpha+\beta$。由此亦知$-\alpha$是$\alpha$的一个逆元，由逆元唯一性得到$\overline{\alpha}=-\alpha$。
+	
+	这里的式子里变量其实都是$r$元向量，但经过简单改写知结果没有区别。
+	
+\end{frame}
+
+\begin{frame}{\refpage{25}：李群的定义}
+	李群的严格定义为，一个集合上同时有群和微分流形的结构，且群乘法作为微分流形上的运算是解析的。当然我们不会用这个定义。
+	
+	按照合成函数来定义李群的话，应该要求合成函数具有如下几个性质：（此处参考Cohn第2.7节）
+	\begin{enumerate}
+		\item $\varphi(\alpha,\beta)$是关于自变量的光滑（任意阶可微）函数
+		\item $\varphi(\alpha,\varphi(\beta,\gamma))=\varphi(\varphi(\alpha,\beta),\gamma)$
+		\item $\varphi(\alpha,0)=\alpha$
+		\item $\forall \alpha,\exists\overline{\alpha}, \text{s.t.}\varphi(\alpha,\overline{\alpha})=0$，且要求$\det\ppat{\varphi^i(\alpha,\beta)}{\beta^j}{\beta=\overline{\alpha}}\neq 0$（\textit{后面这个条件是我猜出来的，似乎需要这个才能保证求逆运算的解析性？存疑}）
+	\end{enumerate}
+	后三个条件也就是成群条件。
+\end{frame}
+
+\begin{frame}{\refpage{25}：李群的定义与局部李群}
+	物理上一般用坐标来刻画李群，比如三维转动$SO(3)$群一般用欧拉角来刻画。但是一般来说，李群是无法与$\mathbb R^n$（或其某个子集）建立连续的双射的（背后原因是两者拓扑结构不同），比如欧拉角，其映射确实连续，但它不是一一的——在进动角为零处自转角和章动角不独立，这会导致这点附近出现一些不好的现象，比如用坐标表述的逆元不唯一。
+	
+	虽然一般来说无法定义全局坐标，但根据流形的定义（其中包括了一条保证其局部性质与$\mathbb R^n$相同），总是可以在每一个点都选取一个邻域，并在上面定义坐标，此时坐标和李群元素的对应是一一的，于是可以采取上面这一套描述体系。这样得到的系统称为\textbf{局部李群}。
+\end{frame}
+
+\begin{frame}{\refpage{25}：李群的定义与局部李群}
+	局部李群的定义为：存在一个在原点处解析的合成函数$\varphi(\alpha,\beta)$，在原点的一个邻域内满足：
+	\begin{enumerate}
+		\item $\varphi(\alpha,\varphi(\beta,\gamma))=\varphi(\varphi(\alpha,\beta),\gamma)$
+		\item $\varphi(\alpha,0)=\alpha$
+		\item $\det\ppat{\varphi^i(\alpha,\beta)}{\beta^j}{\alpha=\beta=0}\neq 0$
+	\end{enumerate}
+	其中最后一条结合隐函数定理保证了原点附近逆元的存在性。
+	
+	可以证明，一个局部李群可以唯一地延拓为一个连通（在讨论$\mathbb R^n$的子集时，连通等价于集合中任意两点可以用一条连续的路径连接起来；后者在一般的拓扑学语境下称为道路连通）的全局李群（Cohn Theorem 2.7.1），从而一般来说在局域坐标下讨论得到的结果是普适的。当需要讨论两个有限远处的点之间的映射等时，可以在两点处分别建立局域坐标讨论，结果一般和当作只有一套局域坐标等价。
+\end{frame}
+
+\begin{frame}{\refpage{25}：李群与李变换群}
+	最后几行写得有一点乱，应该是现有李群的概念后有李变换群的概念。也可以说李群是抽象的，李变换群是特殊情况。
+	
+	假设给定李群$G$和另一个集合$V$（可以是线性空间，也可以不是），并且每一个$A(\alpha)\in G$对应一个$V$上的变换（即$V$到自身的映射），且有结合律：$[A(\alpha)B(\alpha)]v=A(\alpha)[B(\alpha)v]$（有的文献似乎反过来定义），则称$G$是李变换群。（c.f. 群在集合上的作用）（当$V$有附加结构时可能会对这个作用提出更多要求）
+	
+	例子：$G=SO(3),V=\mathbb R^3$，群元的作用即为矢量作对应的旋转。
+\end{frame}
+
+\begin{frame}{1.3 无穷小生成元}
+	{\large 一、李变换群的无穷小生成元}
+	假设有李群$G$，其作用在集合$V$上，假设$V$也是一个微分流形，即上面有坐标并且可以对上面的函数求导。对于$Y\in V$和$B(\beta)\in G$，记$B(\beta)Y=:f(\beta,Y)$。取$X_0\in V,A(\alpha)\in G$，并令$X=A(\alpha)X_0$。现在考虑对$\alpha$进行一微小变动，这一微小变动有两种可能的表述形式，第一种是：新的$X$仍然是从$X_0$经过一次变动得到，但是变换参数有一微小变动，于是$X+\di X=f(\alpha+\di\alpha,X_0)$；第二种是，新的$X$是由$X_0$连续两次作用、即旧的$X$上再加上一个无穷小群作用得到的。此时$X+\di X=f(\delta\alpha,X)$。两个无穷小参数$\di\alpha\neq\delta\alpha$。
+	
+	我们有：
+	\begin{equation*}
+	X^i+\di X^i=f^i(\delta\alpha, X)=f^i(0,X)+\ppat{f^i(\beta,X)}{\beta^\sigma}{\beta=0}\delta\alpha^\sigma
+	\end{equation*}
+	令$U^i_\sigma(X)=\ppat{f^i(\beta,X)}{\beta^\sigma}{\beta=0}$，则有$\di X^i=U^i_\sigma(X)\delta\alpha^\sigma$。	
+	
+	其中$\sigma$是$G$的坐标对应的指标，$i$是$V$的坐标对应的指标。
+\end{frame}
+
+\begin{frame}{1.3 无穷小生成元}
+	{\large 一、李变换群的无穷小生成元}
+	而同时又有
+	\begin{equation*}
+	X+\di X=A(\alpha+\di\alpha)X=A(\delta\alpha)[A(\alpha) X]
+	\end{equation*}
+	（这里的“乘法”都代表“作用”）
+	
+	即$A(\alpha+\di\alpha)=A(\delta\alpha)A(\alpha)$，$\alpha+\di\alpha=\varphi(\delta\alpha,\alpha)$，作小量展开得到
+	\begin{equation*}
+	\di\alpha^\mu=V^\mu_\sigma(\alpha)\delta\alpha^\sigma
+	\end{equation*}
+	其中$V^\mu_\sigma(\alpha)=\ppat{\varphi^\mu(\beta,\alpha)}{\beta^\sigma}{\beta=0}$。
+	
+	假设$V$作为矩阵可逆，记其逆矩阵为$\Lambda$，则有$\delta\alpha^\sigma=\Lambda^\sigma_\mu(\alpha)\di\alpha^\mu$。
+\end{frame}
+
+\pdfpage{28}
+\pdfpage{29}
+\pdfpage{30}
+
+\begin{frame}{注第\refpageN{29}-\refpageN{30}页：无穷小生成元的理解及与常见文献中定义的对应}
+	无穷小生成元，顾名思义，（不太严谨地）可以理解为与有限群的生成元在李群中的“对应”，即其他群元素可以用这个（些）元素不断地自乘得到。但由于李群是连续的，这样的“生成元”必然是无限小的，而我们会希望和有限的量打交道，所以我们定义这样的“无穷小生成元”时要除掉它“无穷小的程度”，也就是
+	\begin{equation*}
+	\text{无穷小生成元}=\frac{\text{无穷小群元}}{\text{该群元对应的无穷小群参数}}
+	\end{equation*}
+	课件中定义的无穷小生成元就是这样的：$\chi_\sigma(X)\delta\alpha^\sigma$给出底空间中一个函数经过一个$\delta\alpha^\sigma$对应的无穷小群操作后的变化量，即它表征了这个无穷小群操作，于是群参数前的系数就是我们要的无穷小生成元。
+\end{frame}
+
+\pdfpage{31}
+\pdfpage{32}
+\pdfpage{33}
+\pdfpage{34}
+\pdfpage{35}
+\pdfpage{36}
+
+
+\end{document}

@@ -1,0 +1,74 @@
+\documentclass{beamer}
+\usepackage{amsmath}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+\usefonttheme[onlymath]{serif}
+\setCJKmainfont[BoldFont={STZhongsong},ItalicFont={FangSong}]{SimSun}
+\setCJKsansfont[BoldFont={DengXian Bold},ItalicFont={KaiTi}]{DengXian}
+\newcommand{\pdfpage}[1]{{\usebackgroundtemplate{\includegraphics[width=\paperwidth]{W2/W2_页面_#1.jpg}}\begin{frame}[plain]\label{OrigPdf#1}\end{frame}}}%将原课件的某一页作为一个全页图片插入，参数为原课件页数（图片用pdf的导出图像功能得到），注意个位数需要前面加一个零
+\newcommand{\refpage}[1]{注第\ref{OrigPdf#1}页}%将原页码转化为新页码
+\newcommand{\refpageN}[1]{\ref{OrigPdf#1}}%将原页码转化为新页码，只给出数字
+\newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ppat}[3]{\left.\left(\pp{#1}{#2}\right)\right|_{#3}}
+\newcommand{\di}{\mathrm d}
+\title{《李群和李代数》第二周课件勘误与注解}
+\author{原课件：刘玉鑫老师}
+\begin{document}
+\maketitle
+\begin{frame}{说明}
+本文档基于原课件，修改了一些其中的错误并对一些不太明晰的地方进行了注解。\\
+主要参考书：
+\begin{itemize}
+\item P. M. Cohn, \textit{Lie Groups}
+\item Brain Hall, \textit{Lie Groups, Lie Algebras and Representations}
+\item A. O. Barut, \textit{Theory of Group Representations and Applications}
+\item 梁灿彬，《微分几何与广义相对论》
+\item V. S. Varadarajan, \textit{Lie Groups, Lie Algebras and Their Representations}
+\item 韩其智、孙洪洲，《群论》
+\end{itemize}
+
+
+本文档的页面由三种页面组成：（1）直接引用课件；（2）引用原课件，但改写了其中的错误，表现为白底黑字蓝色标题的页面；（3）对于原课件的注解，同样是白底黑字蓝色标题的页面，但标题以“注第XX页”开头。
+
+本文中提到的页码均指本pdf页码，不是原课件页码。
+
+部分结果来自群内讨论。如有问题，欢迎讨论。
+\end{frame}
+
+\pdfpage{01}
+\pdfpage{02}
+\pdfpage{03}
+\pdfpage{04}
+\pdfpage{05}
+\pdfpage{06}
+\pdfpage{07}
+\pdfpage{08}
+\pdfpage{09}
+\pdfpage{10}
+\pdfpage{11}
+\pdfpage{12}
+\pdfpage{13}
+\pdfpage{14}
+\pdfpage{15}
+\pdfpage{16}
+\pdfpage{17}
+\pdfpage{18}
+\pdfpage{19}
+\pdfpage{20}
+\pdfpage{21}
+\pdfpage{22}
+\pdfpage{23}
+\pdfpage{24}
+\pdfpage{25}
+\pdfpage{26}
+\pdfpage{27}
+\pdfpage{28}
+\pdfpage{29}
+\pdfpage{30}
+\pdfpage{31}
+\pdfpage{32}
+\pdfpage{33}
+\pdfpage{34}
+\pdfpage{35}
+
+\end{document}

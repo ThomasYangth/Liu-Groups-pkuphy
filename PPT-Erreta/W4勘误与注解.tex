@@ -1,0 +1,191 @@
+\documentclass{beamer}
+\usepackage{amsmath}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+\usefonttheme[onlymath]{serif}
+\setCJKmainfont[BoldFont={STZhongsong},ItalicFont={FangSong}]{SimSun}
+\setCJKsansfont[BoldFont={DengXian Bold},ItalicFont={KaiTi}]{DengXian}
+\newcommand{\pdfpage}[1]{{\usebackgroundtemplate{\includegraphics[width=\paperwidth]{W4/W4_页面_#1.jpg}}\begin{frame}[plain]\label{OrigPdf#1}\end{frame}}}%将原课件的某一页作为一个全页图片插入，参数为原课件页数（图片用pdf的导出图像功能得到），注意个位数需要前面加一个零
+\newcommand{\refpage}[1]{注第\ref{OrigPdf#1}页}%将原页码转化为新页码
+\newcommand{\refpageN}[1]{\ref{OrigPdf#1}}%将原页码转化为新页码，只给出数字
+\newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ppat}[3]{\left.\left(\pp{#1}{#2}\right)\right|_{#3}}
+\newcommand{\di}{\mathrm d}
+\title{《李群和李代数》第四周课件勘误与注解}
+\author{原课件：刘玉鑫老师}
+\begin{document}
+\maketitle
+\begin{frame}{说明}
+本文档基于原课件，修改了一些其中的错误并对一些不太明晰的地方进行了注解。\\
+主要参考书：
+\begin{itemize}
+\item P. M. Cohn, \textit{Lie Groups}
+\item Brain Hall, \textit{Lie Groups, Lie Algebras and Representations}
+\item A. O. Barut, \textit{Theory of Group Representations and Applications}
+\item 梁灿彬，《微分几何与广义相对论》
+\item V. S. Varadarajan, \textit{Lie Groups, Lie Algebras and Their Representations}
+\item 韩其智、孙洪洲，《群论》
+\end{itemize}
+
+本文档的页面由三种页面组成：（1）直接引用课件；（2）引用原课件，但改写了其中的错误，表现为白底黑字蓝色标题的页面；（3）对于原课件的注解，同样是白底黑字蓝色标题的页面，但标题以“注第XX页”开头。
+
+本文中提到的页码均指本pdf页码，不是原课件页码。
+
+部分结果来自群内讨论。如有问题，欢迎讨论。
+\end{frame}
+\pdfpage{01}
+\pdfpage{02}
+\pdfpage{03}
+
+\begin{frame}{\refpage{03}}
+	
+	这一段的严格表述参见Barut书1.4节。
+	
+	此处第一行应该说“对给定李代数$g$及给定的一个$g$中元素$A$”，可以构造出一个这样的本征方程，解出的特征根和特征矢量显然是和$A$有关的。事实上，$\alpha$是一个关于$A$的线性函数，应该写为$\alpha(A)$更合适。
+	
+	这里称“$\rho$是\textbf{李代数的根}”（这个称法来自韩其智）个人认为有些不妥，因为$\rho$并非由李代数本身唯一确定。称为“李代数$g$关于$A$”的根更合适一些。
+	
+\end{frame}
+
+\pdfpage{04}
+
+\begin{frame}{\refpage{04}}
+	
+	此处前几行的逻辑是：对于任意一个给定的$A$，可以写出一个这样的本征方程，不同的$A$解出来的根是不一样的。可以取到一个$A$使得非简并根的数目达到最大，并且可以证明，如果$g$是半单纯的，此时非零根都是不简并的。
+	
+	这种基于“选一个$A$使得XXX”的逻辑似乎有一些奇怪，Barut书的表述是，先取出李代数的一个满足一定条件的子空间$h$（要求是一个极大交换子代数\footnote{“极大”指直积上任何其他维度就不交换了}，还要满足一些附加条件，称为Cartan子代数\footnote{Cartan子代数是不唯一的，见\href{https://math.stackexchange.com/questions/134901/is-cartan-subalgebra-of-a-lie-algebra-unique}{\underline{\textcolor{blue}{StackExchange}}}，不同的选择在一定意义下等价。}），然后定义本征方程为$[A,V]=a(A)V,\forall A\in h$。此时解出的“本征值”是$h$上的线性函数（左边是对$A$线性的，所以右边的$a(A)$应该也是），或者说是线性空间$h$的对偶空间$h^*$中的元素。假如$h$选定了一组基$H_i$，则$a(\lambda^iH_i)=\lambda^ia(H_i)$，从而$a$由其在各$H_i$上的取值完全决定，可以记$a_i=a(H_i)$，这样$a_i$这个数组就表征了$a$这个线性函数（$a_i$是$a$在$H_i$的对偶基下的坐标）。$a_i$这组坐标在下面的讨论中常会用到。
+	
+\end{frame}
+
+\pdfpage{05}
+
+\begin{frame}{\refpage{05}}
+	
+	从单个$A$的“非简并根数量最多”能否推出这样的对易条件存疑\footnote{听说万哲先的《李代数》里有，不过我搞不到书没有查}。不过如果忽略证明的形式逻辑，我们这里需要知道的就是：
+	
+	\textbf{结论}：对于任意一个有限维半单纯李代数$g$，可以选取其一组基$\{H_i|i=1,\dots,l\}\cup\{E_\alpha|\alpha\in\Sigma\}$，满足：
+	\begin{itemize}
+		\item $[H_i,H_j]=0$，即$g$的子空间$h\equiv\langle H_i|i=1,\dots,l\rangle$是一个交换子代数（但一般不是理想）。
+		\item $[A,E_\alpha]=\alpha(A)E_\alpha,\forall A\in h$，其中$\alpha\in\Sigma$是一个$h$上的线性函数，所有这样的$\alpha$构成的集合$\Sigma$称为$g$的根系，$\Sigma$的元素数等于$n-l$。\footnote{以下经常$a$,$\alpha$混记，有时指$E$的指标有时指线性函数，两种意义是一一对应的。}
+	\end{itemize}
+	
+	然后即可开始往下推其他性质。
+	
+\end{frame}
+
+\pdfpage{06}
+\pdfpage{07}
+\pdfpage{08}
+\pdfpage{09}
+\pdfpage{10}
+
+\begin{frame}{\refpage{10}}
+	此处默认了当$\alpha+\beta$是根的时候$N_{\alpha\beta}\neq 0$，事实上上面只说明了这个命题的否命题成立，无法直接说明这个命题本身成立，而下面的证明是用到了这个命题的。\textit{暂时没有在参考书里查到这个证明。}
+\end{frame}
+
+\pdfpage{11}
+\pdfpage{12}
+
+\begin{frame}{注第\refpageN{11}-\refpageN{12}页}
+	
+%	（以下称一个指标“$\in H$”，若其对应某个$H_i$；一个指标“$\in E$”，若其对应某个$E_\alpha$）
+%	
+%	第\refpageN{11}页中计算$g_{\sigma\rho}$时，对第二项的处理实际上默认了$\sigma\in E$。考虑周全情况得到的结论应该是：$g_{\sigma\rho}\neq 0$，仅当（1）$\sigma,\rho\in H$或（2）$\sigma,\rho\in E$且$\sigma=-\rho$之一成立。从而矩阵应该可以写成$g=\begin{pmatrix}g_{ij} & 0 \\ 0 & g_{\sigma\tau}\end{pmatrix}$的形式，$\det g=\det g_{ij}\det g_{\sigma\tau}$。
+%	
+%	（当然原证明逻辑是取定$\sigma=\alpha$然后证明这一整行为零，是没有问题的，这里只是作为补充）
+	
+	由于$g_{\alpha,(-\alpha)}\propto E_\alpha E_{-\alpha}$（根据度规最原始的定义显然），只要调整二者的乘积就可以使得$g_{\alpha,(-\alpha)}=1$，还剩下一个二者比例的自由度，下面的讨论中会调整它来使得$E_\alpha^\dagger=E_{-\alpha}$（\textit{这个相等似乎是没法从给定条件推出来的，只能推到两者成正比，需要通过调整二者相对大小使之相等}）。
+	
+	这里“$a$有逆变分量”应该理解为，$a^i=g^{ij}a_j$是直接由定义（李代数空间中加上度规）得到，而恰巧（\textit{背后可能有一些深刻的原因？}）它也等于对应的结构常数。
+	
+\end{frame}
+
+\pdfpage{13}
+
+\begin{frame}{\refpage{13}}
+	这里用Dirac符号改记是把这个李代数中的每个元素视为了一个线性变换（算符）。这里的讨论还是在一个特殊的空间中进行的，但这一部分升降算符的结论可以适用于任意空间。
+	
+	这里的逻辑是：假设有一个线性空间（希尔伯特空间）$\mathcal{H}$，每一个$g$中的元素$V$都对应一个$\mathcal{H}$上的线性变换，且定义$g$中元素的相乘为其对应的线性变换的复合（李代数本身是没有定义这样一个乘法的，李乘积的性质和这里的乘法要求的性质不符），且要求$[U,V]=UV-VU$（左边为李代数中的李括号，右边为线性变换复合相减）。此时就可以继续本页中的讨论。
+	
+	特别地，如果令$\mathcal{H}$为李代数本身，$V$作用在$E_\alpha$上定义为$[V,E_\alpha]$，那么可以验证这确实满足上面要求的条件。这时的特别之处在于，由于$[H_i,E_\alpha]=a_iE_\alpha$，（作为$\mathcal{H}$中元素的）$E_\alpha$恰好是（作为李代数$g$中元素、对应于$\mathcal{H}$上线性变换的）$H_i$的共同本征态，本征值排列起来恰好就是根矢量，从而非零根和$H_i$的共同非零本征态建立了一一对应关系；而各$H_j$（作为Hilbert空间中的量子态）则是各$H_i$算符的$l$重简并零本征态。下面证明过程中有些地方用到了这个结论。
+	
+\end{frame}
+
+\pdfpage{14}
+
+\begin{frame}{\refpage{14}：关于$E_\alpha=E_{-\alpha}^\dagger$的进一步说明}
+	
+	由于$H_i$的本征值为实数的本征态构成整个希尔伯特空间的一组基，可以直接由定义验证各个$H_i$确实是这样希尔伯特空间中的厄米算符。
+
+	取任意非零根$\alpha$和另一非零根$\mu$。我们知道有$E_\alpha|\mu\rangle=N_{\alpha,\mu}|\mu+\alpha\rangle$，$E_{-\alpha}|\mu+\alpha\rangle=N_{-\alpha,\mu+\alpha}|\mu\rangle$。
+	从而有
+	
+	\begin{equation*}
+	\begin{cases}
+	\langle \nu | E_\alpha \mu \rangle=N_{\alpha,\mu}\delta_{\nu,\mu+\alpha}\\
+	\langle E_{-\alpha} \nu | \mu \rangle=N_{-\alpha,\mu+\alpha}^*\delta_{\nu,\mu+\alpha}
+	\end{cases}
+	\end{equation*}
+	如果令$E_\alpha'=\sqrt{\frac{N_{-\alpha,\mu+\alpha}^*}{N_{\alpha,\mu}}}E_\alpha$,$E_{-\alpha}'=\sqrt{\frac{N_{\alpha,\mu}}{N_{-\alpha,\mu+\alpha}^*}}E_{-\alpha}$，则其他关系式均得到保持，且有
+	\begin{equation*}
+	\langle \nu | E_{\alpha} \mu \rangle=\langle E_{-\alpha} \nu | \mu \rangle\forall \nu
+	\end{equation*}
+	
+\end{frame}
+
+\begin{frame}{\refpage{14}：关于$E_\alpha=E_{-\alpha}^\dagger$的进一步说明}
+	如果另有一非零根$\rho$，使得$\rho+\mu=\lambda$也是根，则可以写$|\lambda\rangle=\frac{1}{N_{\rho,\mu}}E_{\rho}|\mu\rangle$（简单起见$\frac{1}{N_{\rho,\mu}}=:n$），于是
+	\begin{equation*}
+	\langle \nu | E_{\alpha} \lambda \rangle=n\langle \nu |E_\alpha E_{\rho} \mu \rangle
+	\end{equation*}
+\end{frame}
+
+\pdfpage{15}
+\pdfpage{16}
+\pdfpage{17}
+\pdfpage{18}
+
+\begin{frame}{\refpage{18}}
+	这里的证明和韩其智书的证明其实是一样的，只要将本征态和非零根进行对应，则韩书中的$\mu_j$就是这里的$|N_{\alpha,\mu+(p-j)\alpha}|^2$。
+	
+	这个定理的结论其实不只是$\frac{2(a,b)}{(a,a)}$为整数，更重要地，它等于$q-p$。于是，如果已知$q,p$，则可以反推这个值；如果已知这个值，也可以得到$q\geq \frac{2(a,b)}{(a,a)}$,$p\geq -\frac{2(a,b)}{(a,a)}$。特别地，当$q=p$时，必有$(a,b)=0$。
+
+	关于$(a,a)\neq 0$的证明：如果某个根$a$满足$(a,a)=0$，由上推导可以知道再取任意其他根$b$都会有$(a,b)=0$。这表明\footnote{这里明显跳步了，但是中间的步骤我没想到怎么补上，就当它成立吧……}$g_{ij}a^j=0$，也就是$\det g_{ij}=0$。结合下面关于度规张量性质的分析，这进一步表明$\det g=0$，与半单纯性矛盾。
+	
+%	\textit{这里似乎没有直接推出$(a,a)\neq 0$（至少我没有看懂……），仅从$g$非退化是不能推出$(a,a)\neq 0$的，反例：$g=\begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix},a=\begin{pmatrix}1 \\ 1\end{pmatrix}$，需要加上$g$正定的条件才可以，但是这里似乎无法保证$g$正定？}
+%	
+%	\textit{利用定义和前面的关系式可以改写$(a,a)E_\alpha=[E_\alpha,[E_\alpha,E_{-\alpha}]]=E_\alpha^2|-\alpha\rangle$，如果利用“只要作用后的下标是根则作用结果必不为零”，则可以推出$(a,a)\neq 0$，不过前者也还没有证明。}
+\end{frame}
+
+\pdfpage{19}
+\pdfpage{20}
+\pdfpage{21}
+
+\begin{frame}{\refpage{21}}
+	这里推出“根系必定包含$2a$”，其实是在之前构造根系的公式里，令$b=ka$，则$q-p=\frac{2(a,b)}{(a,a)}=2k$，于是必有$q\geq 2k,p\geq -2k$，从而可以推出这个根系必定延伸到包含$2a$。
+\end{frame}
+
+\pdfpage{22}
+\pdfpage{23}
+
+\begin{frame}{\refpage{23}}
+	\textit{这里前一半证明的$|q-p|\leq 3$似乎不需要，因为它完全可以由后面的结论$q+p\leq 3$推出。而且这里似乎也没有证出$m,m'$的普遍情况？$(b,b)=4(a,a)$并不能推出$b=2a$？}
+\end{frame}
+
+\pdfpage{24}
+
+\begin{frame}{\refpage{24}}
+	一般地，如果一个根系包含至少五个根，则必然存在一个整数$n$，使得$b+(n-2)a$到$b+(n+2)a$都在这个根系内，取$\frac{2(b+(n-2)a,b+na)}{(b+na,b+na)}$和$\frac{2(b+(n+2)a,b+na)}{(b+na,b+na)}$，结论一致。
+\end{frame}
+
+\pdfpage{25}
+\pdfpage{26}
+\pdfpage{27}
+\pdfpage{28}
+\pdfpage{29}
+\pdfpage{30}
+\pdfpage{31}
+\pdfpage{32}
+
+
+\end{document}

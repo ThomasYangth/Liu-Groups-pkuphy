@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.3.11)  8 MAR 2020 21:06
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.3.11)  14 MAR 2020 09:36
 entering extended mode
 **W1勘误与注解.tex
 (D:\Programming\Github\Liu-Groups\PPT-Erreta\W1勘误与注解.tex
@@ -1403,7 +1403,7 @@ Requested font "cmex7" at 6.0pt
  -> cmex7
 Requested font "cmex7" at 5.0pt
  -> cmex7
-LaTeX Font Info:    Try loading font information for U+msa on input line 33.
+LaTeX Font Info:    Try loading font information for U+msa on input line 35.
 
 (C:\CTEX\MiKTeX\tex\latex\amsfonts\umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
@@ -1414,7 +1414,7 @@ Requested font "msam7" at 6.0pt
  -> msam7
 Requested font "msam5" at 5.0pt
  -> msam5
-LaTeX Font Info:    Try loading font information for U+msb on input line 33.
+LaTeX Font Info:    Try loading font information for U+msb on input line 35.
 
 (C:\CTEX\MiKTeX\tex\latex\amsfonts\umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -1436,7 +1436,7 @@ Requested font "cmr8" at 8.0pt
 Requested font "cmr6" at 6.0pt
  -> cmr6
 LaTeX Font Info:    Font shape `EU1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `EU1/lmss/m/sl' tried instead on input line 33.
+(Font)              Font shape `EU1/lmss/m/sl' tried instead on input line 35.
 Requested font "[lmsans10-oblique]:mapping=tex-text" at 10.95pt
  -> C:/CTEX/MiKTeX/fonts/opentype/public/lm/lmsans10-oblique.otf
  [2
@@ -1659,50 +1659,129 @@ File: W1/W1_页面_30.jpg Graphic file (type QTm)
 <use  "W1/W1_页面_30.jpg" > [46
 
 ]
+Requested font "SimSun" at 8.0pt
+ -> C:/Windows/Fonts/simsun.ttc
+Requested font "SimSun/ICU" at 8.0pt
+ -> C:/Windows/Fonts/simsun.ttc
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'SimSun(0)' created for font 'SimSun' with options
+. [BoldFont={STZhongsong},ItalicFont={FangSong}].
+. 
+. This font family consists of the following shapes:
+.................................................
+Requested font "SimSun/ICU:script=latn;language=DFLT;" at 8.0pt
+ -> C:/Windows/Fonts/simsun.ttc
+Requested font "SimSun" at 6.0pt
+ -> C:/Windows/Fonts/simsun.ttc
+Requested font "SimSun/ICU" at 6.0pt
+ -> C:/Windows/Fonts/simsun.ttc
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'SimSun(0)' created for font 'SimSun' with options
+. [BoldFont={STZhongsong},ItalicFont={FangSong}].
+. 
+. This font family consists of the following shapes:
+.................................................
+Requested font "SimSun/ICU:script=latn;language=DFLT;" at 6.0pt
+ -> C:/Windows/Fonts/simsun.ttc
+
+Overfull \hbox (8.27795pt too wide) detected at line 271
+\OT1/cmr/m/n/10.95 (1 + \OML/cmm/m/it/10.95 ^^_[][][][][]\OT1/cmr/m/n/10.95 ([]
+)\OML/cmm/m/it/10.95 ^^N^^K[]\OT1/cmr/m/n/10.95 )[]([][]) = (1 + \OML/cmm/m/it/
+10.95 ^^N^^K[][][][]\OT1/cmr/m/n/10.95 )[]([][]) = []([][] + [][]\OML/cmm/m/it/
+10.95 ^^N^^K[]\OT1/cmr/m/n/10.95 )
+ []
+
+
+Overfull \vbox (22.20142pt too high) detected at line 271
+ []
+
+[47
+
+]
+Requested font "[lmroman9-regular]:mapping=tex-text" at 9.0pt
+ -> C:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman9-regular.otf
+Requested font "cmmi9" at 9.0pt
+ -> cmmi9
+Requested font "cmsy9" at 9.0pt
+ -> cmsy9
+Requested font "cmex9" at 9.0pt
+ -> cmex9
+Requested font "msam10" at 9.0pt
+ -> msam10
+Requested font "msbm10" at 9.0pt
+ -> msbm10
+Requested font "[lmroman9-italic]:mapping=tex-text" at 9.0pt
+ -> C:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman9-italic.otf
+Requested font "cmr9" at 9.0pt
+ -> cmr9
+Requested font "SimSun" at 9.0pt
+ -> C:/Windows/Fonts/simsun.ttc
+Requested font "SimSun/ICU" at 9.0pt
+ -> C:/Windows/Fonts/simsun.ttc
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'SimSun(0)' created for font 'SimSun' with options
+. [BoldFont={STZhongsong},ItalicFont={FangSong}].
+. 
+. This font family consists of the following shapes:
+.................................................
+Requested font "SimSun/ICU:script=latn;language=DFLT;" at 9.0pt
+ -> C:/Windows/Fonts/simsun.ttc
+
+Overfull \vbox (1.65585pt too high) detected at line 283
+ []
+
+[48
+
+]
 File: W1/W1_页面_31.jpg Graphic file (type QTm)
- <use  "W1/W1_页面_31.jpg" > [47
+ <use  "W1/W1_页面_31.jpg" > [49
 
 ]
 File: W1/W1_页面_32.jpg Graphic file (type QTm)
-
-<use  "W1/W1_页面_32.jpg" > [48
+ <use  "W1/W1_页面_32.jpg" > [50
 
 ]
 File: W1/W1_页面_33.jpg Graphic file (type QTm)
- <use  "W1/W1_页面_33.jpg" > [49
+
+<use  "W1/W1_页面_33.jpg" > [51
 
 ]
 File: W1/W1_页面_34.jpg Graphic file (type QTm)
-
-<use  "W1/W1_页面_34.jpg" > [50
+ <use  "W1/W1_页面_34.jpg" > [52
 
 ]
 File: W1/W1_页面_35.jpg Graphic file (type QTm)
- <use  "W1/W1_页面_35.jpg" > [51
+
+<use  "W1/W1_页面_35.jpg" > [53
 
 ]
 File: W1/W1_页面_36.jpg Graphic file (type QTm)
-
-<use  "W1/W1_页面_36.jpg" > [52
+ <use  "W1/W1_页面_36.jpg" > [54
 
 ]
 \tf@nav=\write6
 \tf@toc=\write7
 \tf@snm=\write8
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 264.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 264.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 293.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 293.
 
 (D:\Programming\Github\Liu-Groups\PPT-Erreta\W1勘误与注解.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 264.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 264.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 293.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 293.
  ) 
 Here is how much of TeX's memory you used:
- 29259 strings out of 430478
- 574478 string characters out of 3191502
- 605089 words of memory out of 3000000
- 31860 multiletter control sequences out of 15000+200000
- 9518 words of font info for 71 fonts, out of 3000000 for 9000
+ 29318 strings out of 430478
+ 575638 string characters out of 3191502
+ 609138 words of memory out of 3000000
+ 31902 multiletter control sequences out of 15000+200000
+ 11151 words of font info for 88 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  49i,14n,53p,577b,569s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on W1勘误与注解.pdf (52 pages).
+Output written on W1勘误与注解.pdf (54 pages).

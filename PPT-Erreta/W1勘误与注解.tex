@@ -6,7 +6,7 @@
 \setCJKmainfont[BoldFont={STZhongsong},ItalicFont={FangSong}]{SimSun}
 \setCJKsansfont[BoldFont={DengXian Bold},ItalicFont={KaiTi}]{DengXian}
 \newcommand{\pdfpage}[1]{{\usebackgroundtemplate{\includegraphics[width=\paperwidth]{W1/W1_页面_#1.jpg}}\begin{frame}[plain]\label{OrigPdf#1}\end{frame}}}%将原课件的某一页作为一个全页图片插入，参数为原课件页数（图片用pdf的导出图像功能得到），注意个位数需要前面加一个零
-\newcommand{\refpage}[1]{第\ref{OrigPdf#1}页}%将原页码转化为新页码
+\newcommand{\refpage}[1]{注第\ref{OrigPdf#1}页}%将原页码转化为新页码
 \newcommand{\refpageN}[1]{\ref{OrigPdf#1}}%将原页码转化为新页码，只给出数字
 \newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\ppat}[3]{\left.\left(\pp{#1}{#2}\right)\right|_{#3}}
@@ -21,6 +21,8 @@
 \begin{itemize}
 \item P. M. Cohn, \textit{Lie Groups}
 \item Brain Hall, \textit{Lie Groups, Lie Algebras and Representations}
+\item A. O. Barut, \textit{Theory of Group Representations and Applications}
+\item 梁灿彬，《微分几何与广义相对论》
 \item V. S. Varadarajan, \textit{Lie Groups, Lie Algebras and Their Representations}
 \item 韩其智、孙洪洲，《群论》
 \end{itemize}
@@ -29,7 +31,7 @@
 
 本文中提到的页码均指本pdf页码，不是原课件页码。
 
-部分结果来自群内讨论，主要为陆仲豪和唐子骞同学。如有问题，欢迎讨论。
+部分结果来自群内讨论。如有问题，欢迎讨论。
 \end{frame}
 \begin{frame}{引言部分}
 	引言部分讲的粒子物理相关内容我也不太懂orz欢迎有大佬前来注解……
@@ -43,7 +45,7 @@
 \pdfpage{08}
 \pdfpage{09}
 \pdfpage{10}
-\begin{frame}{注\refpage{10}：关于条件（3）（4)可换的证明}
+\begin{frame}{\refpage{10}：关于条件（3）（4)可换的证明}
 	参考：Joseph J. Rotman, \textit{An Introduction to the Theory of Groups}, Theorem 1.12
 	
 	\textbf{欲证明}：如果一个带乘法的集合$G$满足乘法结合律、存在左单位元和存在左逆元，则这个左单位元同时也是右单位元、左逆元同时也是右逆元，且唯一。\\
@@ -56,7 +58,7 @@
 	
 \end{frame}
 	
-\begin{frame}{注\refpage{10}：关于条件（3）（4)可换的证明（续）}
+\begin{frame}{\refpage{10}：关于条件（3）（4)可换的证明（续）}
 	
 	若$ba=e$，则$ab=a(eb)=a(ba)b=(ab)(ab)$，由引理知$ab=e$，从而左逆元同时也是右逆元。
 	
@@ -88,14 +90,14 @@ a=\begin{pmatrix}1 & 1 \\ 0 & 0\end{pmatrix}, b=\begin{pmatrix}0 & 0 \\ 1 & 1\en
 
 \pdfpage{12}
 
-\begin{frame}{注\refpage{12}}
+\begin{frame}{\refpage{12}}
 	表述“$GL(n,\mathbb C)$有$2n^2$个\textbf{群元}”有些引起混淆，“群元”应该指群的元素，这里应该指“矩阵元”，下同。
 \end{frame}
 
 \pdfpage{13}
 \pdfpage{14}
 
-\begin{frame}{注\refpage{14}}
+\begin{frame}{\refpage{14}}
 	我们有$(UU^\dagger)_{ij}=U^*_{ik}U_{jk}=\delta_{ij}$，共$n^2$个方程；其中$i,j$互换给出$0=U^*_{jk}U_{ik}=(U^*_{ik}U_{jk})^*$，故和互换前的方程不独立，从而非对角元共$\frac{n^2-n}{2}$个方程，每个方程均有实部和虚部；对角元方程$U^*_{ik}U_{ik}=1$（不对$i$求和），左边必定为实，从而只给出实部的贡献。
 	
 	事实上，这里也只验证了“有这么多方程是等价的”，还没有验证剩下的这些都是相互独立的，验证起来可能比较困难（我没有试），更简便的做法应该是计算这个矩阵群的李代数的维度，然后利用李代数维度等于李群维度。下同。
@@ -112,7 +114,7 @@ a=\begin{pmatrix}1 & 1 \\ 0 & 0\end{pmatrix}, b=\begin{pmatrix}0 & 0 \\ 1 & 1\en
 
 \pdfpage{17}
 
-\begin{frame}{注\refpage{17}}
+\begin{frame}{\refpage{17}}
 	这里讨论独立变元数量与酉群情况类似，注意此时对角元不再有为实部的保证。
 	
 	记号有一点混淆，一般来说$SO(n)$和$O(n)$指实数的，这里定义的$O(n)$记作$O(n,\mathbb C)$。
@@ -121,7 +123,7 @@ a=\begin{pmatrix}1 & 1 \\ 0 & 0\end{pmatrix}, b=\begin{pmatrix}0 & 0 \\ 1 & 1\en
 \pdfpage{18}
 \pdfpage{19}
 
-\begin{frame}{注\refpage{19}}
+\begin{frame}{\refpage{19}}
 	
 	这里写的是$SP(2n,\mathbb C)$（有的文献记为$SP(n,\mathbb C)$），注意在这个情况下内积定义仍然是直接相乘，不取复共轭！（这里没有写错）
 	
@@ -142,7 +144,7 @@ a=\begin{pmatrix}1 & 1 \\ 0 & 0\end{pmatrix}, b=\begin{pmatrix}0 & 0 \\ 1 & 1\en
 \pdfpage{20}
 \pdfpage{21}
 
-\begin{frame}{注\refpage{21}}
+\begin{frame}{\refpage{21}}
 	紧致性的数学定义：一个拓扑空间称为紧致的，若其任意的开覆盖有有限子覆盖。（关于拓扑学的基本知识快速入门可以参考Nakahara, \textit{Geometry, Topology and Physics}，如果需要进一步的知识可以参看尤承业《基础拓扑学讲义》、Munkres, \textit{Topology}）
 	
 	特别地，\textbf{一个$\mathbb R^{n}$的子集是紧致的，当且仅当它是有界闭集}。
@@ -162,7 +164,7 @@ a=\begin{pmatrix}1 & 1 \\ 0 & 0\end{pmatrix}, b=\begin{pmatrix}0 & 0 \\ 1 & 1\en
 \pdfpage{24}
 \pdfpage{25}
 
-\begin{frame}{注\refpage{25}：前两行结论的推导}
+\begin{frame}{\refpage{25}：前两行结论的推导}
 	前两行，首先由于，假设$\varphi(\alpha,\beta)$是光滑的（这个应该是假设而非推论），则在$\alpha,\beta=0$附近有：
 	\begin{equation*}
 	\varphi(\alpha,\beta)=\ppat{\varphi(x,y)}{x}{(x,y)=(0,0)}\alpha+\ppat{\varphi(x,y)}{y}{(x,y)=(0,0)}\beta
@@ -181,7 +183,7 @@ a=\begin{pmatrix}1 & 1 \\ 0 & 0\end{pmatrix}, b=\begin{pmatrix}0 & 0 \\ 1 & 1\en
 	
 \end{frame}
 
-\begin{frame}{注\refpage{25}：李群的定义}
+\begin{frame}{\refpage{25}：李群的定义}
 	李群的严格定义为，一个集合上同时有群和微分流形的结构，且群乘法作为微分流形上的运算是解析的。当然我们不会用这个定义。
 	
 	按照合成函数来定义李群的话，应该要求合成函数具有如下几个性质：（此处参考Cohn第2.7节）
@@ -189,18 +191,18 @@ a=\begin{pmatrix}1 & 1 \\ 0 & 0\end{pmatrix}, b=\begin{pmatrix}0 & 0 \\ 1 & 1\en
 		\item $\varphi(\alpha,\beta)$是关于自变量的光滑（任意阶可微）函数
 		\item $\varphi(\alpha,\varphi(\beta,\gamma))=\varphi(\varphi(\alpha,\beta),\gamma)$
 		\item $\varphi(\alpha,0)=\alpha$
-		\item $\forall \alpha,\exists\beta, \text{s.t.}\varphi(\alpha,\beta)=0$（\textit{如果不是讨论局部李群是否还需要雅可比行列式条件？处处有逆能否推出雅可比行列式非零？存疑}）
+		\item $\forall \alpha,\exists\overline{\alpha}, \text{s.t.}\varphi(\alpha,\overline{\alpha})=0$，且要求$\det\ppat{\varphi^i(\alpha,\beta)}{\beta^j}{\beta=\overline{\alpha}}\neq 0$（\textit{后面这个条件是我猜出来的，似乎需要这个才能保证求逆运算的解析性？存疑}）
 	\end{enumerate}
 	后三个条件也就是成群条件。
 \end{frame}
 
-\begin{frame}{注\refpage{25}：李群的定义与局部李群}
+\begin{frame}{\refpage{25}：李群的定义与局部李群}
 	物理上一般用坐标来刻画李群，比如三维转动$SO(3)$群一般用欧拉角来刻画。但是一般来说，李群是无法与$\mathbb R^n$（或其某个子集）建立连续的双射的（背后原因是两者拓扑结构不同），比如欧拉角，其映射确实连续，但它不是一一的——在进动角为零处自转角和章动角不独立，这会导致这点附近出现一些不好的现象，比如用坐标表述的逆元不唯一。
 	
 	虽然一般来说无法定义全局坐标，但根据流形的定义（其中包括了一条保证其局部性质与$\mathbb R^n$相同），总是可以在每一个点都选取一个邻域，并在上面定义坐标，此时坐标和李群元素的对应是一一的，于是可以采取上面这一套描述体系。这样得到的系统称为\textbf{局部李群}。
 \end{frame}
 
-\begin{frame}{注\refpage{25}：李群的定义与局部李群}
+\begin{frame}{\refpage{25}：李群的定义与局部李群}
 	局部李群的定义为：存在一个在原点处解析的合成函数$\varphi(\alpha,\beta)$，在原点的一个邻域内满足：
 	\begin{enumerate}
 		\item $\varphi(\alpha,\varphi(\beta,\gamma))=\varphi(\varphi(\alpha,\beta),\gamma)$
@@ -212,7 +214,7 @@ a=\begin{pmatrix}1 & 1 \\ 0 & 0\end{pmatrix}, b=\begin{pmatrix}0 & 0 \\ 1 & 1\en
 	可以证明，一个局部李群可以唯一地延拓为一个连通（在讨论$\mathbb R^n$的子集时，连通等价于集合中任意两点可以用一条连续的路径连接起来；后者在一般的拓扑学语境下称为道路连通）的全局李群（Cohn Theorem 2.7.1），从而一般来说在局域坐标下讨论得到的结果是普适的。当需要讨论两个有限远处的点之间的映射等时，可以在两点处分别建立局域坐标讨论，结果一般和当作只有一套局域坐标等价。
 \end{frame}
 
-\begin{frame}{注\refpage{25}：李群与李变换群}
+\begin{frame}{\refpage{25}：李群与李变换群}
 	最后几行写得有一点乱，应该是现有李群的概念后有李变换群的概念。也可以说李群是抽象的，李变换群是特殊情况。
 	
 	假设给定李群$G$和另一个集合$V$（可以是线性空间，也可以不是），并且每一个$A(\alpha)\in G$对应一个$V$上的变换（即$V$到自身的映射），且有结合律：$[A(\alpha)B(\alpha)]v=A(\alpha)[B(\alpha)v]$（有的文献似乎反过来定义），则称$G$是李变换群。（c.f. 群在集合上的作用）（当$V$有附加结构时可能会对这个作用提出更多要求）
@@ -241,7 +243,7 @@ a=\begin{pmatrix}1 & 1 \\ 0 & 0\end{pmatrix}, b=\begin{pmatrix}0 & 0 \\ 1 & 1\en
 	\end{equation*}
 	（这里的“乘法”都代表“作用”）
 	
-	即$\alpha+\di\alpha=\varphi(\delta\alpha,\alpha)$，作小量展开得到
+	即$A(\alpha+\di\alpha)=A(\delta\alpha)A(\alpha)$，$\alpha+\di\alpha=\varphi(\delta\alpha,\alpha)$，作小量展开得到
 	\begin{equation*}
 	\di\alpha^\mu=V^\mu_\sigma(\alpha)\delta\alpha^\sigma
 	\end{equation*}
@@ -253,6 +255,64 @@ a=\begin{pmatrix}1 & 1 \\ 0 & 0\end{pmatrix}, b=\begin{pmatrix}0 & 0 \\ 1 & 1\en
 \pdfpage{28}
 \pdfpage{29}
 \pdfpage{30}
+
+\begin{frame}{注第\refpageN{29}-\refpageN{30}页：无穷小生成元的理解及与常见文献中定义的对应}
+	无穷小生成元，顾名思义，（不太严谨地）可以理解为与有限群的生成元在李群中的“对应”，即其他群元素可以用这个（些）元素不断地自乘得到。但由于李群是连续的，这样的“生成元”必然是无限小的，而我们会希望和有限的量打交道，所以我们定义这样的“无穷小生成元”时要除掉它“无穷小的程度”，也就是
+	\begin{equation*}
+	\text{无穷小生成元}=\frac{\text{无穷小群元}}{\text{该群元对应的无穷小群参数}}
+	\end{equation*}
+	课件中定义的无穷小生成元就是这样的：$\chi_\sigma(X)\delta\alpha^\sigma$给出底空间中一个函数经过一个$\delta\alpha^\sigma$对应的无穷小群操作后的变化量，即它表征了这个无穷小群操作，于是群参数前的系数就是我们要的无穷小生成元。
+\end{frame}
+
+\begin{frame}{注第\refpageN{29}-\refpageN{30}页：无穷小生成元的理解及与常见文献中定义的对应}
+	
+	“微分算子”这一形式在把等式写完整之后意义会更明晰。无穷小变化表示为$\chi_sigma(X)\delta\alpha^\sigma$，于是变化后的函数（等于原来的函数加上变化量）：
+	\begin{equation*}
+	(1+\chi_\sigma(X)\delta\alpha^\sigma)F(X^i)=(1+\delta\alpha^\sigma U^i_\sigma\pp{}{X^i})F(X^i)=F(X^i+U^i_\sigma\delta\alpha^\sigma)
+	\end{equation*}
+	这样可以明显地看出它表征一个无穷小平移操作。
+	事实上，$\pp{}{X^i}$可以视为一组（协变）基矢\footnote{关于这一描述详见梁灿彬第二章，或其他微分几何教材}，这样$U^i_\sigma\pp{}{X^i}$可以视为一个矢量在这组基矢下的展开式，亦即$\chi_\sigma(X)$是底空间上的矢量场。
+	
+	并且，我们知道，每一个李变换群的元素$\gamma$都是一个底空间上的变换，那么它也就可以诱导一个底空间上矢量场的变换。具体来说，记变换函数为$Y^j(X^i)$，即原来底空间中坐标为$X^i$的点变换后被映射到了$Y^j$。那么原来在点$X^i$处的矢量$A^i(X)\pp{}{X^i}$，在映射并在新的坐标下展开后变成$A^i(X)\pp{Y^j}{X^i}\pp{}{Y^j}$。\footnote{这一过程严谨表述为一个推前映射，见梁灿彬第四章}
+\end{frame}
+
+\begin{frame}{注第\refpageN{29}-\refpageN{30}页：无穷小生成元的理解及与常见文献中定义的对应}
+	
+	但我们知道
+	\begin{equation*}
+	A^i(X)=U^i_\sigma(X)=\ppat{f^i(\beta,X)}{\beta^\sigma}{\beta=0}
+	\end{equation*}
+	特别地有
+	\begin{equation*}
+	A^i(X)\pp{Y^j}{X^i}=\pp{Y^j}{X^i}\ppat{f^i(\beta,X)}{\beta^\sigma}{\beta=0}
+	\end{equation*}
+	由于合成函数$f^i$给出的结果其实就是$X^i$，并且是在$\beta=0$处取值，右边两项可以用链式法则合并：
+	\begin{equation*}
+	A^i(X)\pp{Y^j}{X^i}=\ppat{Y^j(f(\beta,X))}{\beta^\sigma}{\beta=0}
+	\end{equation*}
+	而
+	\begin{equation*}
+	A^i(Y)=\ppat{f^i(\beta,Y)}{\beta^\sigma}{\beta=0}=\ppat{f^i(\varphi(\beta,\gamma),X)}{\beta^\sigma}{\beta=0}
+	\end{equation*}
+	
+	到这里我们发现，$A^i(X)\pp{Y^j}{X^i}\neq A^i(y)$。这说明这个矢量场并不“协变”（严格来说叫“左不变”）。
+	
+\end{frame}
+
+\begin{frame}{注第\refpageN{29}-\refpageN{30}页：无穷小生成元的理解及与常见文献中定义的对应}
+	但一般的文献（如梁灿彬、Cohn）中都是要求这个矢量场左不变的。这一要求的逻辑是：由于李群中每一个元素$g$都可以视为$ge$，从而$g$的邻域可以视为单位元$e$的邻域经过映射$L_g:x\mapsto gx$（这是一个微分和拓扑双重意义下的同胚，简单来说可以认为这个映射“保一切性质”）变换而得，李群中任意一点附近的性质都应该和单位元邻域相同。因此，无穷小生成元这个向量场应该是协变的，这样场中每一点事实上都是单位元附近的向量场映射而得。如果这个矢量场不是左不变的，那么可能出现问题，比如说无穷小生成元之间的关系变得依赖于坐标的选取。
+\end{frame}
+
+\begin{frame}{注第\refpageN{29}-\refpageN{30}页：无穷小生成元的理解及与常见文献中定义的对应}
+	如果采取“左不变”的定义，那么之前定义的$f,U,V$都需要重写。$f$应该重写为$f(X,\beta)$，满足$f(X,\varphi(\alpha,\beta))=f(f(X,\alpha),\beta)$，亦即李变换群在底空间上是一个右作用。相应地，$U$改写为$U^i_\sigma(X)=\ppat{f^i(X,\beta)}{\beta^\sigma}{\beta=0}$，$V$改写为$V^\mu_\sigma(\alpha)=\ppat{\varphi^\mu(\alpha,\beta)}{\beta^\sigma}{\beta=0}$。
+	
+	这样的话，矢量场就是协变的了：
+	\begin{equation*}
+	A^i(X)\pp{Y^j}{X^i}=\ppat{Y^j(f(X,\beta))}{\beta^\sigma}{\beta=0}
+	\end{equation*}
+	
+\end{frame}
+
 \pdfpage{31}
 \pdfpage{32}
 \pdfpage{33}
