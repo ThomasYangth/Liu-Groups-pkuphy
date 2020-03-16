@@ -1,0 +1,170 @@
+\documentclass{beamer}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+\usefonttheme[onlymath]{serif}
+\setCJKmainfont[BoldFont={STZhongsong},ItalicFont={FangSong}]{SimSun}
+\setCJKsansfont[BoldFont={DengXian Bold},ItalicFont={KaiTi}]{DengXian}
+\newcommand{\pdfpage}[1]{{\usebackgroundtemplate{\includegraphics[width=\paperwidth]{W5/W5_页面_#1.jpg}}\begin{frame}[plain]\label{OrigPdf#1}\end{frame}}}%将原课件的某一页作为一个全页图片插入，参数为原课件页数（图片用pdf的导出图像功能得到），注意个位数需要前面加一个零
+\newcommand{\refpage}[1]{注第\ref{OrigPdf#1}页}%将原页码转化为新页码
+\newcommand{\refpageN}[1]{\ref{OrigPdf#1}}%将原页码转化为新页码，只给出数字
+\newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ppat}[3]{\left.\left(\pp{#1}{#2}\right)\right|_{#3}}
+\newcommand{\di}{\mathrm d}
+\title{《李群和李代数》第五周课件勘误与注解}
+\author{原课件：刘玉鑫老师}
+\begin{document}
+\maketitle
+\begin{frame}{说明}
+本文档基于原课件，修改了一些其中的错误并对一些不太明晰的地方进行了注解。\\
+主要参考书：
+\begin{itemize}
+\item P. M. Cohn, \textit{Lie Groups}
+\item Brain Hall, \textit{Lie Groups, Lie Algebras and Representations}
+\item A. O. Barut, \textit{Theory of Group Representations and Applications}
+\item 梁灿彬，《微分几何与广义相对论》
+\item V. S. Varadarajan, \textit{Lie Groups, Lie Algebras and Their Representations}
+\item 韩其智、孙洪洲，《群论》
+\end{itemize}
+
+本文档的页面由三种页面组成：（1）直接引用课件；（2）引用原课件，但改写了其中的错误，表现为白底黑字蓝色标题的页面；（3）对于原课件的注解，同样是白底黑字蓝色标题的页面，但标题以“注第XX页”开头。
+
+本文中提到的页码均指本pdf页码，不是原课件页码。
+
+部分结果来自群内讨论。如有问题，欢迎讨论。
+\end{frame}
+\pdfpage{01}
+\pdfpage{02}
+
+\begin{frame}{\refpage{02}}
+	这里能够将$\frac{(a,b)}{\sqrt{(a,a)(b,b)}}$写为$\cos\varphi$，其实默认了它是小于等于一的。这是利用了Cauchy-Schwarz不等式，而这个不等式又要求度规正定。所以这里其实缺了一步证明度规$g_{ij}$正定的步骤。
+	
+	度规$g_{ij}$（即Killing型限制在Cartan子空间上）正定的证明： 直接利用度规的定义式，将结构常数的具体表达式代入，得到$g_{ij}=\sum_\alpha a_ia_j$。于是对于任意的向量$x^i$，有$x^ig_{ij}x^j=a_ix^ia_jx^j=(a_ix^i)^2\geq 0$，从而$g_{ij}$是半正定的。但$g_{ij}$不能有零本征值，否则$\det g_{ij}=0$，由Killing型的分块对角性这意味着Killing型在整个李代数上是退化的，与半单纯性矛盾。从而$g_{ij}$正定。
+	
+	推论：各个向量$a_i$张成整个线性空间$\mathbb R^l$，或者说各个李代数中向量$a^iH_i$张成整个Cartan子空间。若不然，则可以取$\mathbb R^l$中向量$x^i$，其与所有$a_i$正交\footnote{在欧氏空间内积意义下}，从而$x^ig_{ij}x^j=0$，与上述结论矛盾。
+	
+	\textit{不过上面似乎默认了所有东西都是实数，但其实我们讨论的是复李代数，所以可能还是有些不严谨……}
+\end{frame}
+
+\begin{frame}{\refpage{02}}
+	在此基础上，结合$\frac{(a,b)}{(a,a)}=\frac{\text{整数}}{2}$，就可以知道$\cos^2\varphi=\frac{0,1,2,3,4}{4}$。而$\cos^2\varphi=1$要求Cauchy不等式取等号，在度规正定的条件下这意味着$a$和$b$成比例。设这个比例为$k$，则我们要求$2k$和$\frac{2}{k}$都是整数，从而$k=\pm 1,2$。而$k=\pm 2$意味着$\pm 2b$是根，这与上节课已经证明的命题矛盾；$k=\pm 1$的情况是trivial的，以下就没有考虑，所以可以认为$\cos^2\varphi$不会取到$1$。
+\end{frame}
+
+\pdfpage{03}
+
+\begin{frame}{\refpage{03}}
+	
+	第三行应该是$\left\{\begin{aligned}\frac{(a,b)}{(a,a)}=\frac{1}{2}\\\frac{(b,a)}{(b,b)}=\frac{3}{2}\end{aligned}\right.$或$\left\{\begin{aligned}\frac{(a,b)}{(a,a)}=\frac{3}{2}\\\frac{(b,a)}{(b,b)}=\frac{1}{2}\end{aligned}\right.$，分母写为$4$应为笔误。
+	
+\end{frame}
+
+\pdfpage{04}
+
+\begin{frame}{\refpage{04}}
+	
+	这里的定义想表述的应该是，既然$g$在各个根张成的实线性空间上形成正定实内积，那么它可以保内积地同构于$l$维欧式空间。再具体一点就是，用各个根（实）线性组合得到一组$\{e_i\}$，使得它们在$g$定义的内积下正交归一，那么此时每一个根就可以用这一组基的实系数叠加得到，这些叠加系数就构成这个根的坐标，就可以按这个坐标把这个根画到欧氏空间里。注意原来的实正定内积就保证了和欧氏空间一样的几何，所以这样画根图的时候可以放心地使用欧式空间中的几何，比如二维情形下$\langle a,c\rangle=\langle a,b\rangle + \langle b,c\rangle$（尖括号表示夹角）。
+	
+\end{frame}
+
+\pdfpage{05}
+\pdfpage{06}
+\pdfpage{07}
+\pdfpage{08}
+
+\begin{frame}{注第\refpageN{05}-\refpageN{08}页}
+	上述四种事实上穷尽了二秩半单李代数根图的所有可能。事实上，由于是二秩的，至少有两个（线性独立的，也就是不能分别是$\alpha$和$-\alpha$）非零根。于是可以取所有线性独立非零根对夹角的最小值（这里用到了上一句话的条件，如果没有线性独立非零根对这个说法没有意义），它必然为$30^\circ,45^\circ,60^\circ,90^\circ$之一。然后，开始利用两根夹角与模长比值的关系，以及“若$\alpha,\beta$是根则$\beta-\frac{2(\alpha,\beta)}{(\alpha,\alpha)}\alpha$也是”这一条件（在图上反映为如果由两个不共线的根则一个根以另一个为轴转$180^\circ$之后还是根），就必然会构造出上述四页提到的情况之一。此时要再加根是不可能的。新的根不能加在已经有根的方向上，否则和“形如$k\alpha$的根只能取$k=0,\pm 1$矛盾”；也不能加在还没有根的方向上，不然的话就会和相邻的原有根形成一个比我们假设是最小夹角更小的夹角。所以以上四页穷尽了二秩半单李代数的所有可能根图。
+\end{frame}
+
+\pdfpage{09}
+\pdfpage{10}
+\pdfpage{11}
+\pdfpage{12}
+
+\begin{frame}{注第\refpageN{11}-\refpageN{12}页}
+	这里所谓“$l$秩的用$l+1$维的归一基表示”并不是说它不能用$l$维的归一基表示。事实上，$\{e_i-e_j|1\leq i<j\leq l+1\}$这些根全都和$(1,1,\dots,1)$这个向量正交，也就是处于一个超平面上，完全可以在这个超平面上选取一组正交归一基来表述这些根，只是这样不如把它嵌入到$l+1$维空间中表述来得方便。
+	
+	比如说，我们可以在超平面上取另一组基$e_i^\prime$，它在$l+1$维空间中的表达式为：
+	\begin{equation*}
+	\begin{dcases}
+	e_1^\prime=\frac{1}{\sqrt{1\cdot 2}}(1,-1,0,\dots,0)\\
+	e_2^\prime=\frac{1}{\sqrt{2\cdot 3}}(1,1,-2,0,\dots,0)\\
+	e_3^\prime=\frac{1}{\sqrt{3\cdot 4}}(1,1,1,-3,0,\dots,0)\\
+	\dots\\
+	e_l^\prime=\frac{1}{\sqrt{l(l+1)}}(1,1,\dots,1,-l)
+	\end{dcases}
+	\end{equation*}
+\end{frame}
+
+\begin{frame}{注第\refpageN{11}-\refpageN{12}页}
+	这时有
+	\begin{equation*}
+	e_1-e_2=\sqrt{2}e_1^\prime
+	\end{equation*}
+	\begin{equation*}
+	e_1-e_3=\frac{1}{2}[(e_1-e_2)+\sqrt{2\cdot 3}e_2^\prime]=\frac{1}{\sqrt{2}}(e_1^\prime+\sqrt{3}e_2^\prime)
+	\end{equation*}
+	一般地，有递推式
+	\begin{equation*}
+	e_1-e_{i+1}=\frac{1}{i}\left[\sum_{l=2}^i (e_1-e_l) + \sqrt{i(i+1)}e_i^\prime\right]
+	\end{equation*}
+	如果假设$e_1-e_{i}=a_{ij}e_j^\prime$，经过递推计算我们得到
+	\begin{equation*}
+	a_{ij}=
+	\begin{dcases}
+	0 & i\leq j \\
+	\sqrt{\frac{j+1}{j}} & i = j+1\\
+	\frac{1}{\sqrt{j(j+1)}} & i > j+1
+	\end{dcases}
+	\end{equation*}
+\end{frame}
+
+\begin{frame}{注第\refpageN{11}-\refpageN{12}页}
+	从而，在新的正交归一基下，这一根图可以表示为
+	\begin{multline*}
+	\{e_i-e_j|1\leq i < j \leq l+1\}\\=\Bigg\{\sqrt{\frac{j}{j-1}}e_{j-1}^\prime-\sqrt{\frac{i-1}{i}}e_{i-1}^\prime+\sum_{k=i}^{j-2}\frac{e_k^\prime}{\sqrt{k(k+1)}}
+	\Bigg|1\leq i < j \leq l+1\Bigg\}
+	\end{multline*}
+	（其中$i=1$时忽略第二项）
+\end{frame}
+
+\begin{frame}{注第\refpageN{11}-\refpageN{12}页}
+	特别地，当$l=3$的时候，我们发现可以对$e_1^\prime,e_2^\prime,e_3^\prime$重新组合得到
+	\begin{equation*}
+	\begin{dcases}
+	e_1=\frac{1}{\sqrt{2}}e_1^\prime-\frac{1}{\sqrt{6}}e_2^\prime+\frac{1}{\sqrt{3}}e_3^\prime=\left(\frac12,-\frac12,\frac12,-\frac12\right)\\
+	e_2=\frac{1}{\sqrt{2}}e_1^\prime+\frac{1}{\sqrt{6}}e_2^\prime-\frac{1}{\sqrt{3}}e_3^\prime=\left(\frac12,-\frac12,-\frac12,\frac12\right)\\
+	e_3=\sqrt{\frac{2}{3}}e_2^\prime+\frac{1}{\sqrt{3}}e_3^\prime=\left(\frac12,\frac12,-\frac12,-\frac12\right)
+	\end{dcases}
+	\end{equation*}
+	这时恰好所有的非零根就是$\pm e_1\pm e_2,\pm e_2\pm e_3,\pm e_3\pm e_1$，PPT中提到的李代数同构即由此而来。这在一般情况下是不成立的。$su(l+1)$的非零根个数为$l(l+1)$，而$so(2l)$的非零根数为$2l(l-1)$，二者只在$l=3$时才会相等。
+\end{frame}
+
+\pdfpage{13}
+\pdfpage{14}
+\pdfpage{15}
+\pdfpage{16}
+\pdfpage{17}
+\pdfpage{18}
+\pdfpage{19}
+\pdfpage{20}
+\pdfpage{21}
+\pdfpage{22}
+\pdfpage{23}
+\pdfpage{24}
+\pdfpage{25}
+\pdfpage{26}
+\pdfpage{27}
+\pdfpage{28}
+\pdfpage{29}
+\pdfpage{30}
+\pdfpage{31}
+\pdfpage{32}
+\pdfpage{33}
+\pdfpage{34}
+\pdfpage{35}
+\pdfpage{36}
+\pdfpage{37}
+\pdfpage{38}
+
+\end{document}
