@@ -28,7 +28,7 @@
 \item 韩其智、孙洪洲，《群论》
 \end{itemize}
 
-本文档的页面由三种页面组成：（1）直接引用课件；（2）引用原课件，但改写了其中的错误，表现为白底黑字蓝色标题的页面；（3）对于原课件的注解，同样是白底黑字蓝色标题的页面，但标题以“注第XX页”开头。
+%本文档的页面由三种页面组成：（1）直接引用课件；（2）引用原课件，但改写了其中的错误，表现为白底黑字蓝色标题的页面；（3）对于原课件的注解，同样是白底黑字蓝色标题的页面，但标题以“注第XX页”开头。
 
 本文中提到的页码均指本pdf页码，不是原课件页码。
 
@@ -37,18 +37,81 @@
 \pdfpage{01}
 \pdfpage{02}
 
+%\begin{frame}{\refpage{02}}
+%	这里能够将$\frac{(a,b)}{\sqrt{(a,a)(b,b)}}$写为$\cos\varphi$，其实默认了它是小于等于一的。这是利用了Cauchy-Schwarz不等式，而这个不等式又要求度规正定。所以这里其实缺了一步证明度规$g_{ij}$正定的步骤。
+%	
+%	度规$g_{ij}$（即Killing型限制在Cartan子空间上）正定的证明： 直接利用度规的定义式，将结构常数的具体表达式代入，得到$g_{ij}=\sum_\alpha a_ia_j$。于是对于任意的向量$x^i$，有$x^ig_{ij}x^j=a_ix^ia_jx^j=(a_ix^i)^2\geq 0$，从而$g_{ij}$是半正定的。但$g_{ij}$不能有零本征值，否则$\det g_{ij}=0$，由Killing型的分块对角性这意味着Killing型在整个李代数上是退化的，与半单纯性矛盾。从而$g_{ij}$正定。
+%	
+%	推论：各个向量$a_i$张成整个线性空间$\mathbb R^l$，或者说各个李代数中向量$a^iH_i$张成整个Cartan子空间。若不然，则可以取$\mathbb R^l$中向量$x^i$，其与所有$a_i$正交\footnote{在欧氏空间内积意义下}，从而$x^ig_{ij}x^j=0$，与上述结论矛盾。
+%	
+%	\textit{不过上面似乎默认了所有东西都是实数，但其实我们讨论的是复李代数，所以可能还是有些不严谨……}
+%\end{frame}
+
 \begin{frame}{\refpage{02}}
-	这里能够将$\frac{(a,b)}{\sqrt{(a,a)(b,b)}}$写为$\cos\varphi$，其实默认了它是小于等于一的。这是利用了Cauchy-Schwarz不等式，而这个不等式又要求度规正定。所以这里其实缺了一步证明度规$g_{ij}$正定的步骤。
 	
-	度规$g_{ij}$（即Killing型限制在Cartan子空间上）正定的证明： 直接利用度规的定义式，将结构常数的具体表达式代入，得到$g_{ij}=\sum_\alpha a_ia_j$。于是对于任意的向量$x^i$，有$x^ig_{ij}x^j=a_ix^ia_jx^j=(a_ix^i)^2\geq 0$，从而$g_{ij}$是半正定的。但$g_{ij}$不能有零本征值，否则$\det g_{ij}=0$，由Killing型的分块对角性这意味着Killing型在整个李代数上是退化的，与半单纯性矛盾。从而$g_{ij}$正定。
+	这里能够将$\frac{(a,b)}{\sqrt{(a,a)(b,b)}}$写为$\cos\varphi$，其实默认了它是小于等于一的。这是需要证明的，我们利用一个正定性来证明。
 	
-	推论：各个向量$a_i$张成整个线性空间$\mathbb R^l$，或者说各个李代数中向量$a^iH_i$张成整个Cartan子空间。若不然，则可以取$\mathbb R^l$中向量$x^i$，其与所有$a_i$正交\footnote{在欧氏空间内积意义下}，从而$x^ig_{ij}x^j=0$，与上述结论矛盾。
+	\textbf{引理：} 对于任意非零根$a\in\Sigma$,$(a,a)$为正实数。
+
+	\textbf{证明：} 由度规的定义加上Cartan-Weyl基的对易关系可得$g_{ij}=\sum_{b\in\Sigma} b_ib_j$。从而
+	\begin{equation*}
+	(a,a)=g_{ij}a^ia^j=\sum_{b\in\Sigma} a^ia^jb_ib_j=\sum_{b\in\Sigma}(a,b)^2
+	\end{equation*}
 	
-	\textit{不过上面似乎默认了所有东西都是实数，但其实我们讨论的是复李代数，所以可能还是有些不严谨……}
 \end{frame}
 
 \begin{frame}{\refpage{02}}
-	在此基础上，结合$\frac{(a,b)}{(a,a)}=\frac{\text{整数}}{2}$，就可以知道$\cos^2\varphi=\frac{0,1,2,3,4}{4}$。而$\cos^2\varphi=1$要求Cauchy不等式取等号，在度规正定的条件下这意味着$a$和$b$成比例。设这个比例为$k$，则我们要求$2k$和$\frac{2}{k}$都是整数，从而$k=\pm 1,2$。而$k=\pm 2$意味着$\pm 2b$是根，这与上节课已经证明的命题矛盾；$k=\pm 1$的情况是trivial的，以下就没有考虑，所以可以认为$\cos^2\varphi$不会取到$1$。
+
+而我们知道$\frac{2(a,b)}{(a,a)}=q_b-p_b$，于是$(a,b)=\frac{q_b-p_b}{2}(a,a)$，带入上式得到
+\begin{equation*}
+(a,a)=\frac{1}{4}\sum_{b\in\Sigma}(q_a-p_a)^2(a,a)^2
+\end{equation*}
+从而
+\begin{equation*}
+(a,a)=\frac{4}{\sum_{b\in\Sigma}(q_a-p_a)^2}>0
+\end{equation*}
+证毕。
+
+\textbf{推论：} 对于任意$a,b\in\Sigma$有$(a,b)\in\mathbb R$。
+
+\end{frame}
+
+\begin{frame}{\refpage{02}}
+	
+	\textbf{推论：} 对于任意非零根的实线性叠加\footnote{注意，这里并不假设根本身是实的，但要求根前面的叠加系数是实的}$x=\sum_{a\in\Sigma}k_aa$，有$(x,x)\geq 0$，且等号成立当且仅当$x=0$。
+	
+	\textbf{证明：} 我们有
+	\begin{equation*}
+	(x,x)=g_{ij}x^ix^j=\sum_{b\in\Sigma} b_ib_jx^ix^j=\sum_{b\in\Sigma} (b,x)^2
+	\end{equation*}
+	而我们知道$(b,x)=\sum_{a\in\Sigma} k_a(a,b)$\textbf{为实数}，从而$(x,x)$为正实数。
+	
+	如果非零的$x$使得$g_{ij}x^ix^j=0$，这意味着$g_{ij}$退化，从而$g$退化，这与半单纯性矛盾。证毕。
+	
+	从而我们知道，对于任意非零根$a,b$及任意实数$\lambda$，$(a+\lambda b,a+\lambda b)\geq 0$，展开后用判别式条件即得到$|(a,b)|\leq \sqrt{(a,a)(b,b)}$。
+	
+\end{frame}
+
+\begin{frame}{\refpage{02}}
+	在此基础上，结合$\frac{(a,b)}{(a,a)}=\frac{\text{整数}}{2}$，就可以知道$\cos^2\varphi=\frac{0,1,2,3,4}{4}$。而$\cos^2\varphi=1$要求上述判别式取等号，也就是$(a+\lambda b,a+\lambda b)$可以取到零，这意味着存在$\lambda$使得$a+\lambda b=0$，也就是$a$和$b$成比例。设这个比例为$k$，则我们要求$2k$和$\frac{2}{k}$都是整数，从而$k=\pm 1,2$。而$k=\pm 2$意味着$\pm 2b$是根，这与上节课已经证明的命题矛盾；$k=\pm 1$的情况是trivial的，以下就没有考虑，所以可以认为$\cos^2\varphi$不会取到$1$。
+	
+	上面的讨论实质上说明，我们在可以在实线性空间$\{\sum_a k_a a|k_a\in\mathbb R\}$上定义欧几里得内积$(\sum_a k_a a,\sum_b k_b^\prime b)=\sum_{a,b}k_ak_b^\prime (a,b)$，它是实数，且正定。
+	
+	注：这个线性空间是实数，是指叠加系数是实数，根本身可以是复数，好比复数集可以作为二维实线性空间：线性空间中元素是复数，但是矢量前的叠加系数是实数。非零根的集合$\Sigma$张成这个线性空间（即任一矢量都可以用这个集合线性表出），但这个集合本身是线性相关的，所以不是基，这个实线性空间的维度要小于非零根的数目。
+\end{frame}
+
+\begin{frame}{\refpage{02}}
+	
+	\textbf{命题：} 实线性空间$\mathcal H=\{\sum_a k_a a|k_a\in\mathbb R\}$的维度等于李代数的秩$l$。
+
+	引理：对于非零根$a$，$ia\notin\mathcal H$。这是因为$(ia,ia)=-(a,a)<0$，与这一内积在$\mathcal H$上正定矛盾。\footnote{这里把$a$乘上虚数单位是把$a$看作一个$l$元复数组来说的，或者更严格一些，$\mathcal H$看作了$\mathbb C^l$的子集然后说明它对一个$\mathbb C^l$上的变换不封闭。}
+	
+	从而我们知道，$\mathcal H$和$i\mathcal H=\{\sum_a ik_a a|k_a\in\mathbb R\}$的和为直和。下面证明$\mathcal H\oplus i\mathcal H=\mathbb C^l$。
+	
+	事实上，如果存在一个$x\in \mathbb C^l$不能用$\mathcal H\oplus i\mathcal H$中元素表出——也就是不能用各个根以复叠加系数线性表出，那么可以通过施密特正交化使得其与每个根在$\mathbb C^l$的厄米内积为零，亦即$b_i(x^\ast)^i=0,\forall b\in\Sigma$，\footnote{这里$x$直接看作$\mathbb C^l$的元素，不需要区分上下标}于是$(x^\ast,x^\ast)=\sum_{b\in\Sigma}\left[b_i(x^\ast)^i\right]^2=0$，这意味着$g_{ij}$退化，矛盾。
+	
+	显然$i\mathcal H$与$\mathcal H$同构，于是两者维数相等，而两者维数相加等于$\mathbb C^l$作为实线性空间的维度$2l$，从而两者维度均为$l$。\qedsymbol
+	
 \end{frame}
 
 \pdfpage{03}
@@ -63,13 +126,23 @@
 
 \begin{frame}{\refpage{04}}
 	
-	这里的定义想表述的应该是，既然$g$在各个根张成的实线性空间上形成正定实内积，那么它可以保内积地同构于$l$维欧式空间。再具体一点就是，用各个根（实）线性组合得到一组$\{e_i\}$，使得它们在$g$定义的内积下正交归一，那么此时每一个根就可以用这一组基的实系数叠加得到，这些叠加系数就构成这个根的坐标，就可以按这个坐标把这个根画到欧氏空间里。注意原来的实正定内积就保证了和欧氏空间一样的几何，所以这样画根图的时候可以放心地使用欧式空间中的几何，比如二维情形下$\langle a,c\rangle=\langle a,b\rangle + \langle b,c\rangle$（尖括号表示夹角）。
+	这里的定义想表述的应该是，既然$\mathcal H$上有实线性内积，那么它可以保内积地同构于$l$维欧式空间。再具体一点就是，用各个根（实）线性组合得到一组$\{e_i\}$，使得它们在$\mathcal H$的内积下正交归一，那么此时每一个根就可以用这一组基的实系数叠加得到，这些叠加系数就构成这个根的坐标，就可以按这个坐标把这个根画到欧氏空间里，欧氏空间的维度就等于李代数的秩。注意原来的实正定内积就保证了和欧氏空间一样的几何，所以这样画根图的时候可以放心地使用欧式空间中的几何，比如二维情形下$\langle a,c\rangle=\langle a,b\rangle + \langle b,c\rangle$（尖括号表示夹角）。
 	
 \end{frame}
 
 \pdfpage{05}
+
+\begin{frame}{\refpage{05}}
+	这其实可以推广到任意高维。对于$l$秩的李代数，可以假设非零根写为$\pm e_i,i=1,\dots,l$，其中这里$e_i$未必是单位向量，长度不定。这意味着原李代数的非零根和除负的自己之外的所有其他根都是正交的。这意味着对于任意两个不相等或为相反数的非零根$\alpha,\beta$，它们组合得到的$\alpha\pm\beta$都不是根（因为和$\alpha$不正交）。这也就是说$[E_\alpha,E_\beta]=0$，对任意的$\beta\neq-\alpha$。那么可以发现$\{E_\alpha,E_{-\alpha},H_\alpha\}$构成理想，其中$H_\alpha=[E_\alpha,E_{-\alpha}]=a^iH_i$。它显然是子代数，而对其他任意非零根$\beta$有$[H_\alpha,E_\beta]=a^ib_i=(a,b)=0$、$[H_\beta,E_\alpha]=(a,b)=0$，从而还是理想。\footnote{这里用到了各个$\{H_\beta|\beta\in\Sigma\}$构成Cartan子空间的一组基这个结论，这是由于非零根系向量组的秩应该为$l$，从而从每个正负对中选一个出来得到的$l$个向量应该线性无关，从而构成$\mathbb C^l$的一组基，乘到$H_i$上线性组合即是Cartan子空间的基。}由此，整个李代数可以分解为$l$个这样的理想和直和。每一个理想满足$[H,E_+]=aE_+,[H,E_-]=-aE_-,[E_+,E_-]=a^\prime H$，可以看到这同构于$so(3)$（也就是熟悉的角动量升降算符体系）。于是这样的$l$秩李代数实质上就是$\bigotimes^l so(3)$，也就是基本trivial的。
+\end{frame}
+
 \pdfpage{06}
 \pdfpage{07}
+
+\begin{frame}{\refpage{07}}
+	就这里来说，$so(5,\mathbb R)$和$sp(4,\mathbb R)$的李代数其实是同构的。这里特地区分开来是因为在高维情况下它们对应不同的情况。
+\end{frame}
+
 \pdfpage{08}
 
 \begin{frame}{注第\refpageN{05}-\refpageN{08}页}
@@ -78,6 +151,11 @@
 
 \pdfpage{09}
 \pdfpage{10}
+
+\begin{frame}{注第\refpageN{09}-\refpageN{10}页}
+	这里其实不是任取两个根都正交。任取两个根，如果是$\pm e_i\pm e_j$和$\pm e_k\pm e_l$，其中$\{i,j\}\cap \{k,l\}=\varnothing$，那么确实正交。$e_i+e_j$与$e_i-e_j$也确实正交。但形如$\pm e_i\pm e_j$和$\pm e_i\pm e_k$是成$60^\circ$角的，这要求它们模长相等，而也确实是相等。
+\end{frame}
+
 \pdfpage{11}
 \pdfpage{12}
 
@@ -143,8 +221,32 @@
 \pdfpage{13}
 \pdfpage{14}
 \pdfpage{15}
+
+\begin{frame}{\refpage{15}}
+	这里$B_l$和$C_l$一般是不同构的。事实上，$a$这一组向量总共有$2l$个，而$b$这一组共$4C_l^2=2l(l-1)$个，在$l\neq 1$是两个向量组个数不同，从而不是对称的。于是$b$更长的$B_l$和$a$更长的$C_l$是两个不同的李代数。
+\end{frame}
+
 \pdfpage{16}
 \pdfpage{17}
+
+\begin{frame}{\refpage{17}}
+	注意，此处$l=3$时得到的李代数其实就是$G_2$，它是二秩而非三秩的，因为李代数的秩应该等于各个根张成的空间的维度，这里虽然根被写在三维空间内，但它们位于同一个平面内，故实质上是二维的，和前述大卫星完全相同。
+\end{frame}
+
+%\begin{frame}{典型及$G_2$李代数总结}
+%	\begin{table}
+%	\begin{tabular}{|l|p{2.5cm}|p{3cm}|p{2cm}|p{1cm}|}
+%	\hline
+%	名称 & 对应群及维数 & 根表达式 & 特征长度与夹角 & 根图\\\hline
+%	$A_l$ & $SU(l+1)$, $l(l+2)$ & $\{e_i-e_j\}$ & 一个长度，$60^\circ$与$90^\circ$ & 超平面 \\\hline
+%	$B_l$ & $SO(2l+1)$, $l(2l+1)$ & $\{\pm e_i,\pm e_i\pm e_j\}$ & 长度比$\sqrt 2$，$45^\circ$ & 立方 \\\hline
+%	$C_l$ & $SP(2l)$, $l(2l+1)$ & $\{\pm 2e_i,\pm e_i\pm e_j\}$ & 长度比$\sqrt 2$，$45^\circ$ & 立方 \\\hline
+%	$D_l$ & $SO(2l)$, $l(2l-1)$ & $\{\pm e_i\pm e_j\}$ & 一个长度，$60^\circ$与$90^\circ$ & 超立方体棱中点 \\\hline
+%	$G_2$ & 无, $14$& $\{e_i-e_j,\pm 2e_i\mp e_j\mp e_k\}$ & 长度比$\sqrt 3$，$30^\circ$ & 大卫星\\\hline
+%	\end{tabular}
+%	\end{table}
+%\end{frame}
+
 \pdfpage{18}
 \pdfpage{19}
 \pdfpage{20}
@@ -161,10 +263,43 @@
 \pdfpage{31}
 \pdfpage{32}
 \pdfpage{33}
+
+\begin{frame}{\refpage{33}}
+	这里素根的定义和一般文献中的定义是等价的。一般文献中讲素根定义为不能表示为另外两个正根之和的正根。在后者的定义下，可以证明各个素根线性无关，且所有正根都可以用各个素根的正整数线性组合表出，这也就说明了一个根是素根当且仅当其不能表示为其他素根的和。
+	
+	在给定了同一组基之后素根的取法应该是一定的。只要给定了一组基，那么$\{\text{第一个非零坐标为正的非零根}\}$这个集合就完全确定了。
+\end{frame}
+
 \pdfpage{34}
+
+\begin{frame}{\refpage{34}}
+	这里还不能直接排除$p=0$即两个素根正交的情况，不过一般不会遇到，因为这样的话这两个素根就无法组合出任何其他的根，相当于是“废的”。
+\end{frame}
+
 \pdfpage{35}
+
+\begin{frame}{\refpage{35}}
+	这里并不能直接得出各个$c^i\geq 0$的结论。严格证明如下：
+	
+	设$\sum_{i=1}^l c^ia_i=0$，不妨设各个$c_i$都不为零，记求和中$c_i$为正的部分的和为$u$，剩下部分的和为$v$，则式子改写为$u+v=0$，从而$(u,u)+(u,v)=0$。但$(u,u)>0$，而由于任意两个$a$内积为负，$u$和$v$分别贡献了反号的因子，$(u,v)$结果应该为正，于是$(u,u)+(u,v)>0$，矛盾。
+\end{frame}
+
 \pdfpage{36}
+
+\begin{frame}{\refpage{36}}
+	性质三中“最大”是由素根定义。说“$\Sigma^+$的完备基”不太合适，因为$\Sigma^+$不是个线性空间，准确地说这里是指可以通过正整数线性叠加叠加出$\Sigma^+$中所有元素。由于$\Sigma^+$加上自己乘以负号就构成整个根系，而整个根系又是一个$l$维实线性空间$\mathcal H$的基，可以素根系构成$\mathcal H$的基，从而素根的数目等于李代数的秩。
+	
+	其中所有正根都可以表示为素根的线性叠加这一点，Barut书中用的办法是，不断地将非素根用其他正根相加表示，这样一直分解就会得到素根的正整数和。\textit{这里“两素根之差不为根”这一点似乎无法保证系数一定为正？为整数？}
+\end{frame}
+
 \pdfpage{37}
+
+\begin{frame}{\refpage{37}}
+	这个命题应该表述为：$\forall\gamma\in\Sigma^+\setminus\pi$，$\exists \alpha\in \pi,\beta\in\Sigma^+$，使得$\gamma=\beta+\alpha$，也就是任意一个不素的正根都可以写成一个素根和另一个正根之和。
+	
+	其中$\alpha_0$的存在性是由于：如果$\alpha_0$不存在，则任意$\alpha_i$都有$(\alpha_i,\gamma)\leq 0$，从而$(\gamma,\gamma)=\sum_{i}k^i(\alpha_i,\gamma)\leq 0$，这与内积正定性矛盾。
+\end{frame}
+
 \pdfpage{38}
 
 \end{document}

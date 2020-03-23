@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.3.11)  16 MAR 2020 15:33
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.3.11)  23 MAR 2020 09:21
 entering extended mode
 **W5勘误与注解.tex
 (D:\Programming\Github\Liu-Groups\PPT-Erreta\W5勘误与注解.tex
@@ -1490,6 +1490,23 @@ Requested font "msbm10" at 10.95pt
  -> msbm10
 Requested font "[lmroman10-italic]:mapping=tex-text" at 10.95pt
  -> C:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman10-italic.otf
+Requested font "[lmsans10-bold]:mapping=tex-text" at 10.95pt
+ -> C:/CTEX/MiKTeX/fonts/opentype/public/lm/lmsans10-bold.otf
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'SimSun(0)' created for font 'SimSun' with options
+. [BoldFont={STZhongsong},ItalicFont={FangSong}].
+. 
+. This font family consists of the following shapes:
+.................................................
+Requested font "STZhongsong/ICU:script=latn;language=DFLT;" at 10.95pt
+ -> C:/Windows/Fonts/STZHONGS.TTF
+ [5
+
+] [6
+
+]
 Requested font "[lmsans9-regular]:mapping=tex-text" at 9.0pt
  -> C:/CTEX/MiKTeX/fonts/opentype/public/lm/lmsans9-regular.otf
 Requested font "[lmroman9-regular]:mapping=tex-text" at 9.0pt
@@ -1522,17 +1539,7 @@ Requested font "SimSun/ICU" at 9.0pt
 .................................................
 Requested font "SimSun/ICU:script=latn;language=DFLT;" at 9.0pt
  -> C:/Windows/Fonts/simsun.ttc
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'SimSun(0)' created for font 'SimSun' with options
-. [BoldFont={STZhongsong},ItalicFont={FangSong}].
-. 
-. This font family consists of the following shapes:
-.................................................
-Requested font "FangSong/ICU:script=latn;language=DFLT;" at 10.95pt
- -> C:/Windows/Fonts/simfang.ttf
- [5
+ [7
 
 ]
 Requested font "SimSun" at 8.0pt
@@ -1563,208 +1570,241 @@ Requested font "SimSun/ICU" at 6.0pt
 .................................................
 Requested font "SimSun/ICU:script=latn;language=DFLT;" at 6.0pt
  -> C:/Windows/Fonts/simsun.ttc
- [6
+ [8
+
+] [9
 
 ]
 File: W5/W5_页面_03.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_03.jpg" >
-[7
 
-] [8
+<use  "W5/W5_页面_03.jpg" > [10
+
+] [11
 
 ]
 File: W5/W5_页面_04.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_04.jpg" > [9
+ <use  "W5/W5_页面_04.jpg" > [12
 
-] [10
+]
+[13
 
 ]
 File: W5/W5_页面_05.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_05.jpg" >
-[11
-
-]
-File: W5/W5_页面_06.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_06.jpg" > [12
-
-]
-File: W5/W5_页面_07.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_07.jpg" > [13
-
-]
-File: W5/W5_页面_08.jpg Graphic file (type QTm)
-
-<use  "W5/W5_页面_08.jpg" > [14
+ <use  "W5/W5_页面_05.jpg" > [14
 
 ] [15
 
 ]
-File: W5/W5_页面_09.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_09.jpg" > [16
+File: W5/W5_页面_06.jpg Graphic file (type QTm)
+ <use  "W5/W5_页面_06.jpg" >
+[16
 
 ]
-File: W5/W5_页面_10.jpg Graphic file (type QTm)
+File: W5/W5_页面_07.jpg Graphic file (type QTm)
+ <use  "W5/W5_页面_07.jpg" > [17
 
-<use  "W5/W5_页面_10.jpg" > [17
-
-]
-File: W5/W5_页面_11.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_11.jpg" > [18
+] [18
 
 ]
-File: W5/W5_页面_12.jpg Graphic file (type QTm)
-
-<use  "W5/W5_页面_12.jpg" > [19
+File: W5/W5_页面_08.jpg Graphic file (type QTm)
+ <use  "W5/W5_页面_08.jpg" >
+[19
 
 ] [20
 
-] [21
+]
+File: W5/W5_页面_09.jpg Graphic file (type QTm)
+ <use  "W5/W5_页面_09.jpg" > [21
 
 ]
-Overfull \hbox (6.06921pt too wide) detected at line 129
- []$[] \OT1/cmr/m/n/10.95 = [][][][] \OMS/cmsy/m/n/10.95 ^^@ [][][] \OT1/cmr/m/
-n/10.95 + [] [][]1 \OMS/cmsy/m/n/10.95 ^^T [] \OML/cmm/m/it/10.95 < [] \OMS/cms
-y/m/n/10.95 ^^T [] \OT1/cmr/m/n/10.95 + 1[]  $ 
- []
-
+File: W5/W5_页面_10.jpg Graphic file (type QTm)
+ <use  "W5/W5_页面_10.jpg" >
 [22
 
 ] [23
 
 ]
+File: W5/W5_页面_11.jpg Graphic file (type QTm)
+ <use  "W5/W5_页面_11.jpg" > [24
+
+]
+File: W5/W5_页面_12.jpg Graphic file (type QTm)
+ <use  "W5/W5_页面_12.jpg" >
+[25
+
+] [26
+
+] [27
+
+]
+Overfull \hbox (6.06921pt too wide) detected at line 207
+ []$[] \OT1/cmr/m/n/10.95 = [][][][] \OMS/cmsy/m/n/10.95 ^^@ [][][] \OT1/cmr/m/
+n/10.95 + [] [][]1 \OMS/cmsy/m/n/10.95 ^^T [] \OML/cmm/m/it/10.95 < [] \OMS/cms
+y/m/n/10.95 ^^T [] \OT1/cmr/m/n/10.95 + 1[]  $ 
+ []
+
+[28
+
+] [29
+
+]
 File: W5/W5_页面_13.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_13.jpg" > [24
+ <use  "W5/W5_页面_13.jpg" > [30
 
 ]
 File: W5/W5_页面_14.jpg Graphic file (type QTm)
  <use  "W5/W5_页面_14.jpg" >
-[25
+[31
 
 ]
 File: W5/W5_页面_15.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_15.jpg" > [26
+ <use  "W5/W5_页面_15.jpg" > [32
+
+] [33
 
 ]
 File: W5/W5_页面_16.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_16.jpg" > [27
+ <use  "W5/W5_页面_16.jpg" >
+[34
 
 ]
 File: W5/W5_页面_17.jpg Graphic file (type QTm)
+ <use  "W5/W5_页面_17.jpg" > [35
 
-<use  "W5/W5_页面_17.jpg" > [28
+] [36
 
 ]
 File: W5/W5_页面_18.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_18.jpg" > [29
+ <use  "W5/W5_页面_18.jpg" >
+[37
 
 ]
 File: W5/W5_页面_19.jpg Graphic file (type QTm)
-
-<use  "W5/W5_页面_19.jpg" > [30
+ <use  "W5/W5_页面_19.jpg" > [38
 
 ]
 File: W5/W5_页面_20.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_20.jpg" > [31
+ <use  "W5/W5_页面_20.jpg" > [39
 
 ]
 File: W5/W5_页面_21.jpg Graphic file (type QTm)
 
-<use  "W5/W5_页面_21.jpg" > [32
+<use  "W5/W5_页面_21.jpg" > [40
 
 ]
 File: W5/W5_页面_22.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_22.jpg" > [33
+ <use  "W5/W5_页面_22.jpg" > [41
 
 ]
 File: W5/W5_页面_23.jpg Graphic file (type QTm)
 
-<use  "W5/W5_页面_23.jpg" > [34
+<use  "W5/W5_页面_23.jpg" > [42
 
 ]
 File: W5/W5_页面_24.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_24.jpg" > [35
+ <use  "W5/W5_页面_24.jpg" > [43
 
 ]
 File: W5/W5_页面_25.jpg Graphic file (type QTm)
 
-<use  "W5/W5_页面_25.jpg" > [36
+<use  "W5/W5_页面_25.jpg" > [44
 
 ]
 File: W5/W5_页面_26.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_26.jpg" > [37
+ <use  "W5/W5_页面_26.jpg" > [45
 
 ]
 File: W5/W5_页面_27.jpg Graphic file (type QTm)
 
-<use  "W5/W5_页面_27.jpg" > [38
+<use  "W5/W5_页面_27.jpg" > [46
 
 ]
 File: W5/W5_页面_28.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_28.jpg" > [39
+ <use  "W5/W5_页面_28.jpg" > [47
 
 ]
 File: W5/W5_页面_29.jpg Graphic file (type QTm)
 
-<use  "W5/W5_页面_29.jpg" > [40
+<use  "W5/W5_页面_29.jpg" > [48
 
 ]
 File: W5/W5_页面_30.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_30.jpg" > [41
+ <use  "W5/W5_页面_30.jpg" > [49
 
 ]
 File: W5/W5_页面_31.jpg Graphic file (type QTm)
 
-<use  "W5/W5_页面_31.jpg" > [42
+<use  "W5/W5_页面_31.jpg" > [50
 
 ]
 File: W5/W5_页面_32.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_32.jpg" > [43
+ <use  "W5/W5_页面_32.jpg" > [51
 
 ]
 File: W5/W5_页面_33.jpg Graphic file (type QTm)
 
-<use  "W5/W5_页面_33.jpg" > [44
+<use  "W5/W5_页面_33.jpg" > [52
+
+] [53
 
 ]
 File: W5/W5_页面_34.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_34.jpg" > [45
+ <use  "W5/W5_页面_34.jpg" > [54
+
+]
+[55
 
 ]
 File: W5/W5_页面_35.jpg Graphic file (type QTm)
+ <use  "W5/W5_页面_35.jpg" > [56
 
-<use  "W5/W5_页面_35.jpg" > [46
+] [57
 
 ]
 File: W5/W5_页面_36.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_36.jpg" > [47
+ <use  "W5/W5_页面_36.jpg" >
+[58
+
+]
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'SimSun(0)' created for font 'SimSun' with options
+. [BoldFont={STZhongsong},ItalicFont={FangSong}].
+. 
+. This font family consists of the following shapes:
+.................................................
+Requested font "FangSong/ICU:script=latn;language=DFLT;" at 10.95pt
+ -> C:/Windows/Fonts/simfang.ttf
+ [59
 
 ]
 File: W5/W5_页面_37.jpg Graphic file (type QTm)
+ <use  "W5/W5_页面_37.jpg" > [60
 
-<use  "W5/W5_页面_37.jpg" > [48
+] [61
 
 ]
 File: W5/W5_页面_38.jpg Graphic file (type QTm)
- <use  "W5/W5_页面_38.jpg" > [49
+ <use  "W5/W5_页面_38.jpg" > [62
 
 ]
 \tf@nav=\write6
 \tf@toc=\write7
 \tf@snm=\write8
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 170.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 170.
-
-(D:\Programming\Github\Liu-Groups\PPT-Erreta\W5勘误与注解.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 170.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 170.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 305.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 305.
+ (D:\Programming\Github\Liu-Groups\PPT-Erreta\W5勘误与注解.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 305.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 305.
  ) 
 Here is how much of TeX's memory you used:
- 29700 strings out of 430478
- 581235 string characters out of 3191502
- 615513 words of memory out of 3000000
- 32275 multiletter control sequences out of 15000+200000
- 11111 words of font info for 83 fonts, out of 3000000 for 9000
+ 29761 strings out of 430478
+ 582280 string characters out of 3191502
+ 619829 words of memory out of 3000000
+ 32333 multiletter control sequences out of 15000+200000
+ 11127 words of font info for 85 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 49i,14n,53p,577b,576s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 49i,14n,53p,774b,576s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on W5勘误与注解.pdf (49 pages).
+Output written on W5勘误与注解.pdf (62 pages).
