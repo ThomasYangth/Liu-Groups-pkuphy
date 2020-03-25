@@ -1,0 +1,230 @@
+\documentclass{beamer}
+\usepackage{amsmath}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+\usefonttheme[onlymath]{serif}
+\setCJKmainfont[BoldFont={STZhongsong},ItalicFont={FangSong}]{SimSun}
+\setCJKsansfont[BoldFont={DengXian Bold},ItalicFont={KaiTi}]{DengXian}
+\newcommand{\pdfpage}[1]{{\usebackgroundtemplate{\includegraphics[width=\paperwidth]{W6/W6_页面_#1.jpg}}\begin{frame}[plain]\label{OrigPdf#1}\end{frame}}}%将原课件的某一页作为一个全页图片插入，参数为原课件页数（图片用pdf的导出图像功能得到），注意个位数需要前面加一个零
+\newcommand{\refpage}[1]{注第\ref{OrigPdf#1}页}%将原页码转化为新页码
+\newcommand{\refpageN}[1]{\ref{OrigPdf#1}}%将原页码转化为新页码，只给出数字
+\newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ppat}[3]{\left.\left(\pp{#1}{#2}\right)\right|_{#3}}
+\newcommand{\di}{\mathrm d}
+\title{《李群和李代数》第六周课件勘误与注解}
+\author{原课件：刘玉鑫老师}
+\begin{document}
+\maketitle
+\begin{frame}{说明}
+本文档基于原课件，修改了一些其中的错误并对一些不太明晰的地方进行了注解。\\
+主要参考书：
+\begin{itemize}
+\item P. M. Cohn, \textit{Lie Groups}
+\item Brain Hall, \textit{Lie Groups, Lie Algebras and Representations}
+\item A. O. Barut, \textit{Theory of Group Representations and Applications}
+\item 梁灿彬，《微分几何与广义相对论》
+\item V. S. Varadarajan, \textit{Lie Groups, Lie Algebras and Their Representations}
+\item 韩其智、孙洪洲，《群论》
+\end{itemize}
+
+本文中提到的页码均指本pdf页码，不是原课件页码。
+
+部分结果来自群内讨论，主要为陆仲豪和唐子骞同学。如有问题，欢迎讨论。
+
+\end{frame}
+
+\pdfpage{01}
+\pdfpage{02}
+\pdfpage{03}
+\pdfpage{04}
+
+\begin{frame}{\refpage{04}}
+	这里“广义勾股定理”似乎有些问题。如果各个$u_i$是正交的自然没有问题。但如果$u_i$不是正交的则一般不成立，事实上，若$(u_1,u_2)\neq 0$，则有
+	\begin{equation*}
+	(u_1,u_1)^2+(u_1,u_2)^2=1+(u_1,u_2)^2>1
+	\end{equation*}
+	
+	但可以有类似的结论。由度规正定性：
+	\begin{equation*}
+	(X^\circ+\sum_i x^iu_i,X^\circ+\sum_i x^iu_i)\geq 0
+	\end{equation*}
+	展开：
+	\begin{multline*}
+	\left(X^\circ+\sum_i x^iu_i,X^\circ+\sum_i x^iu_i\right)=(X^\circ,X^\circ)+2\sum_i x^i(X^\circ,u_i)\\+\sum_i(u_i,u_i)(x^i)^2+\sum_{i\neq j}x^ix^j(u_i,u_j)\geq 0
+	\end{multline*}
+	利用$(u_i,u_j)<0$，我们知道，当各个$x^i$均为正时：
+	\begin{equation*}
+	1+\sum_i (x^i)^2+2\sum_i x^i(X^\circ,u_i)\geq 0
+	\end{equation*}
+\end{frame}
+	
+\begin{frame}{\refpage{04}}
+	这个式子里各个$x^i$是独立的。而我们知道
+	\begin{equation*}
+	\min_{x^i\geq 0}\left[(x^i)^2+2(X^\circ,u_i)x^i\right]=
+	\begin{cases}
+	0 & (X^\circ,u_i)\geq 0\\
+	-(X^\circ,u_i)^2 & (X^\circ,u_i) < 0
+	\end{cases}
+	\end{equation*}
+	于是这个式子应该写为：对于任意的单位向量$X^\circ$和一些$u_i$，如果对每个$u_i$都有$(X^\circ,u_i)\leq 0$，那么
+	\begin{equation*}
+	\sum_i (X^\circ,u_i)^2 \leq 1
+	\end{equation*}
+	
+	如果要求等号成立，那么一定有至少一个$(X^\circ,u_i)$是小于零的，也就是取极值时至少有一个$x^i$非零。如果只有一个，那么$(X^\circ,u_i)^2=1$，得到$X^\circ=\pm u_i$，这是trivial的，不予考虑。而如果至少有两个$x^i$非零，而因为$(u_i,u_j)<0$不能取等号，从而扔掉的交叉项一定是非零的，亦即等号不可能取得。从而等号只有在$X^\circ$对自己投影的情况下才能成立。
+	
+\end{frame}
+
+\begin{frame}{\refpage{04}}
+	
+	
+	也可以不需要这个结论，只用各个$u_i$相互正交的trivial case。这个时候需要将下面性质推导的顺序调换一下，先证明邓金图中不存在闭环，然后利用这个结论，证明一个点最多连出三条线时，连出去的那些点之间不能有连线从而相互正交，这样就可以用正交情况下的结论了。
+	
+\end{frame}
+
+
+\pdfpage{05}
+
+\begin{frame}{\refpage{05}}
+	这里的连通是在邓金图中点与点之间的连线的意义上。如果$\{\alpha\}$和$\{\beta\}$不连通，那么$\{\alpha\}$中任何一个根都不能和$\{\beta\}$中任何一个根有连线，也就是均正交。
+	
+	构造理想的过程如下：
+	
+	\textbf{引理：}如果素根$\alpha_1$和$\beta_1$正交，则$\alpha_1+\beta_1$不是根，亦即$[E_{\alpha_1},E_{\beta_1}]=0$。
+	
+	\textbf{证明：}已知$(\alpha_1,\beta_1)=0$，则$\alpha_1$的$\beta_1$根系必然有$q-p=\frac{2(\alpha_1,\beta_1)}{(\alpha_1,\alpha_1)}=0$。若$\alpha_1+\beta_1$是根，则$p\geq 1$，于是$q\geq 1$，这意味着$\alpha_1-\beta_1$也是根，这与$\alpha_1$和$\beta_1$是素根矛盾。\qedsymbol
+\end{frame}
+
+\begin{frame}{\refpage{05}}
+
+构造不变子代数的过程如下：
+
+先用素根系$\{\alpha\}$和$\{\beta\}$分别张出整个根系$\Sigma$的两个子集$A$和$B$，由内积的双线性性，这两个子集中的根也是相互正交的。还可以证明它们是对易的。
+
+\textbf{引理：} 若$\{\alpha\}\cup\{\beta\}=\pi$，根系中任何一个根一定可以表达为
+
+事实上由于任何一个根且如果（如果$\pi$有多个连通分支，取其中一个为$\{\alpha\}$剩下所有的并起来为$\{beta\}$），则$A\cup B=\Sigma$。这是因为$\Sigma$中每个元素必定可以表达为若干素根的和（如果是负根再乘以一个负号，但负号比较trivial，这里只考虑正根）。如果有$\Sigma$中的元素既不属于$A$又不属于$B$，那它必定是两个素根集合的“混合和”，由课件后半段提到的从素根构造整个正根系的过程可以知道，必定存在$\{\alpha\}$中一个元素$\alpha_1$和$\{\beta\}$中一个元素$\beta_1$之和，但由引理这是不可能的。从这两个正交的根系构造不变子代数的过程类似于上一周的注解中关于$\pm e_i$构成的李代数的讨论（第15页），构造出的不变子代数是$\{E_a|a\in A\}\cup \{H_a\equiv[E_a,E_{-a}]|a\in A\}$和把$A$换成$B$得到的集合。
+
+\end{frame}
+
+\begin{frame}{\refpage{05}}
+	原课件只证明了“当”，没有证明“仅当”，必要性：如果一个半单李代数不是单的，那么它可以分解为单李代数的直和，不妨设是分解为两个单李代数的直和，则这两个单李代数各自有根系，在原半单李代数的基下这两个单李代数的根必然是相互正交的，从而构成邓金图不连通的两个部分。
+\end{frame}
+
+\pdfpage{06}
+
+\begin{frame}{\refpage{06}}
+	这里实际用到的结论是：$\beta$和其他各个$\alpha_i$之间满足$(\beta,\alpha_i)\leq 0$，从而可以用上面修正后的“广义勾股定理”，得到$\sum_i (\beta,\alpha_i)^2<1$，从而可以继续这里的推论。第\refpageN{05}页的性质2应该也是这里结论的推论，似乎不能直接由定义看出，归根结底还是用度规的正定性推出。
+\end{frame}
+
+\pdfpage{07}
+\pdfpage{08}
+
+\begin{frame}{\refpage{08}}
+	夹角之和不大于$360^\circ$可以这么推导：假设有三个单位向量$u_1,u_2,u_3$，则有
+	\begin{equation*}
+	(x^iu_i,x^iu_i)=\begin{pmatrix} x^1 & x^2 & x^3 \end{pmatrix}
+	\begin{pmatrix}
+	1 & \cos\theta_{12} & \cos\theta_{13} \\
+	\cos\theta_{12} & 1 & \cos\theta_{23} \\
+	\cos\theta_{13} & \cos\theta_{23} & 1
+	\end{pmatrix}
+	\begin{pmatrix}x^1 \\ x^2 \\ x^3\end{pmatrix}\geq 0
+	\end{equation*}
+	从而要求这个系数矩阵是半正定的，一阶二阶主子式显然为正（不考虑$\theta_{12}=\pm 1$），于是也就等价于行列式大于等于零：
+	\begin{equation*}
+	1+2\cos\theta_{12}\cos\theta_{23}\cos\theta_{13}-\left(\cos^2\theta_{12}+\cos^2\theta_{23}+\cos^2\theta_{13}\right)\geq 0
+	\end{equation*}
+	改写为：
+	\begin{equation*}
+	\left(\cos\theta_{12}-\cos(\theta_{13}+\theta_{23})\right)\left(\cos\theta_{12}-\cos(\theta_{13}-\theta_{23})\right)\leq 0
+	\end{equation*}
+\end{frame}
+
+\begin{frame}{\refpage{08}}
+	于是有：
+	\begin{equation*}
+	\cos(\theta_{13}+\theta_{23})\leq\cos\theta_{12}\leq\cos(\theta_{13}-\theta_{23})
+	\end{equation*}
+	如果要有$\theta_{12}+\theta_{23}+\theta_{13}\geq 360^\circ$，那么必定有$\theta_{13}+\theta_{23}\geq 180^\circ$，但这时上式给出$\theta_{12}\leq 360^\circ-(\theta_{13}+\theta_{23})$。从而仅当三向量线性相关时才可能取到等号，其它情况下都有三角度之和小于$360^\circ$。
+\end{frame}
+
+\pdfpage{09}
+
+\begin{frame}{\refpage{09}}
+	
+	注：这里只是把两个顶点缩成了一个顶点然后把所有连在这两个顶点上的线原封不动地连到新的定点上，没有把连出去的线也缩并，右图中的大$\Gamma$是一系列根的示意而不是一个根。
+	
+	关于“两个顶点缩并成一个顶点”的证明\footnote{Varadarajan P307}：设有两个素根$\alpha$和$\beta$，记剩下所有素根的集合为$\Gamma$，我们要说明的是：集合$\{\alpha+\beta\}\cup\Gamma$满足素根系要求的条件，即线性无关（显然）、且其中任取两个元素必定满足$\frac{2(x,y)}{(x,x)}$为非正整数\footnote{这个集合上的内积可以按照Killing型限制在上面得到，那么根据Killing型的性质这个内积限制之后仍然是正定的，回顾前面的推导知道这些条件足够推导出素根系的一切性质。}。对于$x,y$都在$\Gamma$中的情况，这个条件直接从原来的素根系中继承。
+	
+\end{frame}
+
+\begin{frame}{\refpage{09}}
+	
+	对于$x,y$中有一者为$\alpha+\beta$的情况，任取$\gamma\in\Gamma$，由于素根系不能有闭环知道$\gamma$必定与$\alpha,\beta$之一正交，不妨设与$\beta$正交。那么我们知道：
+	\begin{equation*}
+	(\gamma,\alpha+\beta)=(\gamma,\alpha)
+	\end{equation*}
+	\begin{multline*}
+	(\alpha+\beta,\alpha+\beta)=(\alpha,\alpha)+(\beta,\beta)+2(\alpha,\beta)\\=2(\alpha,\alpha)+2\left[-\frac{1}{2}(\alpha,\alpha)\right]=(\alpha,\alpha)
+	\end{multline*}
+	倒数第二步了利用$\alpha$和$\beta$夹$120^\circ$且等长的条件。
+	
+	于是我们知道
+	\begin{equation*}
+	\frac{2(\gamma,\alpha+\beta)}{(\gamma,\gamma)}=\frac{2(\gamma,\alpha)}{(\gamma,\gamma)}
+	\end{equation*}
+	\begin{equation*}
+	\frac{2(\alpha+\beta,\gamma)}{(\alpha+\beta,\alpha+\beta)}=\frac{2(\alpha,\gamma)}{(\alpha,\alpha)}
+	\end{equation*}
+	两式右端由原素根系条件为负整数，从而左端也是负整数。这就验证了缩并后是满足素根系条件的。
+\end{frame}
+	
+%	关于“两个顶点缩并成一个顶点”的证明：假设有两根素根$\alpha_1$和$\alpha_2$，归一化后为$u_1$和$u_2$，夹角为$120^\circ$。取坐标系，使得这两个素根的表达式分别为$u_1=\frac{1}{2}e_1+\frac{\sqrt 3}{2}e_2$、$u_2=\frac{1}{2}e_1-\frac{\sqrt 3}{2}e_2$。定义$u^1=e_1+\frac{1}{\sqrt 3}e_2$、$u^2=e_1-\frac{1}{\sqrt 3}e_2$，满足$(u^i,u_j)=\delta^i_j$。任取另一个素根$v$，记$w$为其在$\langle e_1,e_2\rangle$平面内的投影。由于邓金图不能有闭环，$w$一定至少与$u_1$和$u_2$中的一个正交。假设和$u_1$正交，和$v_2$内积非零，则必定有$w=(w,u_2)u^2$。
+	
+%	现在构造一个$l-1$维的欧式空间，并且以如下规则将原来的根映射到新的根：对于$i\geq 3$，原来的$e_i$映射为$f(e_i)=e_{i+1}^\prime$，而原来的$e_1$映射至$f(e_1)=\frac{2}{\sqrt 3}e_1^\prime$，原来的$e_2$映射至零。在新的欧式空间中，新的素根系取为：$\alpha_1^\prime=e_1\cdot |\alpha_1|$，$\alpha_i^\prime=f(\alpha_{i+1})\text{ for }i\geq 2$。则，$|\alpha_1^\prime|=|\alpha_1|$，$|(\alpha_i^\prime)^2|=|\alpha_{i+1}|^2$（原先$e_1$和$e_2$以外的其他基上的分量不变，这个子空间内原来有$|w|^2=(w,u_2)^2\left|u^2\right|^2=\frac{4}{3}(w,u_2)^2$，现在有$|w^\prime|^2=\left[(w,u_2)\frac{2}{\sqrt 3}(u^2)_1\right]^2=\frac{4}{3}(w,u_2)^2$。
+%\end{frame}
+
+\pdfpage{10}
+\pdfpage{11}
+\pdfpage{12}
+\pdfpage{13}
+\pdfpage{14}
+\pdfpage{15}
+\pdfpage{16}
+\pdfpage{17}
+\pdfpage{18}
+\pdfpage{19}
+\pdfpage{20}
+\pdfpage{21}
+\pdfpage{22}
+\pdfpage{23}
+\pdfpage{24}
+\pdfpage{25}
+\pdfpage{26}
+\pdfpage{27}
+\pdfpage{28}
+\pdfpage{29}
+\pdfpage{30}
+\pdfpage{31}
+\pdfpage{32}
+\pdfpage{33}
+\pdfpage{34}
+\pdfpage{35}
+\pdfpage{36}
+\pdfpage{37}
+\pdfpage{38}
+\pdfpage{39}
+\pdfpage{40}
+\pdfpage{41}
+\pdfpage{42}
+\pdfpage{43}
+\pdfpage{44}
+\pdfpage{45}
+\pdfpage{46}
+\pdfpage{47}
+\pdfpage{48}
+
+
+\end{document}

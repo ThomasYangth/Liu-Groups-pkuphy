@@ -80,7 +80,8 @@
 \pdfpage{10}
 
 \begin{frame}{\refpage{10}}
-	此处默认了当$\alpha+\beta$是根的时候$N_{\alpha\beta}\neq 0$，事实上上面只说明了这个命题的否命题成立，无法直接说明这个命题本身成立，而下面的证明是用到了这个命题的。这个命题可以用课件最后的习题2的结论来证明。
+	此处默认了当$\alpha+\beta$是根的时候$N_{\alpha\beta}\neq 0$，事实上上面只说明了这个命题的否命题成立，无法直接说明这个命题本身成立，而下面的证明是用到了这个命题的。这是需要单独证明的，这里先默认它成立。%这个命题可以用课件最后的习题2的结论来证明。习题2的证明要用到第\refpageN{16}-\refpageN{18}页的定理，注意那个定理并没有用到“$\alpha+\beta$是根则$N_{\alpha,\beta}\neq 0$”的结论\footnote{因为即使在中间过程中}，只用到了“$\alpha+\beta$不是根则$N_{\alpha,\beta}=0$”。
+	%为了不陷入循环论证，可将\refpageN{16}-\refpageN{18}页的定理重新表述为：一定存在$p,q$使得$N_{\alpha,\mu+p\alpha}=N_{-\alpha,\mu-q\alpha}=0$\footnote{这里并不用假设$N=0$之后外面的就不是根，但我们知道如果$N\neq 0$的话那么外面的一定是根，如果没有$N=0$截断就可以构造出无限个根，从而矛盾。}，在此基础上就可以推出习题2的结论，那么如果$N_{\alpha,\beta}=0$
 \end{frame}
 
 \pdfpage{11}
@@ -116,6 +117,40 @@
 \begin{frame}{\refpage{14}：关于$E_\alpha=E_{-\alpha}^\dagger$的进一步说明}
 	
 	由于$H_i$的本征值为实数的本征态构成整个希尔伯特空间的一组基，可以直接由定义验证各个$H_i$确实是这样希尔伯特空间中的厄米算符。
+	
+	\textbf{引理1：}\footnote{Varadarajan P285} 若$\alpha+\beta$是根，则有$N_{\alpha,\beta}=N_{-\alpha-\beta,\alpha}$
+	
+	\textbf{证明：}记$\gamma=-\alpha-\beta$，由雅可比不等式：
+	\begin{equation*}
+	[E_\alpha,[E_\beta,E_\gamma]]+[E_\beta,[E_\gamma,E_\alpha]]+[E_\gamma,[E_\alpha,E_\beta]]=0
+	\end{equation*}
+	利用$[E_\mu,E_{-\mu}]=\mu^i H_i$，上式展开得到：
+	\begin{equation*}
+	N_{\beta,\gamma}\alpha^iH_i+N_{\gamma,\alpha}\beta^iH_i+N_{\alpha,\beta}\gamma^iH_i=0
+	\end{equation*}
+	各个$H_i$线性独立，而$\gamma=-\alpha-\beta$，于是
+	\begin{equation*}
+	(N_{\beta,\gamma}-N_{\alpha,\beta})\alpha^i+(N_{\gamma,\alpha}-N_{\alpha,\beta})\beta^i=0
+	\end{equation*}
+	$\alpha$和$\beta$亦线性独立，从而得到$N_{\alpha,\beta}=N_{\gamma,\alpha}=N_{-\alpha-\beta,\alpha}$\qedsymbol
+	
+\end{frame}
+	
+\begin{frame}{\refpage{14}：关于$E_\alpha=E_{-\alpha}^\dagger$的进一步说明}
+	\textbf{引理2：}$N_{\alpha,\beta}N_{-\alpha,-\beta}=\frac{p(q+1)}{2}(\alpha,\alpha)$
+	
+	\textbf{证明：} 由\refpageN{16}-\refpageN{18}页定理知\footnote{注意：课件里对这个定理的证明是用到了$E_\alpha=E_{-\alpha}^\dagger$的假设，但其实仅就这个定理来说是不需要的，参见韩其智书上的证明}
+	\begin{equation*}
+	[E_\alpha,[E_{-\alpha},E_\beta]]=\frac{p(q+1)}{2}(\alpha,\alpha)
+	\end{equation*}
+	于是（上式中$\alpha\to -\alpha$）
+	\begin{equation*}
+	N_{\alpha,\beta}N_{-\alpha,\alpha+\beta}=\frac{q(p+1)}{2}(\alpha,\alpha)
+	\end{equation*}
+	而$N_{-\alpha,\alpha+\beta}=-N_{\alpha+\beta,-\alpha}=-N_{-\alpha,-\beta}$（第二个等号由引理1），于是得证。
+\end{frame}
+
+\begin{frame}{\refpage{14}：关于$E_\alpha=E_{-\alpha}^\dagger$的进一步说明}
 
 	取任意非零根$\alpha$和另一非零根$\mu$。我们知道有$E_\alpha|\mu\rangle=N_{\alpha,\mu}|\mu+\alpha\rangle$，$E_{-\alpha}|\mu+\alpha\rangle=N_{-\alpha,\mu+\alpha}|\mu\rangle$。
 	从而有
