@@ -1,0 +1,126 @@
+\documentclass{ctexart}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\title{各李代数的结构}
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\section{介绍}
+	本文档对九种典型及例外李代数进行了：
+	\begin{itemize}
+		\item 验证其根系结构（W5作业）
+		\item 利用邓金图计算根系（W6作业）
+		\item 验证其矩阵实现的正确性（W7作业）
+	\end{itemize}
+
+	其中验证根系结构是指，验证这一根系满足如下性质：
+	\begin{itemize}
+		\item 任意一个非零根$\alpha$的负值$-\alpha$也是根（这个太trivial了就略去了）。
+		\item 任意两根满足$\frac{2(\alpha,\beta)}{(\alpha,\alpha)}\in\mathbb Z$，或者等价地，两根夹角与其长度比有对应关系。
+		\item 对于任意两个根$\alpha$和$\beta$，$\beta-2\frac{(\alpha,\beta)}{(\alpha,\alpha)}\alpha$也是根。
+	\end{itemize}
+	注意到后两点对于$\alpha$和$\beta$互为负值或相互正交的情况都是trivial的，从而只用讨论夹$30^\circ,45^\circ,60^\circ$度角的情况即可（以下称这些为non-trivial夹角，剩下的称trivial夹角）。同时，如果$\alpha$和$\beta$满足这两个条件，那么容易验证$\alpha$和$-\beta$也满足，从而总可以不失一般性地选取正负号来简化讨论。
+	
+	对于矩阵实现，我们理应验证全部的对易关系：
+	\begin{equation}\label{HCommute}
+	[H_i,H_j]=0
+	\end{equation}
+	\begin{equation}\label{HE}
+	[H_i,E_\alpha]=\alpha_iE_\alpha
+	\end{equation}
+	\begin{equation}\label{Ean}
+	[E_\alpha,E_{-\alpha}]=\alpha^iH_i
+	\end{equation}
+	\begin{equation}\label{Eab}
+	[E_\alpha,E_\beta]=N_{\alpha\beta}E_{\alpha+\beta}
+	\end{equation}
+	
+	我们的验证过程中会常用到这一关系式：
+	\begin{equation}
+	[D,E_{ij}]=(D_{ii}-D_{jj})E_{ij}
+	\end{equation}
+	其中$D$是对角矩阵，$E_{ij}$代表只有$(i,j)$元非零的矩阵。
+	
+	我们讨论的矩阵实现中，$H$都是显式地写为了同时对角化的形式，从而\eqref{HCommute}自然满足。\eqref{HE}可以直接验证，并在过程中求出$\alpha_i$。
+	
+	注意到\eqref{HE},\eqref{Ean},\eqref{Eab}三式右边都有待定系数。这些系数之间需要满足一些关系。首先，各$\alpha_i$之间需要满足根向量间的关系，即它们应该是该李代数的根系在某一组正交基下的坐标，这一般是容易验证的。再者，雅可比行列式必须满足。经过简单的计算可以得知只有下列两种雅可比行列式是non-trivial的：
+	\begin{equation}
+	[E_\beta,[E_\alpha,E_{-\alpha}]]+\text{cyc.}=0
+	\end{equation}
+	\begin{equation}
+	[E_\alpha,[E_\beta,E_\gamma]]+\text{cyc.}=0
+	\end{equation}
+	\begin{equation}
+	[E_\alpha,[E_\beta,E_{-\alpha-\beta}]]+\text{cyc.}=0
+	\end{equation}
+	分别给出：
+	\begin{equation}\label{Jac1}
+	N_{\alpha,\beta-\alpha}N_{-\alpha,\beta}+N_{-\alpha,\alpha+\beta}N_{\beta,\alpha}=(\alpha,\beta)
+	\end{equation}
+	\begin{equation}\label{Jac2}
+	N_{\beta\gamma}N_{\alpha,\beta+\gamma}+N_{\gamma\alpha}N_{\beta,\gamma+\alpha}+N_{\alpha\beta}N_{\gamma,\alpha+\beta}=0
+	\end{equation}
+	\begin{equation}\label{Jac3}
+	(N_{\beta,-\alpha-\beta}-N_{\alpha,\beta})\alpha^i+(N_{-\alpha-\beta,\alpha}-N_{\alpha,\beta})\beta^i=0
+	\end{equation}
+	其中，如果令
+	\begin{equation}
+	n(\beta,\alpha)=N_{-\alpha,\beta}N_{\alpha,\beta-\alpha}
+	\end{equation}
+	则\eqref{Jac1}改写为
+	\begin{equation}
+	n(\beta+\alpha,\alpha)-n(\beta,\alpha)=-(\alpha,\beta)
+	\end{equation}
+	假设$\beta$的$\alpha$根系为$\beta-q\alpha$至$\beta+p\alpha$，对根链求和，可以求出$\frac{2(\alpha,\beta)}{(\alpha,\alpha)}=q-p$，再利用这一结果可以得到
+	\begin{equation}
+	n(\beta,\alpha)=\frac{1}{2}q(p+1)(\alpha,\alpha)
+	\end{equation}
+	\eqref{Jac3}给出
+	\begin{equation}
+	N_{\alpha\beta}=N_{-\alpha-\beta,\alpha}=N_{\beta,-\alpha-\beta}
+	\end{equation}
+	
+	\textbf{命题：} 取素根系$\pi$，只要令
+	
+	\section{$A_l$}
+	\subsection{根系结构验证}
+	
+	$A_l$的根系结构为：
+	\begin{equation}
+	\{e_i-e_j|1\leq i,j\leq l+1,i\neq j\}
+	\end{equation}
+	取两个$\alpha=e_i-e_j$和$\beta=e_k-e_l$。如果$i,j$和$k,l$是四个不同的数，那么显然两者正交。non-trivial的情况只有当$i,j$中的一个和$k,l$中的一个相等时出现。不妨设$i=k$，则两者内积为$1$，而两者模方均为$2$，故有$\cos\theta=\frac{1}{2}$，与两者长度相等一致。此时有$\frac{(\alpha,\beta)}{(\alpha,\alpha)}=\frac{1}{2}$，从而$\beta-2\frac{(\alpha,\beta)}{(\alpha,\alpha)}\alpha-\beta-\alpha=e_j-e_l$，确实为根。
+	
+	\subsection{邓金图计算根系}
+	
+	其Cartan矩阵为$A_{ij}=2\delta_{ij}-\delta_{i,j+1}-\delta_{i,j-1}$
+	
+	一级根为素根$\alpha_i$，此时有对应的$q_j=2\delta_{ij}$，而
+	\begin{equation}
+	p_j=q_j-A_{jl}k_l=q_j-A_{ji}=\delta_{i,j+1}+\delta_{i,j-1}
+	\end{equation}
+	其中$k_l$指当前根在素根基下的展开系数，这里即为$\delta_{li}$，以下不再赘述。
+	
+	从而二级根为$\alpha_i+\alpha_{i+1}$，此时对应$q_j=\delta_{ji}+\delta_{j,i+1}$，而
+	\begin{multline}
+	p_j=q_j-A_{jl}k_l\\=\delta_{ji}+\delta_{j,i+1}-(2\delta_{ji}-\delta_{j,i+1}-\delta_{j,i-1})-(2\delta_{j,i+1}-\delta_{j,i+2}-\delta_{ji})\\=\delta_{j,i-1}+\delta_{j,i+2}
+	\end{multline}
+	
+	从而三级根只能是二级根头尾加上一个，即$\alpha_i+\alpha_{i+1}+\alpha_{i+2}$形式。
+	
+	由此可作递归。假设$n$级根全都为$a_i+a_{i+1}+\dots+a_{i+n-1}$形式，则其对应的$q_j=\delta_{j,i}+\delta_{j,i+n-1}$（只有去掉最边上的才能去完之后还是一串连着的形式），于是
+	\begin{multline}
+	p_j=q_j-A_{jl}k_l=\delta_{j,i}+\delta_{j,i+n-1}-\sum_{m=i}^{i+n-1}(2\delta_{jm}-\delta_{j,m+1}-\delta_{j,m-1})\\=\delta_{j,i}+\delta_{j,i+n-1}-(\delta_{j,i}-\delta_{j,i-1}+\delta_{j,i+n-1}-\delta_{j,i+n})=\delta_{j,i-1}+\delta_{j,i+n}
+	\end{multline}
+	从而确实$n+1$级根只能是$\alpha_i+\alpha_{i+1}+\dots+\alpha_{i+n}$。注意上述推导$p_j$中如果求和指标超出可取值范围，对应部分直接写成零即可，不影响结论。
+	
+	从而递归成立。于是得知$A_l$的根系用素根表达为：
+	\begin{equation}
+	\left\{\sum_{m=i}^{j}\alpha_m\middle|1\leq i\leq j\leq l\right\}
+	\end{equation}
+	
+	\subsection{矩阵实现的验证}
+	
+	
+	
+\end{document}

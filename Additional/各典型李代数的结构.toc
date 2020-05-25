@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}介绍}{1}
+\contentsline {section}{\numberline {2}$A_l$}{3}
+\contentsline {subsection}{\numberline {2.1}根系结构验证}{3}
+\contentsline {subsection}{\numberline {2.2}邓金图计算根系}{3}
+\contentsline {subsection}{\numberline {2.3}矩阵实现的验证}{4}

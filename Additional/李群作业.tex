@@ -1,0 +1,1033 @@
+\documentclass{ctexart}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+
+\usepackage{geometry}
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+
+\newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ppat}[3]{\left.\left(\pp{#1}{#2}\right)\right|_{#3}}
+\newcommand{\dd}[2]{\frac{\mathrm d #1}{\mathrm d #2}}
+\newcommand{\lspan}[1]{\left\langle #1 \right\rangle}
+
+\title{李群与李代数作业}
+\author{杨天骅}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	
+	\newpage
+	
+	\section{第一章第三节}
+	
+	\subsection{题1}
+	
+	$SO(2)$群有
+	\begin{equation}
+	O^TO=E
+	\end{equation}
+	对于
+	\begin{eqnarray}
+	O=e^{L}
+	\end{eqnarray}
+	这意味着
+	\begin{equation}
+	E=e^{L^T}e^{L}=(E+L^T+O(L^2))(E+L+O(L^2))=E+L+L^T+O(L^2)
+	\end{equation}
+	从而
+	\begin{equation}
+	L+L^T=0
+	\end{equation}
+	即无穷小元素为二阶反对称矩阵。而二阶反对称矩阵空间只有一维。可选取一个基作为其生成元：
+	\begin{equation}
+	L=\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}
+	\end{equation}
+	
+	\subsection{题2}
+	
+	同上讨论，矩阵形式的生成元应该是三阶反对称矩阵空间。这一空间的维数为$3\times (3-1)/2=3$，可选取一组基为：
+	\begin{equation}
+	L_1=\begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & -1 & 0 \end{pmatrix}
+	\end{equation}
+	\begin{equation}
+	L_2=\begin{pmatrix} 0 & 0 & -1 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \end{pmatrix}
+	\end{equation}
+	\begin{equation}
+	L_3=\begin{pmatrix} 0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}
+	\end{equation}
+	
+	对于算符形式的生成元，我们对$SO(3)$取这样的参数化：
+	\begin{multline}
+	A(\beta_1,\beta_2,\beta_3)=A_1(\beta_1)A_2(\beta_2)A_3(\beta_3)\\=
+	\begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos\beta_1 & \sin\beta_1 \\ 0 & -\sin\beta_1 & \cos\beta_1 \end{pmatrix}
+	\begin{pmatrix} \cos\beta_2 & 0 & -\sin\beta_2 \\ 0 & 1 & 0 \\ \sin\beta_2 & 0 & \cos\beta_2 \end{pmatrix}
+	\begin{pmatrix} \cos\beta_3 & \sin\beta_3 & 0 \\ -\sin\beta_3 & \cos\beta_3 & 0 \\ 0 & 0 & 1 \end{pmatrix}
+	\end{multline}
+	应该有
+	\begin{equation}
+	f(\beta,X)=XA(\beta_1,\beta_2,\beta_3)
+	\end{equation}
+	那么我们得到
+	\begin{multline}
+	U^i_\sigma=\ppat{f^i(\beta,X)}{\beta_\sigma}{\beta=0}=\ppat{(A_\sigma(\beta_\sigma)X)_i}{\beta_\sigma}{\beta_\sigma=0}\\=\ppat{\left[A_\sigma(\beta_\sigma)\right]_{ji}}{\beta_\sigma}{\beta_\sigma=0}X_j=(L_\sigma)_{ji}X_j
+	\end{multline}
+	其中$L_\sigma$是上面定义的矩阵形式生成元。
+	
+	于是我们得到生成元：
+	\begin{equation}
+	\mathbb X_\sigma=U^i_\sigma\partial_i=(L_\sigma)_{ji}X_j\partial_i
+	\end{equation}
+	
+	具体地有
+	\begin{equation}
+	\mathbb X_1=y\pp{}{z}-z\pp{}{y}
+	\end{equation}
+	\begin{equation}
+	\mathbb X_2=z\pp{}{x}-x\pp{}{z}
+	\end{equation}
+	\begin{equation}
+	\mathbb X_3=x\pp{}{y}-y\pp{}{x}
+	\end{equation}
+	
+	可以看出与角动量算符的对应。
+	
+	\section{第一章第五节}
+	
+	\subsection{题1}
+	
+	课件中陈述的李氏第一定理的逆定理似乎不严谨。事实上，如果仅有课件中的那些条件，则
+	\begin{equation}
+	\varphi(\alpha,\beta)=\alpha
+	\end{equation}
+	是一个合法的合成函数。但它不是一个局部李群的合成函数，因为任意非零元素不存在右逆元。
+	
+	根据Cohn书中第二章的描述，局部李群这个概念正是用
+	
+	\subsection{题2}
+	
+	\paragraph{幂零李代数一定可解} 用归纳法证明$g^{(i)}\subset g^{[i]}$。$i=0$时显然成立。如果$i-1$时成立，那么应该有$g^{(i)}=[g^{(i-1)},g^{(i-1)}]$，而$g^{(i-1)}\subset g,g^{(i-1)}\subset g^{[i-1]}$，从而$[g^{(i-1)},g^{(i-1)}]\subset[g,g^{[i-1]}]=g^{[i]}$，从而归纳假设对任意$i$成立。如果幂零，则存在一个$i$使得$g^{[i]}=0$，这也就意味着$g^{(i)}=0$，从而可解。
+	
+	\paragraph{可解李代数不一定幂零} 考虑课件中给出的李代数$[X_1,X_2]=0$,$[X_2,X_3]=-X_1$,$[X_3,X_1]=-X_2$。应该有$g^{(1)}=\lspan{X_1,X_2}$，再由对易关系知$g^{(2)}=0$，从而可解。但是由对易关系应该有$g^{[1]}=g^{[2]}=\lspan{X_1,X_2}$，那么应该有对于任意$i\geq 1$,$g^{[i]}=\lspan{X_1,X_2}$，从而不幂零。
+	
+	\paragraph{可解/幂零李代数的同态像也可解/幂零} 记同态为$P$，则应该有$P([X,Y])=[P(X),P(Y)]$。于是，$P(g^{(i)})=P([g^{(i-1)},g^{(i-1)}])=[P(g^{(i-1)},g^{(i-1)})]$，$P(g^{[i]})=P([g,g^{[i-1]}])=[P(g),P(g^{[i-1]})]$。于是归纳得到$P(g^{(i)})=P(g)^{(i)}$,$P(g^{[i]})=P(g)^{[i]}$。从而，如果存在$i$使得$g^{(i)}=0$，则必有$P(g)^{(i)}=P(0)=0$，从而$g$可解意味着$P(g)$可解。幂零类似。
+	
+	\paragraph{可解/幂零李代数的子代数也可解/幂零} 设有$h\subset g$。归纳证明$h^{(i)}\subset g^{(i)}$。$i=0$时显然成立，如果$i-1$时成立，则有$h^{(i-1)}\subset g^{(i-1)}$，从而$h^{(i)}=[h^{(i-1)},h^{(i-1)}]\subset [g^{(i-1)},g^{(i-1)}]=g^{(i)}$，从而归纳成立。这样，如果$g$可解，则存在$g^{(i)}=0$，于是$h^{(i)}=0$，从而$h$也可解。幂零类似。
+	
+	\subsection{题3.1}
+	
+	对于幂零子代数，应该存在$i$，使得$g^{[i-1]}\neq 0$而$g^{[i]}=0$。这样，有$[g,g^{[i-1]}]=g^{[i]}=0$，于是$g^{[i-1]}$是一个非平庸理想。
+	
+	\subsection{题3.2}
+	
+	设原李代数为$g$，其可解理想为$h$。则存在一个$m$，使得$h^{(m)}=0$，且存在一个$n$，使得$(g/h)^{(n)}=0$。首先，由$[\bar A,\bar B]=\overline{[A,B]}$，我们可以知道，$g^{(1)}=[g,g]$在$\mod h$下一定属于$(g/h)^{(1)}$中某一个同余类。类似归纳可以知道，$g^{(i)}$在$\mod h$一定属于$(g/h)^{(i)}$中的某个同余类。从而当$i\geq n$时，$g^{(i)}$一定属于$0$的同余类，也就是包含于$h$。于是，类似上面对可解遗传性的证明，有$g^{(m+n)}\subset h^{(m)}=0$。这就证明了$g$可解。
+	
+	\section{第一章第六节}
+	
+	\subsection{题1}
+	
+	如果一个矩阵$A$退化，即$\det A=0$，那么根据行列式等于本征值之积，知道其必定有零本征值。从而必定存在非零向量$\mathbf v$，使得$A\mathbf v=0$。展开后这意味着$\sum_j A_{ij}v_j=0,\forall i$。如果记$A$的各列向量为$\mathbf a_j$，即$(\mathbf a_j)_i=A_{ij}$，那么上式意味着$\sum_j v_j\mathbf a_j=0$，而$\mathbf v$不是零向量，这说明$A$的各列向量线性相关，这与$A$满秩矛盾。
+	
+	\subsection{题2}
+	
+	取李代数$g$中的一个可解理想$R$，使得其不是任何其它可解理想的子集。欲证$\frac{g}{R}$是半单的。假设其有可交换理想$S$。取自然映射$\phi:g\to\frac{g}{R}$，并记$\tilde S=\phi^{-1}(S)$。我们知道$\ker\phi=R$，而显然$R=\phi^{-1}(0)\subset\tilde S$。于是我们知道$\phi|_{\tilde S}$是$\tilde S$到$S$的核为$R$的满同态。由同态核定理，$\frac{\tilde S}{R}\cong S$。于是我们知道$\tilde S$可解。由$R$的定义，知道$\tilde S=R$，于是一定有$S=\phi(R)=0$。这就证明了$\frac{g}{R}$是半单的。
+	
+	于是$g=R\oplus_s(g/R)$，其中$R$可解，$\frac{g}{R}$半单。
+	
+	欲证这一分解的唯一性，只要说明$R$的唯一性即可。假设由另一个可解理想$N$，容易知道$R\subset R+N$，且由于$[R,g]=0$，必有$[R,R+N]=0$，即$R$也是$R+N$的理想。从而可以取$R+N$对$R$的商代数$\frac{R+N}{R}$。取自然映射$\phi:R+N\to\frac{R+N}{R}$，那么由定义应该有$\phi(N)=\frac{R+N}{R}$，也就是说$\phi|_N:N\to\frac{R+N}{R}$是满同态。又易见其核为$R\cap N$，于是由同态核定理有$\frac{N}{R\cap N}\cong \frac{R+N}{R}$。而我们已知$N$可解，从而其在自然映射下的像$\frac{N}{R\cap N}$也可解，于是知道$\frac{R+N}{R}$也可解。$R$可解。从而$R+N$对其可解理想$R$的商代数也可解，即$R+N$可解。由$R$的构造知道$R+N=R$，从而$N\subset R$。于是，如果$N\neq R$，就意味着$N$是另一个可解理想的子集。这就说明了$R$是$g$中唯一一个不是其它可解理想子集的可解理想。
+	
+	（证明参考了Varadarajan书。）
+	
+	\subsection{题3}
+	
+	如果单纯李群$G$的李代数$g$有理想$h$，那么$h$可以生成一个李群$H$，且容易知道$H$是$G$的子群（因为$e^{h}\subset e^{g}\subset G$。但$H$应该是$G$的不变子群，因为对于任何$G$中元素$e^{g}$，应该有$[g,h]\subset h$，那么根据Baker-Hausdorff公式：
+	\begin{equation}
+	e^{g}he^{-g}=h+[g,h]+\frac{1}{2!}[g,[g,h]]+\dots\subset h
+	\end{equation}
+	于是
+	\begin{equation}
+	e^{g}e^{h}e^{-g}=\exp\left(e^g h e^{-g}\right)\subset H
+	\end{equation}
+	从而$H$是$G$的不变子群，这与假设矛盾，从而$g$使单纯的。如果加上$h$是可交换的条件，那么容易证明构造出的$H$是阿贝尔的，类似地，就说明了半单纯李群的李代数是半单纯的。
+	
+	如果有实李代数$g$，可以唯一的构造出连通李群$G=e^{g}$。如果$G$有不变子群$H$，那么$H$的无穷小生成元应该可以被$G$的无穷小生成元表出，亦即$H$的李代数$h$应该是$g$的子代数。同时，因为$H$是不变子群，有$aba^{-1}\in H,\forall b\in H,a\in G$，上式在$b\to e$处展开得到$aha^{-1}\in h\forall a\in G$，再利用无穷小生成元的对应关系得到$[g,h]=0$，也就是说$h$是理想，矛盾，从而$G$是单纯的。如果$H$阿贝尔，那么构造出的$h$也就可交换，从而类似地知道半单纯李代数的李群是半单纯的。
+	
+	\subsection{题4}
+	
+	\begin{equation}
+	g_{\lambda\mu}C^{\lambda}_{\rho k}-g_{\lambda\rho}C^{\lambda}_{\mu k}=(C^\lambda_{\rho k}X_\lambda,X_\mu)-(C^{\lambda}_{\mu k}X_\lambda,X_\rho)=([X_\rho,X_k],X_\mu)-([X_\mu,X_k],X_\rho)=0
+	\end{equation}
+	
+	\section{第二章第一节}
+	
+	\subsection{题1}
+	
+	半单李代数的根可以用来确定整个李代数的结构。只要知道了所有的根，就可以取Cartan-Weyl基，那么各基向量之间的对易关系都可以用根系来确定。同时根也和表示的权有非常紧密的联系，可以帮助确定表示的权系，进而确定整个表示的具体形式。
+	
+	当$A=H_i$时，根向量给出的是各个不同根的同一$i$分量张出的向量，而根系中的每一个向量是同一根的不同分量张出的向量，二者在一定意义下成转置关系。
+	
+	\subsection{题2}
+	
+	根据课件中的算法，可以递推出
+	\begin{equation}
+	|N_{\alpha,\mu+p\alpha-i\alpha}|^2=\sum_{j=1}^i(\alpha,\mu+(p+1)\alpha-j\alpha)=i(\mu,\alpha)+\frac{1}{2}i(2p+1-i)(\alpha,\alpha)
+	\end{equation}
+	再利用
+	\begin{equation}
+	(\mu,\alpha)=\frac{1}{2}(q-p)(\alpha,\alpha)
+	\end{equation}
+	得到
+	\begin{equation}
+	|N_{\alpha,\mu+p\alpha-i\alpha}|^2=\frac{1}{2}i(p+q+1-i)(\alpha,\alpha)
+	\end{equation}
+	特别地，当$i=p$时有
+	\begin{equation}
+	|N_{\alpha,\mu}|^2=\frac{1}{2}p(q+1)(\alpha,\alpha)
+	\end{equation}
+	
+	显然$[E_\alpha,E_\beta]=-[E_\beta,E_\alpha]$，从而$N_{\alpha\beta}=-N_{\beta\alpha}$。由厄米性$N_{\alpha,\beta}=N_{-\alpha,\beta+\alpha}$。
+	
+	又，记$\gamma=-\alpha-\beta$，由雅可比不等式：
+	\begin{equation}
+	[E_\alpha,[E_\beta,E_\gamma]]+[E_\beta,[E_\gamma,E_\alpha]]+[E_\gamma,[E_\alpha,E_\beta]]=0
+	\end{equation}
+	利用$[E_\mu,E_{-\mu}]=\mu^i H_i$，上式展开得到：
+	\begin{equation}
+	N_{\beta,\gamma}\alpha^iH_i+N_{\gamma,\alpha}\beta^iH_i+N_{\alpha,\beta}\gamma^iH_i=0
+	\end{equation}
+	各个$H_i$线性独立，而$\gamma=-\alpha-\beta$，于是
+	\begin{equation}
+	(N_{\beta,\gamma}-N_{\alpha,\beta})\alpha^i+(N_{\gamma,\alpha}-N_{\alpha,\beta})\beta^i=0
+	\end{equation}
+	$\alpha$和$\beta$亦线性独立，从而得到$N_{\alpha,\beta}=N_{\gamma,\alpha}=N_{-\alpha-\beta,\alpha}$。
+	
+	那么我们知道$N_{\alpha,\beta}=N_{-\alpha,\beta+\alpha}=-N_{-(-\alpha)-(-\beta),-\alpha}=-N_{-\alpha,-\beta}$。
+	
+	\subsection{题3}
+	
+	取$g_1$的Cartan-Weyl基$H_i,E_\alpha$和$g_2$的Cartan-Weyl基$G_j,F_\beta$。那么$\{H_i,G_j,E_\alpha,F_\beta\}$应该构成$g$的一组基。由两李代数各自的李乘积关系和两子代数相互正交，知道$\{H_i,G_j\}$是$g$的一个最大理想，从而是Cartan子代数。在这一组基下，各个基对应的根应该为$E_\alpha\to(\alpha,0)\subset\Sigma_1$,$F_\beta\to(0,\beta)\subset\Sigma_2$。于是$\Sigma=\Sigma_1\cup\Sigma_2$，且$(\alpha,0)\cdot(0,\beta)=0$。
+	
+	\section{第二章第二节}
+	
+	\subsection{题1}
+	
+	这里验证九种李代数的根系确实满足根系的条件。即：
+	\begin{itemize}
+		\item 任意一个非零根$\alpha$的负值$-\alpha$也是根（这个太trivial了就略去了）。
+		\item 任意两根满足$\frac{2(\alpha,\beta)}{(\alpha,\alpha)}\in\mathbb Z$，或者等价地，两根夹角与其长度比有对应关系。
+		\item 对于任意两个根$\alpha$和$\beta$，$\beta-2\frac{(\alpha,\beta)}{(\alpha,\alpha)}\alpha$也是根。
+	\end{itemize}
+	注意到后两点对于$\alpha$和$\beta$互为负值或相互正交的情况都是trivial的，从而只用讨论夹$30^\circ,45^\circ,60^\circ$度角的情况即可（以下称这些为non-trivial夹角，剩下的称trivial夹角）。同时，如果$\alpha$和$\beta$满足这两个条件，那么容易验证$\alpha$和$-\beta$也满足，从而总可以不失一般性地选取正负号来简化讨论。
+	
+	\paragraph{$A_l$}
+	
+	其非零根表述为
+	\begin{equation}
+	\{e_i-e_j|1\leq i\leq l+1,1\leq j\leq l=1,i\neq j\}
+	\end{equation}
+	对于任意两个非零根$e_i-e_j$和$e_k-e_l$，其可能情况有三种：（1）$\{i,j\}\cap\{k,l\}=\emptyset$，这时显然两者正交，无需验证；（2）$\{i,j\}=\{k,l\}$，此时两者或相等或差一个负号，也trivial；（3）$\{i,j\}\cap\{k,l\}$有一个元素。这时需要验证。
+	
+	此时不妨设是$j=l$,$i\neq k$。那么我们应该有
+	\begin{equation}
+	2\frac{(e_i-e_j,e_k-e_j)}{(e_i-e_j,e_i-e_j)}=1
+	\end{equation}
+	从而确实为整数。这对应两根夹$60^\circ$角且等长的情况。
+	
+	反射后：
+	\begin{equation}
+	(e_k-e_j)-2\frac{(e_i-e_j,e_k-e_j)}{(e_i-e_j,e_i-e_j)}(e_i-e_j)=(e_k-e_j)-(e_i-e_j)=e_k-e_i
+	\end{equation}
+	确实为根。至此验证了这是根系。
+	
+	\paragraph{$B_l$}
+	
+	其非零根表述为
+	\begin{equation}
+	\{\pm e_i\pm e_j|1\leq i<j\leq l\}\cup\{\pm e_i|1\leq i\leq l\}
+	\end{equation}
+	
+	对于$\pm e_i$和$\pm e_j$，显然或正交或平行，trivial。
+	
+	对于$\pm e_i\pm e_j$和$\pm e_k\pm e_l$，可类似上面对$A_l$的讨论来进行，得到两根或正交、或平行、或夹$60^\circ/120^\circ$角且等长，并且反射后仍是这一形式。
+	
+	对于$\pm e_i\pm e_j$和$e_k$，易见如果$k\notin\{i,j\}$则二者正交，无需验证。从而不妨设$k=j$，且取第一个根正负号使得$e_j$前符号为正。这样有
+	\begin{equation}
+	2\frac{(\pm e_i+e_j,e_j)}{(e_j,e_j)}=2
+	\end{equation}
+	\begin{equation}
+	2\frac{(\pm e_i+e_j,e_j)}{(\pm e_i+e_j,\pm e_i+e_j)}=1
+	\end{equation}
+	从而两者夹$45^\circ$且长度比为$\sqrt 2$。反射后得到：
+	\begin{equation}
+	(\pm e_i+e_j)-2\frac{(\pm e_i+e_j,e_j)}{(e_j,e_j)}e_j=\pm e_i-e_j
+	\end{equation}
+	\begin{equation}
+	e_j-2\frac{(\pm e_i+e_j,e_j)}{(\pm e_i+e_j,\pm e_i+e_j)}(\pm e_i+e_j)=\mp e_i
+	\end{equation}
+	都仍然是根。
+	
+	\paragraph{$C_l$} 类似$B_l$情况。此时最后一部分改为：
+	\begin{equation}
+	2\frac{(\pm e_i+e_j,2e_j)}{(2e_j,2e_j)}=1
+	\end{equation}
+	\begin{equation}
+	2\frac{(\pm e_i+e_j,2e_j)}{(\pm e_i+e_j,\pm e_i+e_j)}=2
+	\end{equation}
+	\begin{equation}
+	(\pm e_i+e_j)-2\frac{(\pm e_i+e_j,2e_j)}{(2e_j,2e_j)}2e_j=\pm e_i-e_j
+	\end{equation}
+	\begin{equation}
+	2e_j-2\frac{(\pm e_i+e_j,2e_j)}{(\pm e_i+e_j,\pm e_i+e_j)}(\pm e_i+e_j)=\mp 2e_i
+	\end{equation}
+	
+	\paragraph{$D_l$} 事实上已经作为$B_l$的一部分验证了。
+	
+	\paragraph{$G_2$} $e_i-e_j$部分已经验证。
+	
+	对于$e_i-e_j$和$\pm(2e_k-e_l-e_m)$，如果$\{i,j\}=\{l,m\}$，俺么易见两者正交。否则，不妨取$i=k,j=l$，且正负号取正。
+	
+	则有
+	\begin{equation}
+	(e_i-e_j,2e_i-e_j-e_m)=3
+	\end{equation}
+	\begin{equation}
+	(e_i-e_j,e_i-e_j)=2
+	\end{equation}
+	\begin{equation}
+	(2e_i-e_j-e_m,2e_i-e_j-e_m)=6
+	\end{equation}
+	从而对应着两根夹$30^\circ$角且长度比为$\sqrt 3$的情况。反射后有：
+	\begin{equation}
+	e_i-e_j-2\frac{(e_i-e_j,2e_i-e_j-e_m)}{(2e_i-e_j-e_m,2e_i-e_j-e_m)}(2e_i-e_j-e_m)=e_m-e_i
+	\end{equation}
+	\begin{equation}
+	2e_i-e_j-e_m-2\frac{(e_i-e_j,2e_i-e_j-e_m)}{(e_i-e_j,e_i-e_j)}(e_i-e_j)=2e_j-e_i-e_m
+	\end{equation}
+	仍然为根。
+	
+	对于剩下的情况，由对称性考虑，只要验证$2e_i-e_j-e_k$与$e_i-2e_j+e_k$即可。两者模方均为$6$，内积：
+	\begin{equation}
+	(2e_i-e_j-e_k,e_i-2e_j+e_k)=3
+	\end{equation}
+	从而对应长度相等且夹$60^\circ$角的情况。反射后有：
+	\begin{equation}
+	2e_i-e_j-e_k-2\frac{(2e_i-e_j-e_k,e_i-2e_j+e_k)}{(e_i-2e_j+e_k,e_i-2e_j+e_k)}(e_i-2e_j+e_k)=e_i+e_j-2e_k
+	\end{equation}
+	确实为根。
+	
+	\paragraph{$F_4$}
+	
+	$B_4$部分已经验证。
+	
+	对于
+	\begin{equation}
+	\frac{1}{2}(xe_1+ye_2+ze_3+we_4)
+	\end{equation}
+	其中$x,y,z,w=\pm 1$，考虑两个这样的根的内积：
+	\begin{equation}
+	\left(\frac{1}{2}(xe_1+ye_2+ze_3+we_4),\frac{1}{2}(ae_1+be_2+ce_3+de_4)\right)=\frac{1}{4}(ax+by+cz+dw)
+	\end{equation}
+	其中每一项都为$1$或$-1$，故最终结果为$\pm 1,\pm \frac{1}{2},0$。取正负号使得内积为正。如果为$1$则两根相等，为$0$则正交，均平凡。考虑$\frac{1}{2}$的情况。此时两根满足等长且夹$60^\circ$角。反射得到：
+	\begin{multline}
+	\frac{1}{2}(xe_1+ye_2+ze_3+we_4)-2\frac{\left(\frac{1}{2}(xe_1+ye_2+ze_3+we_4),\frac{1}{2}(ae_1+be_2+ce_3+de_4)\right)}{\left(\frac{1}{2}(ae_1+be_2+ce_3+de_4),\frac{1}{2}(ae_1+be_2+ce_3+de_4)\right)}\\\times\frac{1}{2}(ae_1+be_2+ce_3+de_4)=\frac{1}{2}[(x-a)e_1+(y-b)e_2+(z-c)e_3+(w-d)e_4]
+	\end{multline}
+	注意到内积为$\frac{1}{2}$意味着两根的四个分量中应该三个相等一个反号，那么最终结果中应该只有一项非零，且绝对值为$1$，这在根系内。
+	
+	对于$e_i$和$\frac{1}{2}(x_1e_1+x_2e_2+x_3e_3+x_4e_4)$，有
+	\begin{equation}
+	\left(e_i,\frac{1}{2}(x_1e_1+x_2e_2+x_3e_3+x_4e_4)\right)=\frac{1}{2}x_i
+	\end{equation}
+	故两者夹$60^\circ$角且等长。反射有：
+	\begin{multline}
+	e_i-2\frac{\left(e_i,\frac{1}{2}(x_1e_1+x_2e_2+x_3e_3+x_4e_4)\right)}{\left(\frac{1}{2}(x_1e_1+x_2e_2+x_3e_3+x_4e_4),\frac{1}{2}(x_1e_1+x_2e_2+x_3e_3+x_4e_4)\right)}\\\times\frac{1}{2}(x_1e_1+x_2e_2+x_3e_3+x_4e_4)=-x_i\frac{1}{2}(x_1e_1+x_2e_2+x_3e_3+x_4e_4)+x_i^2e_i
+	\end{multline}
+	最后一项应该使得括号内$e_i$一项反号，从而仍在根系内；
+	\begin{multline}
+	\frac{1}{2}(x_1e_1+x_2e_2+x_3e_3+x_4e_4)-2\frac{\left(e_i,\frac{1}{2}(x_1e_1+x_2e_2+x_3e_3+x_4e_4)\right)}{(e_i,e_i)}e_i\\=\frac{1}{2}(x_1e_1+x_2e_2+x_3e_3+x_4e_4-2x_ie_i)
+	\end{multline}
+	仍在根系内。
+	
+	对于$e_i\pm e_j$和$\frac{1}{2}(x_1e_1+x_2e_2+x_3e_3+x_4e_4)$，有
+	\begin{equation}
+	\left(e_i\pm e_j,\frac{1}{2}(x_1e_1+x_2e_2+x_3e_3+x_4e_4)\right)=\frac{1}{2}(x_i\pm x_j)
+	\end{equation}
+	内积为$0$或$\pm 1$，从而两者夹$45^\circ$且长度比为$\sqrt 2$。不妨设$x_i\pm x_j=1$。反射有：
+	\begin{multline}
+	e_i\pm e_j-2\frac{\left(e_i\pm e_j,\frac{1}{2}(x_1e_1+x_2e_2+x_3e_3+x_4e_4)\right)}{\left(\frac{1}{2}(x_1e_1+x_2e_2+x_3e_3+x_4e_4),\frac{1}{2}(x_1e_1+x_2e_2+x_3e_3+x_4e_4)\right)}\\\times\frac{1}{2}(x_1e_1+x_2e_2+x_3e_3+x_4e_4)=-\frac{1}{2}(x_1e_1+x_2e_2+x_3e_3+x_4e_4-2(x_i\pm x_j)e_i-2(x_j\mp x_i)e_j)
+	\end{multline}
+	其中最后一步利用了$x_i\pm e_j=1$。可以看到这仍在根系内。
+	
+	\paragraph{$E_6$}
+	
+	$A_5$部分已经验证。$A_5$部分与$\pm\sqrt 2e_7$正交。
+	
+	考虑$e_i-e_j$和$\frac{1}{2}x_ke_k\pm\frac{e_7}{\sqrt 2}$，已经用爱因斯坦求和约定对$k$求和。两者内积为$\frac{1}{2}(x_i-x_j)$，从而为$0$或$1$。不妨设$x_i=1,x_j=-1$。前者长度均为$\sqrt 2$，此时内积为$1$，从而为等长且夹$60^\circ$角。反射有：
+	\begin{equation}
+	\left[\frac{1}{2}x_ke_k\pm\frac{e_7}{\sqrt 2}\right]-(e_i-e_j)
+	\end{equation}
+	从而$x_i$和$x_j$分别反号，前三项仍为三正三负，从而仍在根系内。
+	
+	对于$\frac{1}{2}x_ke_k\pm\frac{e_7}{\sqrt 2}$和$\sqrt 2 e_7$，容易看出内积为$\pm 1$，从而同样为等长且夹$60^\circ$，反射为两者相减，容易看出等价于第一个根中的$e_7$项反号。
+	
+	对于$\frac{1}{2}x_ke_k+\frac{e_7}{\sqrt 2}$和$\frac{1}{2}y_ke_k\pm\frac{e_7}{\sqrt 2}$，其内积为$\frac{1}{4}x_ky_k\pm\frac{1}{2}$。$x_ky_k$的可能取值为$\pm 6,\pm 2$（考虑两边的“三正”的重合数）。于是这一内积的可能取值为$\pm 2,\pm 1,0$。只有$\pm 1$是非平凡的，此时对应两根等长且夹$60^\circ$。不妨考虑内积为$1$情况。此时有两种可能，一是$x_ky_k=6,\pm=-$，二是$x_ky_k=2,\pm=+$。前者对应$x_k=y_k$，从而两根反射即相减得到$\sqrt 2 e_7$；后者对应$x_k-y_k$得到一项正一项负、$e_7$项消去，得到$e_i-e_j$。均在根系内。
+	
+	\paragraph{$E_7$}
+	
+	$A_7$部分已经验证。$A_7$和$\frac{1}{2}x_ke_k$部分，类似上面的讨论，非平凡情况为等长夹$60^\circ$角，反射对应$x_k$中对应的$i,j$项反号。
+	
+	对于$\frac{1}{2}x_ke_k$和$\frac{1}{2}y_ke_k$，$x_k$和$y_k$中的“四正”重合数应该为$4,3,2,1,0$，分别对应内积$2,1,0,-1,-2$。非平凡情况为内积为$\pm 1$，对应等长且夹$60^\circ$。不妨考虑内积为$1$，即“四正“中只有一个不一样，则反射应该得到$e_i-e_j$形式，$i,j$分别是多出来的那个“正”和“负”。
+	
+	\paragraph{$E_8$}
+	
+	$D_8$部分已经验证。
+	
+	对于$e_i\pm e_j$和$\frac{1}{2}x_ke_k$，其内积为$\frac{1}{2}(x_i\pm x_j)$。非平凡情况对应于等长且夹$60^\circ$。不妨取$x_i=1,x_j=\pm 1$。此时类似上面讨论知道，反射后得到
+	\begin{equation}
+	\frac{1}{2}(x_ke_k-(x_i\pm x_j)(e_i\pm e_j))
+	\end{equation}
+	则新的$e_i$前系数应该为$\pm x_j=-1$，新的$e_j$前的系数应该为$\mp x_i=\mp 1$。从而正负数或者不变，或者变化$2$，于是仍在根系内。
+	
+	对于$\frac{1}{2}x_ke_k$和$\frac{1}{2}y_ke_k$，其内积为$\frac{1}{4}x_ky_k$。如果其中一个是全正、一个是四正四负，显然正交。如果一个全正、一个六正二负，那么容易知道内积为$1$，对应等长且夹$60^\circ$，反射等价于相减，最终应该得到那两个“负”之和，从而为$e_i+e_j$形式。如果一个六正二负、一个四正四负，那么内积非零（不妨设为正）当且仅当“二负”在“四负”中。此时内积为$1$。相减应该得到那“二负”，同样为$e_i+e_j$形式。
+	
+	\subsection{题2}
+	
+	$SU(2)$可以用来描述空间旋转对称性即角动量。其根图可以用来确定表示可能的权系，进而确定表示（即角动量态）只能是$l=$半整数型。
+	
+	\textbf{例外李代数解决物理问题}
+	
+	\section{第二章第四节}
+	
+	\subsection{题1}
+	
+	确定根系的方法如下。先写出其Cartan矩阵$A$。对于某一个根$\lambda_1\alpha_1+\lambda_2\alpha_2$，设
+	\begin{equation}
+	q_i=\max\{q|\lambda_1\alpha_1+\lambda_2\alpha_2-q\alpha_i\in\Sigma\},i=1,2
+	\end{equation}
+	计算
+	\begin{equation}
+	p_i=q_i-A_{ij}k_j
+	\end{equation}
+	若$p_i>0$，则$\lambda_1\alpha_1+\lambda_2\alpha_2+\alpha_i$也是根，反之则不是。由此可从一阶根逐阶向上递推。
+	
+	\paragraph{$A_4$} 其Cartan矩阵为
+	\begin{equation}
+	A=
+	\begin{pmatrix}
+	2 & -1 & 0 & 0\\
+	-1 & 2 & -1 & 0 \\
+	0 & -1 & 2 & -1 \\
+	0 & 0 & -1 & 2
+	\end{pmatrix}
+	\end{equation}
+	
+	构造如表\ref{table:A4Roots}，其中每一个中括号中，前一组数代表$\lambda$，后一组数代表$q$。
+	
+	\begin{table}[!htbp]
+		\centering
+		\begin{tabular}{ll}
+			一阶 & [(1,0,0,0),(2,0,0,0)],[(0,1,0,0),(0,2,0,0)],[(0,0,1,0),(0,0,2,0)],[(0,0,0,1),(0,0,0,2)]\\
+			二阶 & [(1,1,0,0),(1,1,0,0)],[(0,1,1,0),(0,1,1,0)],[(0,0,1,1),(0,0,1,1)] \\
+			三阶 & [(1,1,1,0),(1,0,1,0)],[(0,1,1,1),(0,1,0,1)] \\
+			四阶 & [(1,1,1,1),(1,0,0,1)] \\
+		\end{tabular}
+		\caption{$A_4$李代数的正根系构造}
+		\label{table:A4Roots}
+	\end{table}
+
+	
+	
+	\paragraph{$B_4$} 其Cartan矩阵为
+	\begin{equation}
+	A=
+	\begin{pmatrix}
+	2 & -1 & 0 & 0\\
+	-1 & 2 & -1 & 0 \\
+	0 & -1 & 2 & -1 \\
+	0 & 0 & -2 & 2
+	\end{pmatrix}
+	\end{equation}
+	
+	构造如表\ref{table:B4Roots}，其中每一个中括号中，前一组数代表$\lambda$，后一组数代表$q$。
+	
+	\begin{table}[!htbp]
+		\centering
+		\begin{tabular}{ll}
+			一阶 & [(1,0,0,0),(2,0,0,0)],[(0,1,0,0),(0,2,0,0)],[(0,0,1,0),(0,0,2,0)],[(0,0,0,1),(0,0,0,2)]\\
+			二阶 & [(1,1,0,0),(1,1,0,0)],[(0,1,1,0),(0,1,1,0)],[(0,0,1,1),(0,0,1,1)] \\
+			三阶 & [(1,1,1,0),(1,0,1,0)],[(0,1,1,1),(0,1,0,1)],[(0,0,1,2),(0,0,0,2)] \\
+			四阶 & [(1,1,1,1),(1,0,0,1)],[(0,1,1,2),(0,1,0,2)] \\
+			五阶 & [(1,1,1,2),(1,0,0,2)],[(0,1,2,2),(0,0,1,0)] \\
+			六阶 & [(1,1,2,2),(1,0,1,0)]\\
+			七阶 & [(1,2,2,2),(0,1,0,0)]
+		\end{tabular}
+		\caption{$B_4$李代数的正根系构造}
+		\label{table:B4Roots}
+	\end{table}
+
+	
+	
+	\paragraph{$C_4$} 其Cartan矩阵为
+	\begin{equation}
+	A=
+	\begin{pmatrix}
+	2 & -1 & 0 & 0\\
+	-1 & 2 & -1 & 0 \\
+	0 & -1 & 2 & -2 \\
+	0 & 0 & -1 & 2
+	\end{pmatrix}
+	\end{equation}
+	
+	构造如表\ref{table:C4Roots}，其中每一个中括号中，前一组数代表$\lambda$，后一组数代表$q$。
+	
+	\begin{table}[!htbp]
+		\centering
+		\begin{tabular}{ll}
+			一阶 & [(1,0,0,0),(2,0,0,0)],[(0,1,0,0),(0,2,0,0)],[(0,0,1,0),(0,0,2,0)],[(0,0,0,1),(0,0,0,2)], \\
+			二阶 & [(1,1,0,0),(1,1,0,0)],[(0,1,1,0),(0,1,1,0)],[(0,0,1,1),(0,0,1,1)], \\
+			三阶 & [(1,1,1,0),(1,0,1,0)],[(0,1,1,1),(0,1,0,1)],[(0,0,2,1),(0,0,2,0)], \\
+			四阶 & [(1,1,1,1),(1,0,0,1)],[(0,1,2,1),(0,1,1,0)], \\
+			五阶 & [(1,1,2,1),(1,0,1,0)],[(0,2,2,1),(0,2,0,0)], \\
+			六阶 & [(1,2,2,1),(1,1,0,0)], \\
+			七阶 & [(2,2,2,1),(2,0,0,0)], \\
+		\end{tabular}
+		\caption{$C_4$李代数的正根系构造}
+		\label{table:C4Roots}
+	\end{table}
+
+	
+	
+	\paragraph{$D_4$} 其Cartan矩阵为
+	\begin{equation}
+	A=
+	\begin{pmatrix}
+	2 & -1 & 0 & 0\\
+	-1 & 2 & -1 & -1 \\
+	0 & -1 & 2 & 0 \\
+	0 & -1 & 0 & 2
+	\end{pmatrix}
+	\end{equation}
+	
+	构造如表\ref{table:D4Roots}，其中每一个中括号中，前一组数代表$\lambda$，后一组数代表$q$。
+	
+	\begin{table}[!htbp]
+		\centering
+		\begin{tabular}{ll}
+			一阶 & [(1,0,0,0),(2,0,0,0)],[(0,1,0,0),(0,2,0,0)],[(0,0,1,0),(0,0,2,0)],[(0,0,0,1),(0,0,0,2)], \\
+			二阶 & [(1,1,0,0),(1,1,0,0)],[(0,1,1,0),(0,1,1,0)],[(0,1,0,1),(0,1,0,1)], \\
+			三阶 & [(1,1,1,0),(1,0,1,0)],[(1,1,0,1),(1,0,0,1)],[(0,1,1,1),(0,0,1,1)], \\
+			四阶 & [(1,1,1,1),(1,0,1,1)], \\
+			五阶 & [(1,2,1,1),(0,1,0,0)], \\
+		\end{tabular}
+		\caption{$D_4$李代数的正根系构造}
+		\label{table:D4Roots}
+	\end{table}
+
+	
+	
+	\paragraph{$F_4$} 其Cartan矩阵为
+	\begin{equation}
+	A=
+	\begin{pmatrix}
+	2 & -1 & 0 & 0\\
+	-1 & 2 & -1 & 0 \\
+	0 & -2 & 2 & -1 \\
+	0 & 0 & -1 & 2
+	\end{pmatrix}
+	\end{equation}
+	
+	构造如表\ref{table:F4Roots}，其中每一个中括号中，前一组数代表$\lambda$，后一组数代表$q$。
+	
+	\begin{table}[!htbp]
+		\centering
+		\begin{tabular}{ll}
+			一阶 & [(1,0,0,0),(2,0,0,0)],[(0,1,0,0),(0,2,0,0)],[(0,0,1,0),(0,0,2,0)],[(0,0,0,1),(0,0,0,2)], \\
+			二阶 & [(1,1,0,0),(1,1,0,0)],[(0,1,1,0),(0,1,1,0)],[(0,0,1,1),(0,0,1,1)], \\
+			三阶 & [(1,1,1,0),(1,0,1,0)],[(0,1,2,0),(0,0,2,0)],[(0,1,1,1),(0,1,0,1)], \\
+			四阶 & [(1,1,2,0),(1,0,2,0)],[(1,1,1,1),(1,0,0,1)],[(0,1,2,1),(0,0,1,1)], \\
+			五阶 & [(1,2,2,0),(0,1,0,0)],[(1,1,2,1),(1,0,1,1)],[(0,1,2,2),(0,0,0,2)], \\
+			六阶 & [(1,2,2,1),(0,1,0,1)],[(1,1,2,2),(1,0,0,2)], \\
+			七阶 & [(1,2,3,1),(0,0,1,0)],[(1,2,2,2),(0,1,0,2)], \\
+			八阶 & [(1,2,3,2),(0,0,1,1)], \\
+			九阶 & [(1,2,4,2),(0,0,2,0)], \\
+			十阶 & [(1,3,4,2),(0,1,0,0)], \\
+			十一阶 & [(2,3,4,2),(1,0,0,0)], \\
+		\end{tabular}
+		\caption{$F_4$李代数的正根系构造}
+		\label{table:F4Roots}
+	\end{table}
+
+	\subsection{题2}
+	
+	对于$A_l$，正根系应该为$e_i-e_j,1\leq i<j\leq l+1$。那么，其中，$e_i$正地出现$l+1-i$次，负地出现$i-1$次。从而正根和之半应该等于
+	\begin{multline}
+	\delta=\frac{1}{2}\sum_{i=1}^{l+1}(l+2-2i)e_i=\sum_{i=1}^{l+1}\left(\frac l2+1-i\right)\left(\sum_{j=i}^l \alpha_j+e_{l+1}\right)\\=\sum_{j=1}^l\sum_{i=1}^j\left(\frac l2+1-i\right)\alpha_j=\sum_{j=1}^l\frac{1}{2}(l+1-j)j\alpha_j
+	\end{multline}
+	
+	对于$B_l$，正根系应该为$e_i\pm e_j,1\leq i<j\leq l$以及$e_i,1\leq i\leq l$。于是，$e_i$出现次数应该等于$1$加上$e_i\pm e_j$这样项的个数，也就是$1+2(l-i)=2l+1-2i$。从而
+	\begin{equation}
+	\delta=\frac{1}{2}\sum_{i=1}^l (2l+1-2i)e_i=\sum_{i=1}^l\left(l+\frac{1}{2}-i\right)\sum_{j=i}^l\alpha_j=\sum_{j=1}^lj\left(l-\frac{j}{2}\right)\alpha_j
+	\end{equation}
+	
+	对于$C_l$，正根系应该为$e_i\pm e_j,1\leq i<j\leq l$以及$2e_i,1\leq i\leq l$。于是，$e_i$出现次数应该等于$2$加上$e_i\pm e_j$这样项的个数，也就是$2+2(l-i)=2l+2-2i$。从而
+	\begin{multline}
+	\delta=\frac{1}{2}\sum_{i=1}^l (2l+2-2i)e_i=\sum_{i=1}^l\left(l+1-i\right)\left(\sum_{j=i}^{l-1} \alpha_j+\frac{1}{2}\alpha_l\right)\\=\sum_{j=1}^{l-1}j\left(l-\frac{j-1}{2}\right)\alpha_j+\frac{l(l+1)}{4}\alpha_l
+	\end{multline}
+	
+	对于$D_l$，正根系应该为$e_i\pm e_j,1\leq i<j\leq l$，从而直接有
+	\begin{multline}
+	\delta=\frac{1}{2}\sum_{i=1}^l (2l-2i)e_i=\sum_{i=1}^{l-1}\left(l-i\right)\left(\sum_{j=i}^{l-2} \alpha_j+\frac{1}{2}\left(\alpha_{l-1}+\alpha_l\right)\right)\\=\sum_{j=1}^{l-2}j\left(l-\frac{j+1}{2}\right)\alpha_j+\frac{l(l-1)}{4}(\alpha_{l-1}+\alpha_l)
+	\end{multline}
+	
+	\section{第三章第一节}
+	
+	对于矩阵实现，我们理应验证全部的对易关系：
+	\begin{equation}\label{HCommute}
+	[H_i,H_j]=0
+	\end{equation}
+	\begin{equation}\label{HE}
+	[H_i,E_\alpha]=\alpha_iE_\alpha
+	\end{equation}
+	\begin{equation}\label{Ean}
+	[E_\alpha,E_{-\alpha}]=\alpha^iH_i
+	\end{equation}
+	\begin{equation}\label{Eab}
+	[E_\alpha,E_\beta]=N_{\alpha\beta}E_{\alpha+\beta}
+	\end{equation}
+	
+	注意到给出的$H$已经是同时对角化的，从而\eqref{HCommute}自动满足。\eqref{HE}是需要验证的，且需要验证各个$\alpha_i$构成的根向量确实满足对应根向量应该满足的条件。注意到\eqref{Ean}和\eqref{Eab}事实上是可以从\eqref{HE}推出的（其中的待定系数取决于具体选择，从而没有“验证”一说）。从而事实上我们只需要验证\eqref{HE}给出正确的根系结构。
+	
+	\subsection{题1}
+	
+	$A_l$矩阵实现为
+	\begin{equation}
+	H_j=\frac{1}{\sqrt{2j(j+1)}}(E_{11}+E_{22}+\dots+E_{jj}-jE_{(j+1)(j+1)})
+	\end{equation}
+	\begin{equation}
+	E_{e_i-e_j}=E_{ij}
+	\end{equation}
+	
+	各个$H$已经被同时对角化，从而相互对易。
+	
+	\begin{equation}
+	[H_k,E_{e_i-e_j}]=[(H_k)_i-(H_k)_j]E_{e_i-e_j}=E_{e_i-e_j}\times
+	\begin{cases}
+	0 & j\leq k\lor i\geq k+2\\
+	\frac{1}{\sqrt{2k(k+1)}} & i<k+1<j\\
+	\sqrt{\frac{k+1}{2k}} & j=k+1\\
+	-\sqrt{\frac{k}{2(k+1)}} & i=k+1
+	\end{cases}
+	\end{equation}
+	其中假设了$i<j$。这给出$e_i-e_j$对应的权向量：
+	\begin{equation}
+	(e_i-e_j)_k=(H_k)_i-(H_k)_j
+	\end{equation}
+	如果定义
+	\begin{equation}
+	(v_i)_k=(H_k)_i
+	\end{equation}
+	即
+	\begin{equation}
+	v_i=\left(\underbrace{0,\dots,0}_{\times i-2},-\sqrt{\frac{i-1}{2i}},\frac{1}{\sqrt{2i(i+1)}},\frac{1}{\sqrt{2(i+1)(i+2)}},\dots,\frac{1}{\sqrt{2l(l+1)}}\right)
+	\end{equation}
+	注意到有
+	\begin{equation}
+	(v_i,v_i)=\frac{i-1}{2i}+\sum_{j=i}^l\frac{1}{2}\left(\frac{1}{i}-\frac{1}{i+1}\right)=\frac{1}{2}\left(1-\frac{1}{l+1}\right)
+	\end{equation}
+	\begin{equation}
+	(v_i,v_j)=-\sqrt{\frac{j-1}{2j}}\frac{1}{\sqrt{2j(j-1)}}+\sum_{k=j}^l\frac{1}{2}\left(\frac{1}{k}-\frac{1}{k+1}\right)=-\frac{1}{2(l+1)}
+	\end{equation}
+	即
+	\begin{equation}
+	(v_i,v_j)=\frac{1}{2}\left(\delta_{ij}-\frac{1}{l+1}\right)
+	\end{equation}
+	从而有
+	\begin{multline}
+	(v_i-v_j,v_k-v_l)=\frac{1}{2}\left[\left(\delta_{ik}-\frac{1}{l+1}\right)+\left(\delta_{jl}-\frac{1}{l+1}\right)-\left(\delta_{il}-\frac{1}{l+1}\right)-\left(\delta_{jk}-\frac{1}{l+1}\right)\right]\\=\frac{1}{2}(\delta_{ik}+\delta_{jl}-\delta_{il}-\delta_{jk})
+	\end{multline}
+	对比
+	\begin{equation}
+	(e_i-e_j,e_k-e_l)=\delta_{ik}+\delta_{jl}-\delta_{il}-\delta_{jk}
+	\end{equation}
+	可以知道这确实给出正确的根系结构。
+	
+	其它对易关系计算为：
+	\begin{equation}
+	[E_{e_i-e_j},E_{e_k-e_l}]=[E_{ij},E_{kl}]=\delta_{jk}E_{il}-\delta_{il}E_{kj}
+	\end{equation}
+	于是有（以下出现的不同字母默认取不同的值）：
+	\begin{equation}
+	[E_{e_i-e_j},E_{e_k-e_l}]=0
+	\end{equation}
+	\begin{equation}
+	[E_{e_i-e_j},E_{e_j-e_k}]=E_{e_i-e_k}
+	\end{equation}
+	\begin{equation}
+	[E_{e_i-e_j},E_{e_k-e_i}]=-E_{e_k-e_j}
+	\end{equation}
+	\begin{equation}
+	[E_{e_i-e_j},E_{e_j-e_i}]=E_{ii}-E_{jj}
+	\end{equation}
+	注意到
+	\begin{equation}
+	\sqrt{2j(j+1)}H_j-\sqrt{2j(j-1)}H_{j-1}=-jE_{(j+1)(j+1)}+jE_{jj}
+	\end{equation}
+	即
+	\begin{equation}
+	E_{(j+1)(j+1)}-E_{jj}=\sqrt{\frac{2(j-1)}{j}}H_{j-1}-\sqrt{\frac{2(j+1)}{j}}H_j
+	\end{equation}
+	从而
+	\begin{multline}
+	E_{ii}-E_{jj}=\sum_{k=j}^{i-1}\left[\sqrt{\frac{2(k-1)}{k}}H_{k-1}-\sqrt{\frac{2(k+1)}{k}}H_k\right]\\=\sqrt{\frac{2(j-1)}{j}}H_{j-1}-\sqrt{\frac{2i}{i-1}}H_{i-1}-\sum_{k=j}^{i-2}\sqrt{\frac{2}{k(k+1)}}H_k
+	\end{multline}
+	亦即
+	\begin{equation}
+	[E_{e_i-e_j},E_{e_j-e_i}]=\sqrt{\frac{2(j-1)}{j}}H_{j-1}-\sqrt{\frac{2i}{i-1}}H_{i-1}-\sum_{k=j}^{i-2}\sqrt{\frac{2}{k(k+1)}}H_k,i>j
+	\end{equation}
+	
+	\subsection{题2}
+	
+	$B_n$矩阵实现为：
+	\begin{equation}
+	H_j=iI_{2j(2j-1)}
+	\end{equation}
+	\begin{equation}
+	E_{e_j\pm e_k}=\frac{1}{2}\left[i(I_{(2k-1)(2j-1)}\mp I_{(2k)(2j)})-(I_{(2k-1)(2j)}\pm I_{(2k)(2j-1)})\right]
+	\end{equation}
+	\begin{equation}
+	E_{-(e_j\pm e_k)}=\left(E_{e_j\pm e_k}\right)^\dagger=\frac{1}{2}\left[i(I_{(2k-1)(2j-1)}\mp I_{(2k)(2j)})+(I_{(2k-1)(2j)}\pm I_{(2k)(2j-1)})\right]
+	\end{equation}
+	上两式可以统一写为
+	\begin{equation}
+	E_{x_1e_j+x_2e_k}=\frac{1}{2}\left[i(I_{(2k-1)(2j-1)}-x_1x_2 I_{(2k)(2j)})-x_1I_{(2k-1)(2j)}-x_2I_{(2k)(2j-1)}\right]
+	\end{equation}
+	其中$x_1,x_2=\pm 1$。另有
+	\begin{equation}
+	E_{\pm e_j}=\frac{1}{\sqrt 2}\left[iI_{(2n+1)(2j)}\pm I_{(2n+1)(2j-1)}\right]
+	\end{equation}
+	
+	利用
+	\begin{equation}
+	[I_{ij},I_{kl}]=\delta_{il}I_{jk}+\delta_{jk}I_{il}-\delta_{ik}I_{jl}-\delta_{jl}I_{ik}
+	\end{equation}
+	
+	可以得到
+	\begin{multline}
+	[H_j,E_{x_1e_k+x_2e_l}]=\left[iI_{2j(2j-1)},\frac{1}{2}\left[i(I_{(2l-1)(2k-1)}-x_1x_2 I_{(2l)(2k)})-x_1I_{(2l-1)(2k)}-x_2I_{(2l)(2k-1)}\right]\right]\\
+	=\frac{1}{2}\bigg[\delta_{jk}\big(I_{(2j)(2l-1)}+x_1x_2I_{(2j-1)(2l)}-ix_1I_{(2j-1)(2l-1)}+ix_2I_{(2j)(2l)}\big)+\\\delta_{jl}\big(-I_{(2j)(2k-1)}-x_1x_2I_{(2j-1)(2k)}-ix_1I_{(2j)(2k)}+ix_2I_{(2j-1)(2k-1)}\big)\bigg]\\=(\delta_{jk}x_1+\delta_{jl}x_2)E_{x_1e_k+x_2e_l}
+	\end{multline}
+	\begin{multline}
+	[H_j,E_{\pm e_k}]=\left[iI_{2j(2j-1)},\frac{1}{\sqrt 2}\left[iI_{(2n+1)(2k)}\pm I_{(2n+1)(2k-1)}\right]\right]\\=\delta_{jk}\frac{1}{\sqrt 2}(-I_{(2j-1)(2n+1)}\mp iI_{(2j)(2n+1)})=\pm\delta_{jk}E_{\pm e_k}
+	\end{multline}
+	这就是$B_n$的根系。
+	
+	其它对易关系有：
+	\begin{multline}
+	[E_{x_1e_j},E_{x_2e_k}]=\left[\frac{1}{\sqrt 2}\left[iI_{(2n+1)(2j)}+x_1 I_{(2n+1)(2j-1)}\right],\frac{1}{\sqrt 2}\left[iI_{(2n+1)(2k)}+x_2 I_{(2n+1)(2k-1)}\right]\right]\\
+	=\frac{1}{2}\bigg[I_{(2j)(2k)}-x_1x_2I_{(2j-1)(2k-1)}-ix_1I_{(2j-1)2k}-ix_2I_{(2j)(2k-1)}\bigg]
+	\end{multline}
+	注意到可能出现的$\delta_{jk}$项对应的矩阵为$I_{(2n+1)(2n+1)}=0$。比较容易得到
+	\begin{equation}
+	[E_{x_1e_j},E_{x_2e_k}]=\begin{cases}
+	-ix_1x_2E_{x_1e_j+x_2e_k} & j\neq k\\
+	\frac{1}{2}(x_1-x_2)H_j & j=k
+	\end{cases}
+	\end{equation}
+	
+	\begin{multline}
+	[E_{\pm e_j},E_{x_1e_k+x_2e_l}]=\bigg[\frac{1}{\sqrt 2}\left[iI_{(2n+1)(2j)}\pm I_{(2n+1)(2j-1)}\right]\\,\frac{1}{2}\left[i(I_{(2l-1)(2k-1)}-x_1x_2 I_{(2l)(2k)})-x_1I_{(2l-1)(2k)}-x_2I_{(2l)(2k-1)}\right]\bigg]\\
+	=\frac{1}{2\sqrt 2}\bigg[\delta_{jk}(-x_1x_2I_{(2n+1)2l}\pm x_2I_{(2n+1)(2l)}+ix_1I_{(2n+1)(2l-1)}\mp iI_{(2n+1)(2l-1)})\\+\delta_{jl}(x_1x_2I_{(2n+1)(2k)}\mp x_1I_{(2n+1)(2k)}-ix_2I_{(2n+1)(2k-1)}\pm i I_{(2n+1)(2k-1)})\bigg]\\
+	=\frac{x_1\mp 1}{2}\delta_{jk}ix_2E_{x_2e_l}-\frac{x_2\mp 1}{2}\delta_{jl}ix_1E_{x_1e_k}
+	\end{multline}
+	也就是
+	\begin{equation}
+	[E_{-x_1e_k},E_{x_1x_k+x_2e_l}]=ix_1x_2E_{x_2e_l}
+	\end{equation}
+	\begin{equation}
+	[E_{-x_2e_l},E_{x_1x_k+x_2e_l}]=ix_1x_2E_{x_2e_l}=-ix_1x_2E_{x_1e_k}
+	\end{equation}
+	\begin{equation}
+	[E_{x_1e_k},E_{x_1x_k+x_2e_l}]=[E_{x_2e_l},E_{x_1x_k+x_2e_l}]=0
+	\end{equation}
+	
+	\begin{multline}
+	[E_{x_1e_j+x_2e_k},E_{x_3e_l+x_4e_m}]\\=\bigg[\frac{1}{2}\left[i(I_{(2k-1)(2j-1)}-x_1x_2 I_{(2k)(2j)})-x_1I_{(2k-1)(2j)}-x_2I_{(2k)(2j-1)}\right]\\,\frac{1}{2}\left[i(I_{(2m-1)(2l-1)}-x_3x_4 I_{(2m)(2l)})-x_3I_{(2m-1)(2l)}-x_4I_{(2m)(2l-1)}\right]\bigg]\\
+	=\frac{1}{4}\bigg\{
+	\delta_{jl}\Big[I_{(2k-1)(2m-1)}+x_1x_2x_3x_4I_{(2k)(2m)}-x_1x_3I_{(2k-1)(2m-1)}-x_2x_4I_{(2k)(2m)}\\
+	+i\big(x_4I_{(2k-1)(2m)}-x_1x_2x_3I_{(2k)(2m-1)}-x_1x_3x_4I_{(2k-1)(2m)}+x_2I_{(2k)(2m-1)}\big)\Big]\\
+	+\delta_{km}\Big[I_{(2j-1)(2l-1)}+x_1x_2x_3x_4I_{(2j)(2l)}-x_1x_3I_{(2j)(2l)}-x_2x_4I_{(2j-1)(2l-1)}\\
+	+i\big(x_3I_{(2j-1)(2l)}-x_1x_2x_4I_{(2j)(2l-1)}-x_2x_3x_4I_{(2j-1)(2l)}+x_1I_{(2j)(2l-1)}\big)\Big]\\
+	+\delta_{kl}\Big[-I_{(2j-1)(2m-1)}-x_1x_2x_3x_4I_{(2j)(2m)}+x_1x_4I_{(2j)(2m)}+x_2x_3I_{(2j-1)(2m-1)}\\
+	+i\big(-x_4I_{(2j-1)(2m)}+x_1x_2x_3I_{(2j)(2m-1)}+x_2x_3x_4I_{(2j-1)(2m)}-x_1I_{(2j)(2m-1)}\big)\Big]\\
+	+\delta_{jm}\Big[-I_{(2k-1)(2l-1)}-x_1x_2x_3x_4I_{(2k)(2l)}+x_1x_4I_{(2k-1)(2l-1)}+x_2x_3I_{(2k)(2l)}\\
+	+i\big(-x_3I_{(2k-1)(2l)}+x_1x_2x_4I_{(2k)(2l-1)}+x_1x_3x_4I_{(2k-1)(2l)}-x_2I_{(2k)(2l-1)}\big)\Big]\bigg\}\\
+	=\delta_{jl}\frac{1-x_1x_3}{2}(-i)E_{x_4e_m+x_2e_k}+\delta_{km}\frac{1-x_2x_4}{2}(-i)E_{x_3e_l+x_1e_j}+\\\delta_{kl}\frac{1-x_2x_3}{2}iE_{x_4e_m+x_1e_j}+\delta_{jm}\frac{1-x_1x_4}{2}iE_{x_3e_l+x_2e_k}
+	\end{multline}
+	注意到形式上有
+	\begin{multline}
+	E_{x_1e_j+x_2e_j}=\frac{1}{2}\left[i(I_{(2j-1)(2j-1)}-x_1x_2 I_{(2j)(2j)})-x_1I_{(2j-1)(2j)}-x_2I_{(2j)(2j-1)}\right]\\=-i\frac{x_1-x_2}{2}H_j
+	\end{multline}
+	\begin{equation}
+	E_{x_1e_j+x_2e_k}=-E_{x_2e_k+x_1e_j},j>k
+	\end{equation}
+	从而我们得到（不同字母取不同值）：
+	\begin{equation}
+	[E_{x_1e_j+x_2e_k},E_{-x_1e_j+x_4e_m}]=-iE_{x_4e_m+x_2e_k}
+	\end{equation}
+	\begin{equation}
+	[E_{x_1e_j+x_2e_k},E_{x_3e_l-x_2e_k}]=-iE_{x_3e_l+x_1e_j}
+	\end{equation}
+	\begin{equation}
+	[E_{x_1e_j+x_2e_k},E_{-x_2e_k+x_4e_m}]=iE_{x_4e_m+x_1e_j}
+	\end{equation}
+	\begin{equation}
+	[E_{x_1e_j+x_2e_k},E_{x_3e_l-x_1e_j}]=iE_{x_3e_l+x_2e_k}
+	\end{equation}
+	\begin{equation}
+	[E_{x_1e_j+x_2e_k},E_{-x_1e_j-x_2e_k}]=x_1H_j+x_2H_k
+	\end{equation}
+	其余的对易子为零。
+	
+	\subsection{题3}
+	
+	$C_n$的矩阵实现为
+	\begin{equation}
+	H_j=E_{jj}-E_{(n+j)(n+j)}
+	\end{equation}
+	\begin{equation}
+	E_{e_j+e_k}=E_{j(n+k)}+E_{k(n+j)}
+	\end{equation}
+	\begin{equation}
+	E_{-e_j-e_k}=E_{(n+k)j}+E_{(n+j)k}
+	\end{equation}
+	\begin{equation}
+	E_{e_j-e_k}=E_{(n+k)(n+j)}-E_{jk}
+	\end{equation}
+	\begin{equation}
+	E_{2e_j}=\sqrt{2}E_{j(n+j)}
+	\end{equation}
+	\begin{equation}
+	E_{-2e_j}=\sqrt{2}E_{(n+j)j}
+	\end{equation}
+	注意到形式上有
+	\begin{equation}
+	H_j=-E_{e_j-e_j}
+	\end{equation}
+	
+	可以计算对易关系：
+	\begin{multline}
+	[H_j,E_{e_k+e_l}]=[E_{jj}-E_{(n+j)(n+j)},E_{k(n+l)}+E_{l(n+k)}]\\=(\delta_{jk}+\delta{jl})(E_{k(n+l)}+E_{l(n+k)})=(\delta_{jk}+\delta_{jl})E_{e_k+e_l}
+	\end{multline}
+	\begin{multline}
+	[H_j,E_{e_k-e_l}]=[E_{jj}-E_{(n+j)(n+j)},E_{(n+l)(n+k)}-E_{kl}]\\=(\delta_{jk}-\delta{jl})(E_{(n+l)(n+k)}-E_{kl})=(\delta_{jk}-\delta_{jl})E_{e_k-e_l}
+	\end{multline}
+	\begin{equation}
+	[H_j,E_{2e_k}]=[E_{jj}-E_{(n+j)(n+j)},\sqrt{2}E_{k(n+k)}]=2\sqrt 2\delta_{jk}E_{k(n+k)}=2\delta_{jk}E_{2e_k}
+	\end{equation}
+	注意到有
+	\begin{equation}
+	E_{-\alpha}=E_{\alpha}^T,H_j=H_j^T
+	\end{equation}
+	从而
+	\begin{equation}
+	[H_j,E_{-\alpha}]=[H_j^T,E_{\alpha}^T]=-[H_j,E_\alpha]^T=-(\alpha_jE_\alpha)^T=-\alpha_jE_{-\alpha}
+	\end{equation}
+	至此验证了这确实给出$C_n$的根系。
+	
+	其它的对易关系：
+	\begin{equation}
+	[E_{e_j+e_k},E_{e_l+e_m}]=0
+	\end{equation}
+	\begin{equation}
+	[E_{-e_j-e_k},E_{-e_l-e_m}]=0
+	\end{equation}
+	\begin{multline}
+	[E_{e_j-e_k},E_{e_l-e_m}]=\delta{kl}(E_{jm}-E_{(n+m)(n+j)})+\delta_{jm}(E_{(n+k)(n+l)}-E_{lk})\\=\delta_{jm}E_{e_l-e_k}-\delta_{kl}{e_j-e_m}
+	\end{multline}
+	其中当$j=m,k=l$同时成立时有
+	\begin{equation}
+	[E_{e_j-e_k},E_{e_k-e_j}]=E_{e_k-e_k}-E_{e_j-e_j}=H_j-H_k
+	\end{equation}
+	\begin{multline}
+	[E_{e_j+e_k},E_{-e_l-e_m}]=\delta_{kl}(E_{jm}-E_{(n+m)(n+j)})+\delta_{jm}(E_{kl}-E_{(n+l)(n+k)})\\+\delta_{jl}(E_{km}-E_{(n+m)(n+k)})+\delta_{km}(E_{jl}-E_{(n+l)(n+j)})\\=-\delta_{kl}E_{e_j-e_m}-\delta_{jm}E_{e_k-e_l}-\delta_{jl}E_{e_k-e_m}-\delta_{km}E_{e_j-e_l}
+	\end{multline}
+	其中当$j=l,k=m$或$j=m,k=l$时有
+	\begin{equation}
+	[E_{e_j+e_k},E_{-e_j-e_k}]=H_j+H_k
+	\end{equation}
+	\begin{multline}
+	[E_{e_j+e_k},E_{e_l-e_m}]=\delta_{km}E_{j(n+l)}+\delta_{jm}E_{l(n+k)}+\delta_{jm}E_{k(n+l)}+\delta_{km}E_{l(n+j)}\\=\delta_{km}E_{e_j+e_l}+\delta_{jm}E_{e_k+e_l}
+	\end{multline}
+	\begin{multline}
+	[E_{-e_j-e_k},E_{e_l-e_m}]=-\delta_{kl}E_{(n+m)j}-\delta_{jl}E_{(n+k)m}-\delta_{jl}E_{(n+m)k}+\delta_{kl}E_{(n+j)m}\\=-\delta_{kl}E_{-e_j-e_m}+\delta_{jl}E_{-e_k-e_m}
+	\end{multline}
+	
+	\subsection{题4}
+	
+	已经作为题2的一部分完成。
+		
+	\section{第三章第二节}
+	
+	\subsection{题1}
+	
+	已知
+	\begin{equation}
+	e_{a_m}=\sqrt{\frac{2}{(a_m,a_m)}}E_{a_m}
+	\end{equation}
+	对于两个素根
+	\begin{multline}
+	[e_{a_m},e_{a_k}]=\frac{2}{|a_m||a_k|}[E_{a_m},E_{a_k}]=\frac{2}{|a_m||a_k|}N_{a_m,a_k}E_{a_m+a_k}\\=\frac{\sqrt{2\left[|a_m|^2+|a_k|^2+2(a_m,a_k)\right]}}{|a_m||a_k|}N_{a_m,a_k}e_{a_m+a_k}
+	\end{multline}
+	注意到应该有
+	\begin{equation}
+	|N_{a_m,a_k}|=\sqrt{\frac{1}{2}p_m(q_m+1)(a_m,a_m)}=\sqrt{\frac{1}{2}p_k(q_k+1)(a_k,a_k)}
+	\end{equation}
+	其中$p_m,q_m$为$a_k$的$a_m$根链的两向长度，$p_k,q_k$为$a_m$的$a_k$根链的对应值。于是有
+	\begin{equation}
+	|N_{a_m,a_k}|=\sqrt{\frac{1}{2}|a_m||a_k|}\sqrt[4]{p_m(q_m+1)p_k(q_k+1)}
+	\end{equation}
+	代入得到
+	\begin{equation}
+	[e_{a_m},e_{a_k}]=\sqrt{\frac{|a_m|^2+|a_k|^2+2(a_m,a_k)}{|a_m||a_k|}}\sqrt[4]{p_m(q_m+1)p_k(q_k+1)}e^{i\phi_{m,k}}e_{a_m+a_k}
+	\end{equation}
+	其中
+	\begin{equation}
+	e^{i\phi_{m,k}}=\frac{N_{a_m,a_k}}{|N_{a_m,a_k}|}
+	\end{equation}
+	
+	\section{第四章第四节}
+	
+	\subsection{题1}
+	
+	对于$A_l$，有$e_i=e_{l+1}+\sum_{j=i}^l\alpha_j$，从而
+	\begin{equation}
+	\sum_{i=1}^{l+1}m_ie_i=\sum_{i=1}^{l+1}\sum_{j=i}^lm_i\alpha_j+\sum_{i=1}^{l+1}m_ie_{l+1}=\sum_{j=1}^l\left(\sum_{i=1}^j m_i\right)\alpha_j
+	\end{equation}
+	故
+	\begin{equation}
+	\Lambda_j=\sum_{i=1}^j m_i
+	\end{equation}
+	且要求
+	\begin{equation}
+	\sum_{i=1}^{l+1}m_i=0
+	\end{equation}
+	反推，有
+	\begin{equation}
+	m_i=\Lambda_{i}-\Lambda_{i-1}
+	\end{equation}
+	其中形式上记$\Lambda_0=\Lambda_{l+1}=0$。
+	
+	对于$B_l$，有$e_i=\sum_{j=i}^l\alpha_j$，从而类似上面的推导得到
+	\begin{equation}
+	\Lambda_j=\sum_{i=1}^j m_i
+	\end{equation}
+	\begin{equation}
+	m_i=\Lambda_i-\Lambda_{i-1}
+	\end{equation}
+	
+	对于$C_l$，有$e_i=\sum_{j=i}^{l-1}\alpha_j+\frac{1}{2}\alpha_l$，从而类似上面的推导得到
+	\begin{equation}
+	\Lambda_j=\frac{1}{1+\delta_{jl}}\sum_{i=1}^j m_i
+	\end{equation}
+	\begin{equation}
+	m_i=(1+\delta_{il})\Lambda_i-\Lambda_{i-1}
+	\end{equation}
+	
+	对于$D_l$，有
+	\begin{equation}
+	e_i=\begin{cases}
+	\sum_{j=i}^{l-2}\alpha_j+\frac{1}{2}(\alpha_{l-1}+\alpha_l) & i\leq l-1\\
+	\frac{1}{2}(\alpha_l-\alpha_{l-1}) & i=l
+	\end{cases}
+	\end{equation}
+	于是有
+	\begin{equation}
+	\Lambda_j=\begin{cases}
+	\sum_{i=1}^j m_i & j\leq l-2\\
+	\frac{1}{2}\left(\sum_{i=1}^{l-1}m_i-m_l\right) & j=l-1\\
+	\frac{1}{2}\sum_{i=1}^l m_i & j=l
+	\end{cases}
+	\end{equation}
+	\begin{equation}
+	m_i=\begin{cases}
+	\Lambda_i-\Lambda_{i-1} & i\leq l-2\\
+	\Lambda_l+\Lambda_{l-1}-\Lambda_{l-2} & i=l-1\\
+	\Lambda_l-\Lambda_{l-1} & i=l
+	\end{cases}
+	\end{equation}
+	
+	\section{第五章第一节}
+	
+	\subsection{题1,2}
+	
+	\subsection{题3}
+	
+	$P_{\alpha,\zeta}(\xi)$为最大元小于等于$\zeta$的$\xi$的$\alpha$元划分的数量。
+	
+	考察一个这样的划分。其最小元$\xi_\alpha$应该至少为$1$，至多为$\left[\frac{\xi}{\alpha}\right]$。给定了$\xi_\alpha$之后，令$\eta_i=\xi_i-\xi_\alpha$，则$\eta_1\geq \eta_2\geq\dots\eta_{\alpha-1}\geq 0$，且$\sum_{i=1}^{\alpha-1}\eta_i=\xi-\alpha\xi_\alpha$。从而各$\eta$构成$\xi-\xi_\alpha$的一个划分，其最大元小于等于$\zeta-\xi_\alpha$。注意由于某些$\eta$可能为零，所以应该把所有$1$到$\alpha-1$元的划分全部考虑进来，从而给定$\xi_\alpha=k$之后的划分数为
+	\begin{equation}
+	\sum_{i=1}^{\alpha-1}P_{i,\zeta-k}(\xi-\alpha k)
+	\end{equation}
+	再对所有可能的$k$取值求和：
+	\begin{equation}
+	P_{\alpha,\zeta}(\xi)=\sum_{k=1}^{\left[\frac{\xi}{\alpha}\right]}\sum_{i=1}^{\alpha-1}P_{i,\zeta-k}(\xi-\alpha k)
+	\end{equation}
+	证毕。
+	
+	\subsection{题4}
+	
+	由课件中公式，我们知道
+	\begin{equation}
+	\gamma_{\nu,L}=P_{\nu,2l}(\xi)+P_{\nu-1,2l}(\xi)-P_{\nu,2l}(\xi-1)-P_{\nu-1,2l}(\xi-1)
+	\end{equation}
+	其中
+	\begin{equation}
+	\xi = \nu l-L
+	\end{equation}
+	
+	具体地，对于$l=2$，我们知道
+	\begin{equation}
+	\left[\frac{\nu l-L}{\nu}\right]=\begin{cases}2 & ,L=0 \\ 1 & ,0 < L\leq \nu\\ 0 & ,\nu < L \leq 2\nu\end{cases}
+	\end{equation}
+	\begin{equation}
+	P_{\nu,4}(2\nu-L)=\sum_{i=1}^{\nu-1}P_{i,3}(\nu-L)=\sum_{i=1}^{\nu-L}P_{i,3}(\nu-L)
+	\end{equation}
+	\begin{equation}
+	P_{\nu-1,4}(2\nu-L)=\sum_{i=1}^{\nu-2}P_{i,3}(\nu-L+1)+P_{i,2}(2-L)
+	\end{equation}
+	
+	同时注意到有
+	\begin{equation}
+	P_{i,1}(\xi)=\delta_{i\xi}
+	\end{equation}
+	\begin{equation}
+	P_{i,2}(\xi)=\begin{cases}1 & ,i\leq\xi\leq 2i\\0 & ,\text{others}\end{cases}
+	\end{equation}
+	于是
+	\begin{equation}
+	P_{\alpha,3}(\xi)=\sum_{i=1}^{\alpha-1}P_{i,2}(\xi-\alpha)\Theta(\xi-\alpha)+\sum_{i=1}^{\alpha-1}P_{i,1}(\xi-2\alpha)\Theta(\xi-2\alpha)
+	\end{equation}
+	其中$\Theta$是Heaviside阶跃函数，其在$0$处的值视为$0$。
+	$P_{i,2}(\xi-\alpha)$等于1，要求$i\leq\xi-\alpha\leq 2i$，也就是$\frac{\xi-\alpha}{2}\leq i\leq \xi-\alpha$，同时$1\leq i\leq \alpha-1$。于是第一项的值等于
+	\begin{equation}
+	\begin{cases}
+	\left[\frac{\xi-\alpha}{2}\right]+1 & , \alpha<\xi\leq 2\alpha-1\\
+	2\alpha-\xi+\left[\frac{\xi-\alpha}{2}\right] &, 2\alpha\leq\xi\leq 3\alpha-1
+	\end{cases}
+	\end{equation}
+	第二项易见当
+	\begin{equation}
+	2\alpha+1\leq\xi\leq 3\alpha-1
+	\end{equation}
+	时为$1$，否则为零。综上，我们有：
+	\begin{equation}
+	P_{\alpha,3}(\xi)=\begin{cases}
+	0 & ,\xi\leq\alpha\lor\xi>3\alpha\\
+	\left[\frac{\xi-\alpha}{2}\right]+1 & , \alpha+1\leq\xi\leq 2\alpha-1\\
+	\left[\frac{\alpha}{2}\right] & , \xi=2\alpha\\
+	2\alpha+1-\xi+\left[\frac{\xi-\alpha}{2}\right] & , 2\alpha+1\leq\xi\leq 3\alpha-1\\
+	1 &, \xi=3\alpha
+	\end{cases}
+	\end{equation}
+
+\end{document}
